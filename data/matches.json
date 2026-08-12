@@ -1,1 +1,16 @@
-{"generatedAt": null, "matches": []}
+{
+  "generatedAt": "2026-08-12T22:15:21.965Z",
+  "count": 1,
+  "matches": [
+    {
+      "id": 413957,
+      "competition": "Playoff",
+      "date": "2026-08-13T01:30:00",
+      "homeTeam": "Cruzeiro MG",
+      "awayTeam": "Flamengo RJ",
+      "pick": "Pronostic non disponible",
+      "odds": null,
+      "confidence": 3
+    }
+  ]
+}
