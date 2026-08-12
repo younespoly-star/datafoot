@@ -4,8 +4,7 @@
 // Prediction" (RapidAPI / Boggio Analytics), et écrit le résultat dans
 // data/matches.json.
 //
-// Nécessite la variable d'environnement RAPIDAPI_KEY (clé RapidAPI —
-// régénère la tienne si elle a déjà été partagée quelque part).
+// Nécessite la variable d'environnement RAPIDAPI_KEY (clé RapidAPI).
 //
 // Exécution locale : RAPIDAPI_KEY=xxxx node scripts/fetch-matches.mjs
 
@@ -17,25 +16,32 @@ if (!API_KEY) {
   process.exit(1);
 }
 
-// market=classic → prédiction 1X2 (victoire dom. / nul / victoire ext.)
+// market=classic → prédiction 1X2 / double chance
 const ENDPOINT = `https://${API_HOST}/api/v2/predictions?market=classic`;
 
-// Traduit une probabilité en niveau de confiance sur 5 (usage éditorial,
-// à ajuster librement selon ton propre calibrage).
-function probabilityToStars(p) {
-  if (p == null) return 3;
-  if (p >= 0.75) return 5;
-  if (p >= 0.65) return 4;
-  if (p >= 0.55) return 3;
-  if (p >= 0.45) return 2;
-  return 1;
+// Traduit le code de prédiction renvoyé par l'API en libellé lisible.
+function pickLabel(code, homeTeam, awayTeam) {
+  switch (code) {
+    case "1": return `Victoire ${homeTeam}`;
+    case "2": return `Victoire ${awayTeam}`;
+    case "X": return "Match nul";
+    case "1X": return `Double Chance : ${homeTeam} ou nul`;
+    case "X2": return `Double Chance : nul ou ${awayTeam}`;
+    case "12": return `Double Chance : ${homeTeam} ou ${awayTeam}`;
+    default: return "Pronostic non disponible";
+  }
 }
 
-function pickLabel(prediction, homeTeam, awayTeam) {
-  if (prediction === "home") return `Victoire ${homeTeam}`;
-  if (prediction === "away") return `Victoire ${awayTeam}`;
-  if (prediction === "draw") return "Match nul";
-  return "Pronostic non disponible";
+// Convertit une cote en probabilité implicite, puis en étoiles (1 à 5).
+// Une cote plus basse = probabilité plus haute = confiance plus élevée.
+function oddsToStars(odds) {
+  if (!odds) return 3;
+  const impliedProbability = 1 / odds;
+  if (impliedProbability >= 0.75) return 5;
+  if (impliedProbability >= 0.65) return 4;
+  if (impliedProbability >= 0.55) return 3;
+  if (impliedProbability >= 0.45) return 2;
+  return 1;
 }
 
 async function main() {
@@ -56,32 +62,25 @@ async function main() {
   }
 
   const json = await res.json();
-  const rawMatches = json.data || json.matches || [];
+  const rawMatches = json.data || [];
 
   console.log(`  ${rawMatches.length} prédiction(s) reçue(s)`);
-  if (rawMatches[0]) {
-    console.log("  Exemple brut reçu (pour vérifier la structure) :");
-    console.log(JSON.stringify(rawMatches[0], null, 2).slice(0, 800));
-  }
 
   const matches = rawMatches.map((m) => {
-    const homeTeam = m.home_team || m.homeTeam || m.teams?.home?.name || "Équipe à domicile";
-    const awayTeam = m.away_team || m.awayTeam || m.teams?.away?.name || "Équipe à l'extérieur";
-
-    const classic = m.prediction_per_market?.classic || {};
-    const prediction = classic.prediction || null;
-    const probability = prediction ? classic.probabilities?.[prediction] : null;
-    const odds = prediction ? classic.odds?.[prediction] : null;
+    const homeTeam = m.home_team || "Équipe à domicile";
+    const awayTeam = m.away_team || "Équipe à l'extérieur";
+    const predictionCode = m.prediction || null;
+    const odds = predictionCode ? m.odds?.[predictionCode] : null;
 
     return {
       id: m.id,
-      competition: m.competition_name || m.competition_cluster || "Compétition",
-      date: m.start_date || m.date || null,
+      competition: m.competition_cluster || m.competition_name || "Compétition",
+      date: m.start_date || null,
       homeTeam,
       awayTeam,
-      pick: pickLabel(prediction, homeTeam, awayTeam),
+      pick: pickLabel(predictionCode, homeTeam, awayTeam),
       odds: odds ?? null,
-      confidence: probabilityToStars(probability)
+      confidence: oddsToStars(odds)
     };
   }).filter((m) => m.date);
 
