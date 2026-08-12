@@ -31,6 +31,16 @@
     <h1 class="section-title">Nos Pronostics du Jour</h1>
     <p class="section-lead">Chaque pronostic est passé au crible de notre méthode d'analyse : forme des équipes, statistiques H2H, contexte du match. Retrouvez ci-dessous notre sélection du jour.</p>
 
+    <div class="hero-panel" style="margin-top:2.6rem; max-width:640px;">
+      <div class="hero-panel-head">
+        <span class="live">Mis à jour automatiquement</span>
+        <span>7 prochains jours</span>
+      </div>
+      <div id="upcoming-matches">
+        <p class="disclaimer">Chargement des prochains matchs…</p>
+      </div>
+    </div>
+
     <div class="filters" style="margin-top:2.6rem;">
       <span class="filter-chip is-active">Toutes compétitions</span>
       <span class="filter-chip">Par date</span>
@@ -186,5 +196,6 @@
   </div>
 </footer>
 
+<script src="scripts/render-matches.js"></script>
 </body>
 </html>
