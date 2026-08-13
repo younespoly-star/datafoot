@@ -1,0 +1,702 @@
+[
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Philadelphia Union",
+        "exterieur": "Santos",
+        "score": "0 - 0",
+        "statut": "16'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "New York City FC",
+        "exterieur": "Necaxa",
+        "score": "0 - 0",
+        "statut": "Scheduled"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "América",
+        "exterieur": "Austin FC",
+        "score": "0 - 0",
+        "statut": "Scheduled"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Cruz Azul",
+        "exterieur": "Chicago Fire FC",
+        "score": "0 - 0",
+        "statut": "Scheduled"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Portland Timbers",
+        "exterieur": "Tijuana",
+        "score": "0 - 0",
+        "statut": "Scheduled"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Unione La Rocca Altavilla",
+        "exterieur": "Vicenza",
+        "score": "0 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "GS Arconatese 1926",
+        "exterieur": "AC Leon Monza e Brianza",
+        "score": "2 - 2",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Bali United",
+        "exterieur": "Sabah FC",
+        "score": "1 - 2",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Reggina",
+        "exterieur": "Sanremese",
+        "score": "1 - 2",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "SSC Giugliano",
+        "exterieur": "Ischia",
+        "score": "0 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "AS FAR",
+        "exterieur": "Chabab Atlas Khenifra",
+        "score": "2 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Gimnàstic de Tarragona",
+        "exterieur": "Huesca",
+        "score": "2 - 2",
+        "statut": "FT-Pens"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Chiclana",
+        "exterieur": "Atlético Sanluqueño CF",
+        "score": "2 - 5",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Abha",
+        "exterieur": "Al Hazem",
+        "score": "1 - 2",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Al Diriyah",
+        "exterieur": "Al Ahli",
+        "score": "0 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Al Shabab",
+        "exterieur": "Al Qadsiah",
+        "score": "1 - 3",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Mirassol",
+        "exterieur": "Liga de Quito",
+        "score": "1 - 0",
+        "statut": "66'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Rosario Central",
+        "exterieur": "Corinthians",
+        "score": "0 - 0",
+        "statut": "Scheduled"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Alebrijes de Oaxaca",
+        "exterieur": "Tepatitlán FC",
+        "score": "0 - 0",
+        "statut": "Scheduled"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Ivory Coast",
+        "exterieur": "Ghana",
+        "score": "1 - 2",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "South Africa",
+        "exterieur": "Nigeria",
+        "score": "2 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Besiktas",
+        "exterieur": "FC Hradec Králové",
+        "score": "1 - 0",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "CSU Craiova",
+        "exterieur": "KuPS Kuopio",
+        "score": "2 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Gornik Zabrze",
+        "exterieur": "Ferencvaros",
+        "score": "1 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Omonia Nicosia",
+        "exterieur": "Lincoln Red Imps",
+        "score": "1 - 0",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Pafos",
+        "exterieur": "RB Salzburg",
+        "score": "3 - 3",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Vikingur Reykjavik",
+        "exterieur": "FC Thun",
+        "score": "3 - 2",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "CSKA Sofia",
+        "exterieur": "Maccabi Tel-Aviv",
+        "score": "1 - 3",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Anderlecht",
+        "exterieur": "PAOK",
+        "score": "3 - 2",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Rangers",
+        "exterieur": "Jagiellonia Bialystok",
+        "score": "1 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Heart of Midlothian",
+        "exterieur": "Benfica",
+        "score": "1 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Egnatia",
+        "exterieur": "Shamrock Rovers",
+        "score": "5 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Tobol Kostanay",
+        "exterieur": "Partizan Belgrade",
+        "score": "1 - 2",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "FC Ilves",
+        "exterieur": "Rijeka",
+        "score": "1 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "FK Qarabag",
+        "exterieur": "Dynamo Kyiv",
+        "score": "2 - 0",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Flora",
+        "exterieur": "Inter D'Escaldes",
+        "score": "0 - 4",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Rigas Futbola Skola",
+        "exterieur": "Jablonec",
+        "score": "1 - 2",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Dinamo Minsk",
+        "exterieur": "Braga",
+        "score": "0 - 0",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Dunajska Streda",
+        "exterieur": "FC Twente",
+        "score": "3 - 3",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "FC Midtjylland",
+        "exterieur": "Bohemians",
+        "score": "3 - 2",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "FC Nordsjælland",
+        "exterieur": "Valur Reykjavik",
+        "score": "5 - 0",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Hammarby IF",
+        "exterieur": "Raków Czestochowa",
+        "score": "0 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "ML Vitebsk",
+        "exterieur": "Borac Banja Luka",
+        "score": "2 - 1",
+        "statut": "FT-Pens"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Tromso",
+        "exterieur": "CFR Cluj-Napoca",
+        "score": "2 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "FC Vaduz",
+        "exterieur": "FC Inter Turku",
+        "score": "2 - 2",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "NSI Runavik",
+        "exterieur": "FC Lugano",
+        "score": "2 - 2",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Drita Gjilan",
+        "exterieur": "Tre Fiori",
+        "score": "5 - 0",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "KF Shkëndija",
+        "exterieur": "Hibernian",
+        "score": "0 - 0",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "St. Gallen",
+        "exterieur": "Sheriff Tiraspol",
+        "score": "5 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "FC Sion",
+        "exterieur": "FC Noah",
+        "score": "2 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Austria Vienna",
+        "exterieur": "Beitar Jerusalem",
+        "score": "1 - 2",
+        "statut": "FT-Pens"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Györi ETO FC",
+        "exterieur": "Riga FC",
+        "score": "1 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "KAA Gent",
+        "exterieur": "IFK Göteborg",
+        "score": "1 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Motherwell",
+        "exterieur": "HJK Helsinki",
+        "score": "2 - 0",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Shelbourne",
+        "exterieur": "Ajax Amsterdam",
+        "score": "2 - 2",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Dinamo City",
+        "exterieur": "FK Auda",
+        "score": "4 - 0",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Hajduk Split",
+        "exterieur": "Zalgiris Vilnius",
+        "score": "4 - 0",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Santos",
+        "exterieur": "Macará",
+        "score": "1 - 1",
+        "statut": "63'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Vasco da Gama",
+        "exterieur": "Club Olimpia",
+        "score": "0 - 0",
+        "statut": "64'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Cienciano del Cusco",
+        "exterieur": "Botafogo",
+        "score": "0 - 0",
+        "statut": "Scheduled"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Unión Magdalena",
+        "exterieur": "Independiente Santa Fe",
+        "score": "0 - 0",
+        "statut": "Postponed"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Alianza FC",
+        "exterieur": "UMECIT FC",
+        "score": "0 - 0",
+        "statut": "Scheduled"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Antigua GFC",
+        "exterieur": "Club Deportivo Marathón",
+        "score": "0 - 0",
+        "statut": "Scheduled"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Luis Ángel Firpo",
+        "exterieur": "Diriangén",
+        "score": "0 - 0",
+        "statut": "Scheduled"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Purdue",
+        "exterieur": "Evansville",
+        "score": "1 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Alcorn State",
+        "exterieur": "McNeese",
+        "score": "1 - 2",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Stephen F. Austin",
+        "exterieur": "Sul Ross State",
+        "score": "6 - 0",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Canisius",
+        "exterieur": "Le Moyne",
+        "score": "2 - 0",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Iona",
+        "exterieur": "Long Island University",
+        "score": "3 - 0",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Ball State",
+        "exterieur": "IU Indianapolis",
+        "score": "2 - 0",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Eastern Illinois",
+        "exterieur": "Valparaiso",
+        "score": "2 - 0",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Stonehill",
+        "exterieur": "New Hampshire",
+        "score": "1 - 1",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Mercyhurst",
+        "exterieur": "Oakland",
+        "score": "0 - 3",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "App State",
+        "exterieur": "UNC Wilmington",
+        "score": "0 - 2",
+        "statut": "52'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Binghamton",
+        "exterieur": "Lehigh",
+        "score": "1 - 0",
+        "statut": "53'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Boston University",
+        "exterieur": "Northeastern",
+        "score": "0 - 1",
+        "statut": "59'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Coastal Carolina",
+        "exterieur": "Charleston Southern",
+        "score": "1 - 0",
+        "statut": "56'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "La Salle",
+        "exterieur": "American University",
+        "score": "0 - 1",
+        "statut": "55'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Liberty",
+        "exterieur": "East Carolina",
+        "score": "1 - 0",
+        "statut": "55'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Longwood",
+        "exterieur": "Campbell",
+        "score": "0 - 1",
+        "statut": "61'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Pepperdine",
+        "exterieur": "Colgate",
+        "score": "1 - 0",
+        "statut": "61'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Stony Brook",
+        "exterieur": "UConn",
+        "score": "1 - 1",
+        "statut": "58'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Virginia Tech",
+        "exterieur": "Old Dominion",
+        "score": "1 - 1",
+        "statut": "51'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Western Carolina",
+        "exterieur": "Winthrop",
+        "score": "2 - 2",
+        "statut": "49'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Wyoming",
+        "exterieur": "Drake",
+        "score": "1 - 0",
+        "statut": "FT"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Alabama State",
+        "exterieur": "Southern Miss",
+        "score": "0 - 1",
+        "statut": "24'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Charlotte",
+        "exterieur": "Furman",
+        "score": "0 - 0",
+        "statut": "20'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Elon",
+        "exterieur": "VCU",
+        "score": "2 - 0",
+        "statut": "22'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "George Mason",
+        "exterieur": "VMI",
+        "score": "0 - 0",
+        "statut": "21'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Grambling",
+        "exterieur": "East Texas A&M",
+        "score": "0 - 0",
+        "statut": "23'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "High Point",
+        "exterieur": "UNC Greensboro",
+        "score": "0 - 0",
+        "statut": "21'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Illinois",
+        "exterieur": "Georgia",
+        "score": "0 - 0",
+        "statut": "19'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Kent State",
+        "exterieur": "Cleveland State",
+        "score": "0 - 0",
+        "statut": "21'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Little Rock",
+        "exterieur": "UL Monroe",
+        "score": "0 - 0",
+        "statut": "18'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Marshall",
+        "exterieur": "Morehead State",
+        "score": "0 - 0",
+        "statut": "19'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Montana",
+        "exterieur": "Bucknell",
+        "score": "0 - 1",
+        "statut": "19'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "North Carolina",
+        "exterieur": "Fairfield",
+        "score": "1 - 0",
+        "statut": "20'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "North Dakota State",
+        "exterieur": "Green Bay",
+        "score": "0 - 1",
+        "statut": "22'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Radford",
+        "exterieur": "Concord",
+        "score": "0 - 0",
+        "statut": "18'"
+    },
+    {
+        "competition": "Leagues Cup",
+        "domicile": "Seattle U",
+        "exterieur": "Kansas State",
+        "score": "0 - 2",
+        "statut": "24'"
+    }
+]
