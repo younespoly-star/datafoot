@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nos Pronostics — DataFoot</title>
+<meta name="description" content="Tous les pronostics du jour DataFoot : match, compétition, pick, cote, analyse rapide et niveau de confiance.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">Data<span>Foot</span></span>
+      <span class="logo-tag">Statistiques &amp; analyses de football</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="pronostics.html" class="active">Pronostics</a>
+      <a href="vip.html">Abonnement</a>
+      <a href="bankroll.html">Bankroll</a>
+    </nav>
+    <a href="vip.html" class="btn btn-primary">Je m'inscris</a>
+  </div>
+</header>
+
+<section class="section" style="padding-top:3.5rem;">
+  <div class="container">
+    <span class="eyebrow">Mis à jour en continu</span>
+    <h1 class="section-title">Nos Pronostics du Jour</h1>
+    <p class="section-lead">Chaque pronostic est passé au crible de notre méthode d'analyse : forme des équipes, statistiques H2H, contexte du match. Retrouvez ci-dessous notre sélection du jour.</p>
+
+    <div class="filters" style="margin-top:2.6rem;">
+      <span class="filter-chip is-active">Toutes compétitions</span>
+      <span class="filter-chip">Par date</span>
+      <span class="filter-chip">Par niveau de confiance</span>
+      <span class="filter-chip">1X2</span>
+      <span class="filter-chip">Double Chance</span>
+      <span class="filter-chip">+/- 2,5 buts</span>
+      <span class="filter-chip">BTTS</span>
+    </div>
+
+    <div id="upcoming-matches" class="ticket-grid" style="margin-top:2.4rem;">
+      <p class="disclaimer">Chargement des pronostics…</p>
+    </div>
+
+    <div class="legend">
+      <h3>Niveau de confiance : mode d'emploi</h3>
+      <div class="legend-row">
+        <span><span class="star on">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></span>
+        <span>Pari risqué, cote attractive</span>
+      </div>
+      <div class="legend-row">
+        <span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></span>
+        <span>Tendance identifiée, prudence recommandée</span>
+      </div>
+      <div class="legend-row">
+        <span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span><span class="star">★</span></span>
+        <span>Pronostic solide, bon rapport risque/cote</span>
+      </div>
+      <div class="legend-row">
+        <span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span></span>
+        <span>Forte conviction statistique</span>
+      </div>
+      <div class="legend-row">
+        <span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span></span>
+        <span>Analyse à très haute confiance</span>
+      </div>
+    </div>
+
+    <p class="disclaimer">Les pronostics DataFoot sont des outils d'aide à la décision basés sur l'analyse statistique. Ils ne garantissent aucun gain. Pariez de manière responsable.</p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Envie des tickets combinés exclusifs ?</h2>
+    <p>10 coupons gratuits chaque jour, avec cotes et niveau de confiance.</p>
+    <a href="vip.html" class="btn btn-primary">Débloquer mes coupons gratuits</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <span class="footer-note">© 2026 DataFoot — Statistiques &amp; analyses de football</span>
+    <nav class="footer-links">
+      <a href="index.html">Accueil</a>
+      <a href="vip.html">Abonnement</a>
+      <a href="bankroll.html">Bankroll</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="scripts/render-matches.js"></script>
+</body>
+</html>

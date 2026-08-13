@@ -1,0 +1,126 @@
+{
+  "generatedAt": "2026-08-13T14:09:35.972Z",
+  "count": 12,
+  "matches": [
+    {
+      "id": 413956,
+      "competition": "Uzbekistan",
+      "date": "2026-08-13T16:30:00",
+      "homeTeam": "Buxoro FK",
+      "awayTeam": "AGMK Olmaliq",
+      "pick": "Double Chance : Buxoro FK ou nul",
+      "odds": 1.54,
+      "confidence": 3
+    },
+    {
+      "id": 413952,
+      "competition": "Saudi Arabia",
+      "date": "2026-08-13T17:15:00",
+      "homeTeam": "Abha Club",
+      "awayTeam": "Al-Hazem",
+      "pick": "Double Chance : Abha Club ou nul",
+      "odds": 1.462,
+      "confidence": 4
+    },
+    {
+      "id": 413909,
+      "competition": "Europa League",
+      "date": "2026-08-13T18:00:00",
+      "homeTeam": "Omonia Nicosia",
+      "awayTeam": "Lincoln Red Imps",
+      "pick": "Victoire Omonia Nicosia",
+      "odds": 1.13,
+      "confidence": 5
+    },
+    {
+      "id": 413917,
+      "competition": "Europa League",
+      "date": "2026-08-13T18:30:00",
+      "homeTeam": "KI Klaksvik",
+      "awayTeam": "Lech Poznan",
+      "pick": "Victoire Lech Poznan",
+      "odds": 1.572,
+      "confidence": 3
+    },
+    {
+      "id": 413953,
+      "competition": "Saudi Arabia",
+      "date": "2026-08-13T19:00:00",
+      "homeTeam": "Al-Shabab Riyadh",
+      "awayTeam": "Al-Qadsiah Khobar",
+      "pick": "Victoire Al-Qadsiah Khobar",
+      "odds": 1.537,
+      "confidence": 4
+    },
+    {
+      "id": 413946,
+      "competition": "Iceland",
+      "date": "2026-08-13T19:00:00",
+      "homeTeam": "Grindavik",
+      "awayTeam": "Throttur Reykjavik",
+      "pick": "Victoire Throttur Reykjavik",
+      "odds": 1.514,
+      "confidence": 4
+    },
+    {
+      "id": 413913,
+      "competition": "Europa League",
+      "date": "2026-08-13T19:00:00",
+      "homeTeam": "CSKA Sofia",
+      "awayTeam": "Maccabi Tel Aviv",
+      "pick": "Double Chance : CSKA Sofia ou nul",
+      "odds": 1.382,
+      "confidence": 4
+    },
+    {
+      "id": 413947,
+      "competition": "Iceland",
+      "date": "2026-08-13T19:00:00",
+      "homeTeam": "Vestri",
+      "awayTeam": "IR Reykjavik",
+      "pick": "Double Chance : Vestri ou IR Reykjavik",
+      "odds": 1.22,
+      "confidence": 5
+    },
+    {
+      "id": 413949,
+      "competition": "Iceland",
+      "date": "2026-08-13T20:15:00",
+      "homeTeam": "Grotta Seltjarnarnes",
+      "awayTeam": "Njardvik",
+      "pick": "Victoire Njardvik",
+      "odds": 1.835,
+      "confidence": 2
+    },
+    {
+      "id": 413948,
+      "competition": "Iceland",
+      "date": "2026-08-13T20:15:00",
+      "homeTeam": "Fylkir Reykjavik",
+      "awayTeam": "Afturelding Mosfellsbaer",
+      "pick": "Double Chance : Fylkir Reykjavik ou Afturelding Mosfellsbaer",
+      "odds": 1.212,
+      "confidence": 5
+    },
+    {
+      "id": 413950,
+      "competition": "Iceland",
+      "date": "2026-08-13T20:15:00",
+      "homeTeam": "HK Kopavogur",
+      "awayTeam": "Leiknir Reykjavik",
+      "pick": "Victoire HK Kopavogur",
+      "odds": 1.468,
+      "confidence": 4
+    },
+    {
+      "id": 414080,
+      "competition": "Mexico",
+      "date": "2026-08-14T02:00:00",
+      "homeTeam": "Alebrijes de Oaxaca",
+      "awayTeam": "Tepatitlan",
+      "pick": "Double Chance : Alebrijes de Oaxaca ou Tepatitlan",
+      "odds": 1.262,
+      "confidence": 5
+    }
+  ]
+}

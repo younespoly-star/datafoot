@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DataFoot — Pronostics football basés sur la donnée</title>
+<meta name="description" content="Pronostics football basés sur l'analyse statistique. Cotes en temps réel, tickets combinés, taux de réussite vérifiés.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">Data<span>Foot</span></span>
+      <span class="logo-tag">Statistiques &amp; analyses de football</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Accueil</a>
+      <a href="pronostics.html">Pronostics</a>
+      <a href="vip.html">Abonnement</a>
+      <a href="bankroll.html">Bankroll</a>
+    </nav>
+    <a href="vip.html" class="btn btn-primary">Je m'inscris</a>
+  </div>
+</header>
+
+<!-- ============================== HERO ============================== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-copy">
+      <span class="eyebrow">+150 championnats couverts</span>
+      <h1>La donnée qui<br>fait <span class="accent">gagner.</span></h1>
+      <p class="hero-sub">Pronostics football construits sur l'analyse statistique, pas sur l'intuition. Cotes en temps réel, tickets combinés et taux de réussite vérifiés, publiés chaque jour.</p>
+      <div class="hero-ctas">
+        <a href="pronostics.html" class="btn btn-primary">Voir les pronostics du jour</a>
+        <a href="vip.html" class="btn btn-ghost">Débloquer mes coupons</a>
+      </div>
+      <div class="hero-strip">
+        <span><strong>+150</strong> championnats</span>
+        <span><strong>100%</strong> analyses data-driven</span>
+        <span><strong>Transparent</strong> — résultats publics</span>
+      </div>
+    </div>
+
+    <div class="hero-panel">
+      <div class="hero-panel-head">
+        <span class="live">En direct</span>
+        <span>Aujourd'hui</span>
+      </div>
+      <div id="hero-live-matches">
+        <div class="hero-mini-row">
+          <div>
+            <div class="hero-mini-match">Chargement…</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ STAT BAND ============================ -->
+<section class="stat-band">
+  <div class="container stat-grid">
+    <div class="stat-item">
+      <div class="stat-value">73%</div>
+      <div class="stat-label">Taux de réussite (30 derniers jours)</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">1 240+</div>
+      <div class="stat-label">Pronostics publiés depuis le lancement</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">+18,4u</div>
+      <div class="stat-label">Unités gagnées ce mois-ci</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">10</div>
+      <div class="stat-label">Coupons gratuits chaque jour</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================= CONCEPT ============================== -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Notre méthode</span>
+    <h2 class="section-title">Pourquoi DataFoot ?</h2>
+    <p class="section-lead">Le football est le sport le plus imprévisible… en apparence. Derrière chaque match se cachent des dizaines d'indicateurs : forme des équipes, historique des confrontations, statistiques offensives et défensives, blessures, contexte de la rencontre. DataFoot croise toutes ces données pour vous livrer des pronostics construits et actualisés chaque jour — sans martingale miracle, sans promesse de gain garanti.</p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-icon">📊</div>
+        <h3>Analyse par la donnée</h3>
+        <p>Statistiques avancées, forme récente, confrontations directes : chaque pronostic s'appuie sur des chiffres, pas sur des intuitions.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🔎</div>
+        <h3>Transparence totale</h3>
+        <p>Historique complet de nos pronostics, gagnants comme perdants. Rien n'est caché, tout est vérifiable.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🎟️</div>
+        <h3>Tickets prêts à l'emploi</h3>
+        <p>Des combinés quotidiens sélectionnés et expliqués, pour parier sans y passer des heures.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= DERNIERS PRONOSTICS ========================= -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Sélection du jour</span>
+        <h2 class="section-title">Les pronostics du jour</h2>
+      </div>
+      <a href="pronostics.html" class="btn btn-ghost">Voir tous les pronostics →</a>
+    </div>
+
+    <div class="ticket-grid">
+      <article class="ticket">
+        <div class="ticket-main">
+          <div class="ticket-comp">Ligue 1 — Journée 21</div>
+          <h3 class="ticket-match">PSG — Marseille</h3>
+          <p class="ticket-pick">Pick : Victoire PSG &amp; +2,5 buts</p>
+          <p class="ticket-analysis">Le PSG reste solide à domicile face à un OM diminué en défense sur ses derniers déplacements.</p>
+        </div>
+        <div class="ticket-stub">
+          <span class="ticket-odd-label">Cote</span>
+          <span class="ticket-odd">2.10</span>
+          <div class="ticket-confidence" aria-label="Confiance 4 sur 5">
+            <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="ticket">
+        <div class="ticket-main">
+          <div class="ticket-comp">Liga — Journée 12</div>
+          <h3 class="ticket-match">Real Madrid — Atlético</h3>
+          <p class="ticket-pick">Pick : Double Chance 1X</p>
+          <p class="ticket-analysis">Invaincu à domicile depuis 14 matchs, le Real affronte un Atlético fébrile en déplacement.</p>
+        </div>
+        <div class="ticket-stub">
+          <span class="ticket-odd-label">Cote</span>
+          <span class="ticket-odd">1.65</span>
+          <div class="ticket-confidence" aria-label="Confiance 5 sur 5">
+            <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="ticket">
+        <div class="ticket-main">
+          <div class="ticket-comp">Bundesliga — Journée 18</div>
+          <h3 class="ticket-match">Bayern — Dortmund</h3>
+          <p class="ticket-pick">Pick : Les deux équipes marquent</p>
+          <p class="ticket-analysis">Le Klassiker tient toujours ses promesses offensives : 4 des 5 dernières confrontations avec BTTS.</p>
+        </div>
+        <div class="ticket-stub">
+          <span class="ticket-odd-label">Cote</span>
+          <span class="ticket-odd">1.80</span>
+          <div class="ticket-confidence" aria-label="Confiance 3 sur 5">
+            <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="ticket">
+        <div class="ticket-main">
+          <div class="ticket-comp">Serie A — Journée 20</div>
+          <h3 class="ticket-match">Inter — Juventus</h3>
+          <p class="ticket-pick">Pick : Moins de 3,5 buts</p>
+          <p class="ticket-analysis">Deux défenses parmi les plus solides du championnat, un derby d'Italie rarement prolifique.</p>
+        </div>
+        <div class="ticket-stub">
+          <span class="ticket-odd-label">Cote</span>
+          <span class="ticket-odd">1.55</span>
+          <div class="ticket-confidence" aria-label="Confiance 4 sur 5">
+            <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ RÉSULTATS ============================= -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Bilan public</span>
+    <h2 class="section-title">Nos résultats, en toute transparence</h2>
+    <p class="section-lead">Ces statistiques sont calculées automatiquement sur l'ensemble de nos pronostics publiés, gagnants et perdants inclus.</p>
+    <div class="stat-grid" style="margin-top:2.4rem; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-m);">
+      <div class="stat-item">
+        <div class="stat-value">73%</div>
+        <div class="stat-label">Taux de réussite sur 30 jours</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">1 240+</div>
+        <div class="stat-label">Pronostics publiés</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">+18,4</div>
+        <div class="stat-label">Unités gagnées ce mois</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">5</div>
+        <div class="stat-label">Coupons gratuits / jour</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CTA BAND ============================== -->
+<section class="cta-band">
+  <div class="container">
+    <h2>Prêt à parier plus intelligemment ?</h2>
+    <p>Rejoignez les abonnés DataFoot et recevez chaque jour nos tickets combinés exclusifs, nos analyses détaillées et nos alertes cotes.</p>
+    <a href="vip.html" class="btn btn-primary">Débloquer mes 10 coupons gratuits</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <span class="footer-note">© 2026 DataFoot — Statistiques &amp; analyses de football</span>
+    <nav class="footer-links">
+      <a href="pronostics.html">Pronostics</a>
+      <a href="vip.html">Abonnement</a>
+      <a href="bankroll.html">Bankroll</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="scripts/render-hero.js"></script>
+</body>
+</html>

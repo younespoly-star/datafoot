@@ -1,0 +1,710 @@
+/* ==========================================================================
+   DATAFOOT — Design tokens
+   Palette   : navy profond + bleu data (#3DA0FF) + orange action (#FF8A50)
+   Display   : Barlow Condensed (impact, condensé, esprit tableau de match)
+   Corps     : Inter
+   Data/mono : JetBrains Mono (cotes, stats, pourcentages — chiffres tabulaires)
+   Signature : la carte "ticket" à encoches — chaque pronostic est un vrai
+               billet de pari découpé, séparant infos match / pick & cote.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:            #0a0e17;
+  --bg-alt:        #0d1220;
+  --surface:       #131a28;
+  --surface-2:     #1a2334;
+  --line:          #253046;
+  --line-soft:     #1c2536;
+
+  --blue:          #3da0ff;
+  --blue-dim:      #1f5c99;
+  --blue-glow:     rgba(61,160,255,.16);
+
+  --orange:        #ff8a50;
+  --orange-dim:    #b85f34;
+  --orange-glow:   rgba(255,138,80,.18);
+
+  --green:         #34d399;
+  --red:           #f2685c;
+  --gold:          #f2c14e;
+
+  --text:          #eef2f9;
+  --text-muted:    #92a0ba;
+  --text-faint:    #5c6a85;
+
+  --radius-s:      8px;
+  --radius-m:      14px;
+  --radius-l:      22px;
+
+  --font-display:  'Barlow Condensed', sans-serif;
+  --font-body:     'Inter', sans-serif;
+  --font-mono:     'JetBrains Mono', monospace;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  background:
+    radial-gradient(ellipse 900px 500px at 15% -10%, var(--blue-glow), transparent 60%),
+    radial-gradient(ellipse 700px 400px at 100% 0%, var(--orange-glow), transparent 55%),
+    var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+
+img,svg{display:block; max-width:100%;}
+a{color:inherit; text-decoration:none;}
+ul{list-style:none;}
+
+.container{
+  width:min(1180px, 92%);
+  margin-inline:auto;
+}
+
+/* -------------------------------- Type -------------------------------- */
+
+h1,h2,h3,h4{
+  font-family:var(--font-display);
+  font-weight:700;
+  letter-spacing:.01em;
+  line-height:1.05;
+  color:var(--text);
+}
+
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--blue);
+  display:inline-flex;
+  align-items:center;
+  gap:.5em;
+}
+.eyebrow::before{
+  content:"";
+  width:7px; height:7px;
+  border-radius:50%;
+  background:var(--orange);
+  box-shadow:0 0 0 4px var(--orange-glow);
+}
+
+.section-title{
+  font-size:clamp(1.9rem, 3.4vw, 2.7rem);
+  text-transform:uppercase;
+  margin-top:.5rem;
+}
+
+.section-lead{
+  color:var(--text-muted);
+  font-size:1.02rem;
+  max-width:62ch;
+  margin-top:.9rem;
+}
+
+.mono{font-family:var(--font-mono);}
+
+/* Barre de focus clavier visible partout */
+a:focus-visible,button:focus-visible,input:focus-visible{
+  outline:2px solid var(--orange);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important; transition-duration:.001ms !important;}
+}
+
+/* ------------------------------- Header -------------------------------- */
+
+.site-header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(10,14,23,.86);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line-soft);
+}
+
+.site-header .container{
+  display:flex; align-items:center; justify-content:space-between;
+  padding-block:.9rem;
+}
+
+.logo{
+  display:flex; flex-direction:column; line-height:1;
+}
+.logo .logo-mark{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:1.55rem;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+}
+.logo .logo-mark span{color:var(--blue);}
+.logo .logo-tag{
+  font-family:var(--font-mono);
+  font-size:.62rem;
+  color:var(--text-faint);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-top:.15rem;
+}
+
+.nav-links{
+  display:flex; align-items:center; gap:2.1rem;
+  font-size:.92rem; font-weight:500;
+}
+.nav-links a{color:var(--text-muted); transition:color .15s ease;}
+.nav-links a:hover, .nav-links a.active{color:var(--text);}
+.nav-links a.active{color:var(--blue);}
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:.5em;
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:.92rem;
+  padding:.75rem 1.4rem;
+  border-radius:999px;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  white-space:nowrap;
+}
+.btn:hover{transform:translateY(-1px);}
+
+.btn-primary{
+  background:linear-gradient(135deg, var(--orange), #ff6f3c);
+  color:#1a0d05;
+  box-shadow:0 8px 24px -8px rgba(255,138,80,.55);
+}
+.btn-primary:hover{box-shadow:0 10px 28px -6px rgba(255,138,80,.7);}
+
+.btn-ghost{
+  background:transparent;
+  border-color:var(--line);
+  color:var(--text);
+}
+.btn-ghost:hover{border-color:var(--blue); background:var(--blue-glow);}
+
+.btn-block{width:100%;}
+
+/* -------------------------------- Hero ---------------------------------- */
+
+.hero{
+  padding-block:5rem 3.5rem;
+  border-bottom:1px solid var(--line-soft);
+}
+
+.hero .container{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:3rem;
+  align-items:center;
+}
+
+.hero h1{
+  font-size:clamp(2.6rem, 5.4vw, 4.4rem);
+  text-transform:uppercase;
+  margin-top:.7rem;
+}
+.hero h1 .accent{color:var(--blue);}
+
+.hero-sub{
+  color:var(--text-muted);
+  font-size:1.08rem;
+  max-width:46ch;
+  margin-top:1.1rem;
+}
+
+.hero-ctas{
+  display:flex; gap:.9rem; margin-top:2rem; flex-wrap:wrap;
+}
+
+.hero-strip{
+  display:flex; gap:1.6rem; flex-wrap:wrap;
+  margin-top:2.4rem;
+  font-family:var(--font-mono);
+  font-size:.78rem;
+  color:var(--text-faint);
+}
+.hero-strip strong{color:var(--text); font-weight:600;}
+
+/* Panneau "ticket" décoratif dans le hero */
+.hero-panel{
+  position:relative;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-l);
+  padding:1.7rem;
+  box-shadow:0 30px 60px -30px rgba(0,0,0,.7);
+}
+.hero-panel-head{
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:var(--font-mono); font-size:.72rem;
+  color:var(--text-faint); text-transform:uppercase; letter-spacing:.1em;
+  padding-bottom:1rem; border-bottom:1px dashed var(--line);
+}
+.hero-panel-head .live{color:var(--green); display:flex; align-items:center; gap:.4em;}
+.hero-panel-head .live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(52,211,153,.2);}
+
+.hero-mini-row{
+  display:flex; justify-content:space-between; align-items:center;
+  padding-block:.85rem;
+  border-bottom:1px solid var(--line-soft);
+}
+.hero-mini-row:last-child{border-bottom:none;}
+.hero-mini-match{font-weight:600; font-size:.95rem;}
+.hero-mini-comp{font-size:.72rem; color:var(--text-faint); margin-top:.15rem;}
+.hero-mini-odd{
+  font-family:var(--font-mono); font-weight:700; color:var(--blue);
+  background:var(--blue-glow); padding:.3rem .6rem; border-radius:var(--radius-s);
+  font-size:.9rem;
+}
+
+/* ------------------------------ Stat band -------------------------------- */
+
+.stat-band{
+  border-bottom:1px solid var(--line-soft);
+  background:var(--bg-alt);
+}
+.stat-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  padding-block:2.4rem;
+}
+.stat-item{
+  text-align:center;
+  padding-inline:1rem;
+  border-left:1px solid var(--line-soft);
+}
+.stat-item:first-child{border-left:none;}
+.stat-value{
+  font-family:var(--font-mono);
+  font-weight:700;
+  font-size:clamp(1.6rem, 3vw, 2.3rem);
+  color:var(--blue);
+}
+.stat-label{
+  font-size:.78rem; color:var(--text-muted); margin-top:.4rem;
+}
+
+/* -------------------------------- Sections ------------------------------- */
+
+.section{padding-block:5rem;}
+.section-alt{background:var(--bg-alt); border-block:1px solid var(--line-soft);}
+.section-head{
+  display:flex; justify-content:space-between; align-items:flex-end; gap:2rem;
+  flex-wrap:wrap; margin-bottom:2.6rem;
+}
+
+.pillars{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem;
+  margin-top:2.8rem;
+}
+.pillar{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  padding:1.8rem;
+}
+.pillar .pillar-icon{font-size:1.6rem;}
+.pillar h3{
+  font-family:var(--font-body); font-size:1.05rem; font-weight:700;
+  margin-top:1rem;
+}
+.pillar p{color:var(--text-muted); font-size:.92rem; margin-top:.6rem;}
+
+/* ------------------------------ Ticket cards ------------------------------
+   Élément signature : chaque pronostic est un billet perforé, découpé en
+   deux volets (infos match / pick + cote + confiance) par une ligne
+   pointillée avec encoches semi-circulaires, comme un vrai ticket détachable.
+   -------------------------------------------------------------------------- */
+
+.ticket-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:1.4rem;
+}
+
+.ticket{
+  position:relative;
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  overflow:hidden;
+}
+
+.ticket-main{padding:1.5rem 1.6rem;}
+.ticket-comp{
+  font-family:var(--font-mono);
+  font-size:.68rem;
+  color:var(--orange);
+  text-transform:uppercase; letter-spacing:.1em;
+}
+.ticket-match{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:1.4rem;
+  margin-top:.4rem;
+  text-transform:uppercase;
+}
+.ticket-pick{
+  margin-top:.9rem;
+  font-size:.88rem;
+  color:var(--text);
+  font-weight:600;
+}
+.ticket-analysis{
+  margin-top:.6rem;
+  font-size:.84rem;
+  color:var(--text-muted);
+  line-height:1.55;
+}
+
+.ticket-stub{
+  position:relative;
+  padding:1.5rem 1.4rem;
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  gap:.9rem;
+  background:var(--surface-2);
+  text-align:center;
+}
+
+/* ligne de perforation avec encoches */
+.ticket-stub::before{
+  content:"";
+  position:absolute; left:0; top:0; bottom:0;
+  width:0;
+  border-left:2px dashed var(--line);
+}
+.ticket-stub::after{
+  content:"";
+  position:absolute; left:-11px; top:50%;
+  width:22px; height:22px;
+  border-radius:50%;
+  background:var(--bg);
+  border:1px solid var(--line);
+  transform:translateY(-50%);
+}
+
+.ticket-odd-label{
+  font-family:var(--font-mono); font-size:.66rem;
+  color:var(--text-faint); text-transform:uppercase; letter-spacing:.1em;
+}
+.ticket-odd{
+  font-family:var(--font-mono); font-weight:700;
+  font-size:1.9rem; color:var(--blue);
+}
+.ticket-confidence{display:flex; gap:.2rem;}
+.ticket-confidence .star{color:var(--line); font-size:1.05rem;}
+.ticket-confidence .star.on{color:var(--gold);}
+
+.tickets-cta{
+  text-align:center; margin-top:2.6rem;
+}
+
+/* ------------------------------- Confidence legend ----------------------- */
+
+.legend{
+  margin-top:3rem;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  padding:1.6rem 1.8rem;
+}
+.legend h3{
+  font-family:var(--font-body); font-size:.95rem; font-weight:700;
+}
+.legend-row{
+  display:flex; justify-content:space-between; align-items:center;
+  padding-block:.6rem;
+  border-top:1px solid var(--line-soft);
+  font-size:.86rem; color:var(--text-muted);
+}
+.legend-row:first-of-type{border-top:none; margin-top:.9rem;}
+.legend-row .star.on{color:var(--gold);}
+
+.filters{
+  display:flex; gap:.7rem; flex-wrap:wrap; margin-bottom:2.4rem;
+}
+.filter-chip{
+  font-family:var(--font-mono); font-size:.74rem;
+  padding:.5rem 1rem; border-radius:999px;
+  border:1px solid var(--line); color:var(--text-muted);
+}
+.filter-chip.is-active{border-color:var(--blue); color:var(--blue); background:var(--blue-glow);}
+
+.disclaimer{
+  margin-top:2.6rem;
+  font-size:.8rem; color:var(--text-faint);
+  border-left:2px solid var(--line);
+  padding-left:1rem;
+}
+
+/* --------------------------------- Pricing -------------------------------- */
+
+.pricing-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;
+  margin-top:2.8rem; align-items:stretch;
+}
+
+.plan{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-l);
+  padding:2.1rem 1.9rem;
+  display:flex; flex-direction:column;
+  position:relative;
+}
+
+.plan.featured{
+  border-color:var(--orange);
+  background:linear-gradient(180deg, rgba(255,138,80,.07), var(--surface) 40%);
+  transform:translateY(-10px);
+  box-shadow:0 30px 50px -25px rgba(255,138,80,.35);
+}
+
+.plan-badge{
+  position:absolute; top:-13px; left:50%; transform:translateX(-50%);
+  background:var(--orange); color:#1a0d05;
+  font-family:var(--font-mono); font-size:.66rem; font-weight:700;
+  text-transform:uppercase; letter-spacing:.08em;
+  padding:.35rem .9rem; border-radius:999px;
+  white-space:nowrap;
+}
+
+.plan-name{
+  font-family:var(--font-display); font-size:1.3rem; font-weight:700;
+  text-transform:uppercase;
+}
+.plan-price{
+  font-family:var(--font-mono); font-weight:700;
+  font-size:2.1rem; color:var(--blue); margin-top:.6rem;
+}
+.plan-price span{font-size:.9rem; color:var(--text-faint); font-weight:500;}
+.plan-tagline{
+  color:var(--text-muted); font-size:.86rem; margin-top:.7rem; min-height:2.6em;
+}
+
+.plan-features{margin-top:1.6rem; flex-grow:1;}
+.plan-features li{
+  display:flex; gap:.6rem; align-items:flex-start;
+  font-size:.87rem; color:var(--text);
+  padding-block:.5rem;
+  border-top:1px solid var(--line-soft);
+}
+.plan-features li:first-child{border-top:none;}
+.plan-features li::before{
+  content:"✓"; color:var(--green); font-weight:700; flex-shrink:0;
+}
+
+.plan .btn{margin-top:1.8rem;}
+
+.plan-reassurance{
+  margin-top:2.4rem; text-align:center;
+  font-family:var(--font-mono); font-size:.78rem; color:var(--text-faint);
+  display:flex; justify-content:center; gap:1.8rem; flex-wrap:wrap;
+}
+
+.faq{margin-top:3.5rem; max-width:760px;}
+.faq-item{
+  border-top:1px solid var(--line-soft); padding-block:1.2rem;
+}
+.faq-item:last-child{border-bottom:1px solid var(--line-soft);}
+.faq-item h4{font-size:1rem; font-family:var(--font-body); font-weight:700;}
+.faq-item p{color:var(--text-muted); font-size:.88rem; margin-top:.5rem;}
+
+/* --------------------------------- Rules ---------------------------------- */
+
+.rules{
+  display:flex; flex-direction:column; gap:1.1rem; margin-top:2.8rem;
+}
+.rule{
+  display:grid; grid-template-columns:64px 1fr; gap:1.4rem;
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--radius-m); padding:1.5rem 1.7rem;
+}
+.rule-num{
+  font-family:var(--font-mono); font-weight:700; font-size:1.6rem;
+  color:var(--orange);
+}
+.rule h3{font-family:var(--font-body); font-size:1.02rem; font-weight:700;}
+.rule p{color:var(--text-muted); font-size:.9rem; margin-top:.5rem;}
+
+.stake-table{
+  margin-top:2.8rem;
+  width:100%; border-collapse:collapse;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-m);
+  overflow:hidden;
+}
+.stake-table th,.stake-table td{
+  padding:.9rem 1.2rem; text-align:left; font-size:.88rem;
+  border-bottom:1px solid var(--line-soft);
+}
+.stake-table th{
+  font-family:var(--font-mono); text-transform:uppercase; font-size:.7rem;
+  letter-spacing:.08em; color:var(--text-faint); background:var(--surface-2);
+}
+.stake-table td.mono{color:var(--blue); font-weight:600;}
+.stake-table tr:last-child td{border-bottom:none;}
+
+.alert-box{
+  margin-top:3rem;
+  background:linear-gradient(135deg, rgba(242,104,92,.08), var(--surface));
+  border:1px solid rgba(242,104,92,.35);
+  border-radius:var(--radius-m);
+  padding:1.8rem 2rem;
+}
+.alert-box h3{
+  font-family:var(--font-body); font-size:1rem; font-weight:700;
+  color:var(--red); display:flex; align-items:center; gap:.6rem;
+}
+.alert-box p{color:var(--text-muted); font-size:.88rem; margin-top:.7rem;}
+.alert-box a{color:var(--blue); text-decoration:underline;}
+
+.closing{
+  margin-top:3.5rem; text-align:center;
+  padding-top:3rem; border-top:1px solid var(--line-soft);
+}
+.closing p{color:var(--text-muted); max-width:60ch; margin-inline:auto;}
+.closing .btn{margin-top:1.6rem;}
+
+/* -------------------------------- CTA band -------------------------------- */
+
+.cta-band{
+  border-top:1px solid var(--line-soft);
+  padding-block:4rem;
+  text-align:center;
+}
+.cta-band h2{font-size:clamp(1.7rem,3vw,2.3rem); text-transform:uppercase;}
+.cta-band p{color:var(--text-muted); margin-top:.8rem;}
+.cta-band .btn{margin-top:1.6rem;}
+
+/* --------------------------------- Footer --------------------------------- */
+
+.site-footer{
+  border-top:1px solid var(--line-soft);
+  background:var(--bg-alt);
+  padding-block:2.6rem;
+}
+.site-footer .container{
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
+}
+.footer-links{display:flex; gap:1.6rem; font-size:.82rem; color:var(--text-muted);}
+.footer-links a:hover{color:var(--text);}
+.footer-note{font-size:.76rem; color:var(--text-faint); font-family:var(--font-mono);}
+
+/* ------------------------------ Signup / Coupons --------------------------- */
+
+.signup-wrap{
+  display:grid;
+  grid-template-columns:.95fr 1.15fr;
+  gap:2.4rem;
+  align-items:start;
+  margin-top:2.8rem;
+}
+
+.signup-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-l);
+  padding:2.2rem;
+  position:sticky;
+  top:5.5rem;
+}
+.signup-card .plan-price{margin-top:.4rem;}
+.signup-card .plan-features{margin-top:1.4rem;}
+
+.signup-form{margin-top:1.8rem; display:flex; flex-direction:column; gap:.8rem;}
+.signup-form input{
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  border-radius:var(--radius-s);
+  padding:.8rem 1rem;
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:.9rem;
+}
+.signup-form input:focus{outline:2px solid var(--blue); outline-offset:1px;}
+.signup-form input::placeholder{color:var(--text-faint);}
+.signup-note{font-size:.76rem; color:var(--text-faint); margin-top:.9rem;}
+
+.coupon-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:1rem;
+}
+
+.coupon-card{
+  position:relative;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  padding:1.3rem 1.4rem;
+  overflow:hidden;
+}
+.coupon-card-head{
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:var(--font-mono); font-size:.68rem; color:var(--text-faint);
+  text-transform:uppercase; letter-spacing:.08em;
+}
+.coupon-card-head .num{color:var(--orange); font-weight:700;}
+.coupon-card-body{margin-top:.7rem;}
+.coupon-match{font-weight:600; font-size:.92rem;}
+.coupon-meta{font-size:.76rem; color:var(--text-muted); margin-top:.3rem;}
+.coupon-odd{
+  margin-top:.7rem;
+  font-family:var(--font-mono); font-weight:700; color:var(--blue); font-size:1.15rem;
+}
+
+.coupon-grid.is-locked .coupon-card-body,
+.coupon-grid.is-locked .coupon-odd{
+  filter:blur(5px);
+  user-select:none;
+}
+
+.locked-overlay{
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(10,14,23,.35);
+}
+.locked-overlay .lock-icon{font-size:1.4rem;}
+
+.coupon-unlocked-note{
+  display:flex; align-items:center; gap:.6em;
+  color:var(--green); font-family:var(--font-mono); font-size:.8rem;
+  margin-bottom:1.4rem;
+}
+.coupon-unlocked-note::before{
+  content:"✓"; font-weight:700;
+}
+
+/* -------------------------------- Responsive ------------------------------- */
+
+@media (max-width: 900px){
+  .nav-links{display:none;}
+  .hero .container{grid-template-columns:1fr;}
+  .stat-grid{grid-template-columns:repeat(2,1fr);}
+  .stat-item:nth-child(3){border-left:none;}
+  .pillars{grid-template-columns:1fr;}
+  .ticket-grid{grid-template-columns:1fr;}
+  .ticket{grid-template-columns:1fr;}
+  .ticket-stub::before,.ticket-stub::after{display:none;}
+  .ticket-stub{border-top:1px dashed var(--line);}
+  .pricing-grid{grid-template-columns:1fr;}
+  .plan.featured{transform:none;}
+  .rule{grid-template-columns:1fr; gap:.6rem;}
+  .site-footer .container{flex-direction:column; text-align:center;}
+  .signup-wrap{grid-template-columns:1fr;}
+  .signup-card{position:static;}
+  .coupon-grid{grid-template-columns:1fr;}
+}
+
