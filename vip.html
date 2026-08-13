@@ -6,6 +6,42 @@
 <title>Abonnement Gratuit — 10 Coupons par Jour — DataFoot</title>
 <meta name="description" content="Inscris-toi gratuitement sur DataFoot et débloque 10 coupons de pronostics chaque jour, avec cotes et analyses.">
 <link rel="stylesheet" href="style.css">
+<style>
+  /* Styles pour l'affichage propre des 3 matchs par ticket */
+  .coupon-matches {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0;
+  }
+  .coupon-match-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    padding: 3px 0;
+    border-bottom: 1px dashed rgba(255,255,255,0.08);
+  }
+  .coupon-match-item:last-child {
+    border-bottom: none;
+  }
+  .coupon-pick {
+    font-weight: 600;
+    color: #facc15;
+    margin-left: 8px;
+  }
+  .coupon-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .coupon-odd-badge {
+    background: #16a34a;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.85rem;
+  }
+</style>
 </head>
 <body>
 
@@ -29,7 +65,7 @@
   <div class="container">
     <span class="eyebrow">100% gratuit</span>
     <h1 class="section-title">10 coupons par jour, offerts.</h1>
-    <p class="section-lead">Crée ton compte DataFoot gratuitement et débloque chaque jour 10 coupons de pronostics complets : match, pick, cote et niveau de confiance. Aucun paiement, juste une inscription.</p>
+    <p class="section-lead">Crée ton compte DataFoot gratuitement et débloque chaque jour 10 coupons de 3 matchs complets : rencontres, pronostics et cotes. Aucun paiement, juste une inscription.</p>
 
     <div class="signup-wrap" id="signup">
 
@@ -40,8 +76,8 @@
         <p class="plan-tagline">Inscription gratuite, sans carte bancaire. Débloque l'accès dès la création de ton compte.</p>
 
         <ul class="plan-features">
-          <li>10 coupons de pronostics chaque jour</li>
-          <li>Cote et niveau de confiance pour chaque coupon</li>
+          <li>10 coupons de 3 matchs chaque jour</li>
+          <li>Cote combinée de ~3.00 par ticket</li>
           <li>Mis à jour automatiquement, en continu</li>
           <li>Accès illimité, aucun engagement</li>
         </ul>
@@ -58,7 +94,7 @@
       <!-- Aperçu des coupons -->
       <div>
         <div class="coupon-unlocked-note" id="unlocked-note" style="display:none;">
-          Compte créé — tes 10 coupons du jour sont débloqués
+          Compte créé — tes 10 tickets du jour sont débloqués
         </div>
 
         <div class="coupon-grid is-locked" id="coupon-grid">
@@ -82,44 +118,129 @@
 </footer>
 
 <script>
-  // Génère 10 cartes coupon (contenu d'exemple, flouté tant que le compte
-  // n'est pas créé).
+  // Les 10 tickets de 3 matchs avec leurs pronostics et cotes
   const coupons = [
-    { match: "Real Madrid — Atlético", odd: "1.65" },
-    { match: "PSG — Marseille", odd: "2.10" },
-    { match: "Bayern — Dortmund", odd: "1.80" },
-    { match: "Inter — Juventus", odd: "1.55" },
-    { match: "Man City — Liverpool", odd: "1.72" },
-    { match: "Ajax — PSV", odd: "2.05" },
-    { match: "Benfica — Porto", odd: "1.90" },
-    { match: "Boca — River Plate", odd: "2.35" },
-    { match: "Al Hilal — Al Nassr", odd: "1.60" },
-    { match: "Flamengo — Palmeiras", odd: "1.85" }
+    {
+      id: 1,
+      cote: "~3.05",
+      matches: [
+        { name: "Besiktas vs Hradec Kralove", pick: "Besiktas gagne" },
+        { name: "Rangers vs Jagiellonia Bialystok", pick: "Rangers 1X" },
+        { name: "Qarabag vs Dynamo Kiev", pick: "+1.5 buts" }
+      ]
+    },
+    {
+      id: 2,
+      cote: "~3.10",
+      matches: [
+        { name: "Anderlecht vs PAOK", pick: "-3.5 buts" },
+        { name: "Midtjylland vs Bohemians", pick: "Midtjylland gagne" },
+        { name: "AS FAR Rabat vs CA Khénifra", pick: "AS FAR gagne" }
+      ]
+    },
+    {
+      id: 3,
+      cote: "~2.95",
+      matches: [
+        { name: "Pafos vs RB Salzbourg", pick: "+1.5 buts" },
+        { name: "Omonia Nicosie vs Lincoln Red Imps", pick: "Omonia gagne" },
+        { name: "Hajduk Split vs Zalgiris", pick: "Hajduk 1X" }
+      ]
+    },
+    {
+      id: 4,
+      cote: "~3.15",
+      matches: [
+        { name: "Austria Vienne vs Beitar Jerusalem", pick: "+1.5 buts" },
+        { name: "Györ vs Riga FC", pick: "Györ 1X" },
+        { name: "Saint-Gall vs Sheriff Tiraspol", pick: "+1.5 buts" }
+      ]
+    },
+    {
+      id: 5,
+      cote: "~3.00",
+      matches: [
+        { name: "CSKA Sofia vs Maccabi Tel Aviv", pick: "+1.5 buts" },
+        { name: "Dinamo Tirana vs Auda", pick: "Dinamo Tirana 1X" },
+        { name: "Egnatia vs Shamrock Rovers", pick: "-3.5 buts" }
+      ]
+    },
+    {
+      id: 6,
+      cote: "~2.90",
+      matches: [
+        { name: "Vaduz vs Inter Turku", pick: "+1.5 buts" },
+        { name: "Klaksvik vs Lech Poznan", pick: "Lech Poznan +0.5" },
+        { name: "Tromsø vs CFR Cluj", pick: "Tromsø 1X" }
+      ]
+    },
+    {
+      id: 7,
+      cote: "~3.20",
+      matches: [
+        { name: "Dunajska Streda vs Twente", pick: "Twente +0.5" },
+        { name: "Dynamo Minsk vs Braga", pick: "Braga 1X" },
+        { name: "Hammarby vs Rakow", pick: "+1.5 buts" }
+      ]
+    },
+    {
+      id: 8,
+      cote: "~3.10",
+      matches: [
+        { name: "Hearts vs Benfica", pick: "Benfica 1X" },
+        { name: "Gent vs Göteborg", pick: "Gent gagne" },
+        { name: "Al Shabab vs Al-Qadsiah", pick: "+1.5 buts" }
+      ]
+    },
+    {
+      id: 9,
+      cote: "~3.05",
+      matches: [
+        { name: "Shelbourne vs Ajax Amsterdam", pick: "Ajax 1X" },
+        { name: "Rosenborg U19 vs Ranheim U19", pick: "+2.5 buts" },
+        { name: "Deportivo vs Porto (amical)", pick: "Porto 1X" }
+      ]
+    },
+    {
+      id: 10,
+      cote: "~3.00",
+      matches: [
+        { name: "Sion vs Noah", pick: "Sion 1X" },
+        { name: "Besiktas vs Hradec Kralove", pick: "+1.5 buts" },
+        { name: "Tampereen vs Rijeka", pick: "Rijeka +0.5" }
+      ]
+    }
   ];
 
   const grid = document.getElementById("coupon-grid");
-  grid.innerHTML = coupons.map((c, i) => `
+
+  grid.innerHTML = coupons.map((c) => `
     <div class="coupon-card">
       <div class="coupon-card-head">
-        <span>Coupon</span>
-        <span class="num">#${String(i + 1).padStart(2, "0")}</span>
+        <span>TICKET #${String(c.id).padStart(2, "0")}</span>
+        <span class="coupon-odd-badge">Cote ${c.cote}</span>
       </div>
       <div class="coupon-card-body">
-        <div class="coupon-match">${c.match}</div>
-        <div class="coupon-meta">Pick verrouillé · Analyse verrouillée</div>
+        <ul class="coupon-matches">
+          ${c.matches.map(m => `
+            <li class="coupon-match-item">
+              <span>${m.name}</span>
+              <span class="coupon-pick">${m.pick}</span>
+            </li>
+          `).join('')}
+        </ul>
+        <div class="coupon-meta">Pronostics verrouillés</div>
       </div>
-      <div class="coupon-odd">${c.odd}</div>
       <div class="locked-overlay"><span class="lock-icon">🔒</span></div>
     </div>
   `).join("");
 
-  // Démo front-end uniquement : ce formulaire ne crée pas de compte réel
-  // (aucun backend connecté). Il débloque juste l'aperçu visuellement.
+  // Démo front-end : déblocage des coupons
   document.getElementById("signup-form").addEventListener("submit", (e) => {
     e.preventDefault();
     grid.classList.remove("is-locked");
     grid.querySelectorAll(".locked-overlay").forEach(el => el.remove());
-    grid.querySelectorAll(".coupon-meta").forEach(el => el.textContent = "Pick et analyse disponibles");
+    grid.querySelectorAll(".coupon-meta").forEach(el => el.textContent = "✔ Ticket disponible");
     document.getElementById("unlocked-note").style.display = "flex";
     document.getElementById("signup-form").innerHTML = '<p style="color:var(--green); font-size:.9rem;">✓ Compte créé, coupons débloqués ci-contre.</p>';
   });
