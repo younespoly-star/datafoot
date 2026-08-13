@@ -1,7 +1,6 @@
 // scripts/render-matches.js
-// Charge data/matches.json et affiche le calendrier du jour. Les matchs
-// avec un pronostic correspondant affichent pick + cote + étoiles ; les
-// autres affichent juste le match avec "Pronostic à venir".
+// Charge data/matches.json (généré par le workflow GitHub Actions) et
+// affiche les prochaines prédictions, avec pick, cote et confiance.
 
 function starsHtml(n) {
   let html = "";
@@ -23,7 +22,7 @@ async function renderUpcomingMatches() {
     const matches = (data.matches || []).slice(0, 20);
 
     if (matches.length === 0) {
-      container.innerHTML = '<p class="disclaimer">Aucun match à venir récupéré pour le moment.</p>';
+      container.innerHTML = '<p class="disclaimer">Aucune prédiction disponible pour le moment.</p>';
       return;
     }
 
@@ -34,17 +33,12 @@ async function renderUpcomingMatches() {
         hour: "2-digit", minute: "2-digit"
       });
 
-      const hasPick = Boolean(m.pick);
-      const middleLine = hasPick
-        ? `${m.competition} · ${dateLabel} · ${m.pick}`
-        : `${m.competition} · ${dateLabel} · Pronostic à venir`;
-
       return `
         <div class="hero-mini-row">
           <div>
             <div class="hero-mini-match">${m.homeTeam} — ${m.awayTeam}</div>
-            <div class="hero-mini-comp">${middleLine}</div>
-            ${hasPick ? `<div style="margin-top:.3rem;">${starsHtml(m.confidence)}</div>` : ""}
+            <div class="hero-mini-comp">${m.competition} · ${dateLabel} · ${m.pick}</div>
+            <div style="margin-top:.3rem;">${starsHtml(m.confidence)}</div>
           </div>
           ${m.odds ? `<span class="hero-mini-odd">${Number(m.odds).toFixed(2)}</span>` : ""}
         </div>
@@ -52,7 +46,7 @@ async function renderUpcomingMatches() {
     }).join("");
 
   } catch (err) {
-    container.innerHTML = '<p class="disclaimer">Le calendrier sera affiché ici dès la première mise à jour automatique.</p>';
+    container.innerHTML = '<p class="disclaimer">Les prochaines prédictions seront affichées ici dès la première mise à jour automatique.</p>';
     console.warn(err);
   }
 }
