@@ -18,7 +18,7 @@
     <nav class="nav-links">
       <a href="index.html" class="active">Accueil</a>
       <a href="pronostics.html">Pronostics</a>
-      <a href="vip.html">VIP</a>
+      <a href="vip.html">Abonnement</a>
       <a href="bankroll.html">Bankroll</a>
     </nav>
     <a href="vip.html" class="btn btn-primary">Je m'inscris</a>
@@ -34,7 +34,7 @@
       <p class="hero-sub">Pronostics football construits sur l'analyse statistique, pas sur l'intuition. Cotes en temps réel, tickets combinés et taux de réussite vérifiés, publiés chaque jour.</p>
       <div class="hero-ctas">
         <a href="pronostics.html" class="btn btn-primary">Voir les pronostics du jour</a>
-        <a href="vip.html" class="btn btn-ghost">Découvrir l'offre VIP</a>
+        <a href="vip.html" class="btn btn-ghost">Débloquer mes coupons</a>
       </div>
       <div class="hero-strip">
         <span><strong>+150</strong> championnats</span>
@@ -48,26 +48,12 @@
         <span class="live">En direct</span>
         <span>Aujourd'hui</span>
       </div>
-      <div class="hero-mini-row">
-        <div>
-          <div class="hero-mini-match">PSG — Marseille</div>
-          <div class="hero-mini-comp">Ligue 1 · Victoire PSG &amp; +2,5 buts</div>
+      <div id="hero-live-matches">
+        <div class="hero-mini-row">
+          <div>
+            <div class="hero-mini-match">Chargement…</div>
+          </div>
         </div>
-        <span class="hero-mini-odd">2.10</span>
-      </div>
-      <div class="hero-mini-row">
-        <div>
-          <div class="hero-mini-match">Real Madrid — Atlético</div>
-          <div class="hero-mini-comp">Liga · Double Chance 1X</div>
-        </div>
-        <span class="hero-mini-odd">1.65</span>
-      </div>
-      <div class="hero-mini-row">
-        <div>
-          <div class="hero-mini-match">Bayern — Dortmund</div>
-          <div class="hero-mini-comp">Bundesliga · BTTS Oui</div>
-        </div>
-        <span class="hero-mini-odd">1.80</span>
       </div>
     </div>
   </div>
@@ -89,11 +75,12 @@
       <div class="stat-label">Unités gagnées ce mois-ci</div>
     </div>
     <div class="stat-item">
-      <div class="stat-value">5</div>
-      <div class="stat-label">Tickets VIP livrés chaque jour</div>
+      <div class="stat-value">10</div>
+      <div class="stat-label">Coupons gratuits chaque jour</div>
     </div>
   </div>
 </section>
+
 
 <!-- ============================= CONCEPT ============================== -->
 <section class="section">
@@ -222,7 +209,7 @@
       </div>
       <div class="stat-item">
         <div class="stat-value">5</div>
-        <div class="stat-label">Tickets VIP / jour</div>
+        <div class="stat-label">Coupons gratuits / jour</div>
       </div>
     </div>
   </div>
@@ -233,7 +220,7 @@
   <div class="container">
     <h2>Prêt à parier plus intelligemment ?</h2>
     <p>Rejoignez les abonnés DataFoot et recevez chaque jour nos tickets combinés exclusifs, nos analyses détaillées et nos alertes cotes.</p>
-    <a href="vip.html" class="btn btn-primary">Découvrir les offres VIP</a>
+    <a href="vip.html" class="btn btn-primary">Débloquer mes 10 coupons gratuits</a>
   </div>
 </section>
 
@@ -242,11 +229,12 @@
     <span class="footer-note">© 2026 DataFoot — Statistiques &amp; analyses de football</span>
     <nav class="footer-links">
       <a href="pronostics.html">Pronostics</a>
-      <a href="vip.html">VIP</a>
+      <a href="vip.html">Abonnement</a>
       <a href="bankroll.html">Bankroll</a>
     </nav>
   </div>
 </footer>
 
+<script src="scripts/render-hero.js"></script>
 </body>
 </html>
