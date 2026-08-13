@@ -1,10 +1,9 @@
 {
-  "generatedAt": "2026-08-13T08:35:40.068Z",
+  "generatedAt": "2026-08-13T08:47:45.708Z",
   "count": 13,
-  "withPrediction": 13,
   "matches": [
     {
-      "id": "rp-413955",
+      "id": 413955,
       "competition": "Uzbekistan",
       "date": "2026-08-13T15:00:00",
       "homeTeam": "Surkhon Termez",
@@ -14,7 +13,7 @@
       "confidence": 2
     },
     {
-      "id": "rp-413954",
+      "id": 413954,
       "competition": "Uzbekistan",
       "date": "2026-08-13T15:00:00",
       "homeTeam": "PFK Andijan",
@@ -24,7 +23,7 @@
       "confidence": 3
     },
     {
-      "id": "rp-413956",
+      "id": 413956,
       "competition": "Uzbekistan",
       "date": "2026-08-13T16:30:00",
       "homeTeam": "Buxoro FK",
@@ -34,7 +33,7 @@
       "confidence": 3
     },
     {
-      "id": "rp-413952",
+      "id": 413952,
       "competition": "Saudi Arabia",
       "date": "2026-08-13T17:15:00",
       "homeTeam": "Abha Club",
@@ -44,7 +43,7 @@
       "confidence": 4
     },
     {
-      "id": "rp-413909",
+      "id": 413909,
       "competition": "Europa League",
       "date": "2026-08-13T18:00:00",
       "homeTeam": "Omonia Nicosia",
@@ -54,7 +53,7 @@
       "confidence": 5
     },
     {
-      "id": "rp-413917",
+      "id": 413917,
       "competition": "Europa League",
       "date": "2026-08-13T18:30:00",
       "homeTeam": "KI Klaksvik",
@@ -64,7 +63,7 @@
       "confidence": 3
     },
     {
-      "id": "rp-413946",
+      "id": 413946,
       "competition": "Iceland",
       "date": "2026-08-13T19:00:00",
       "homeTeam": "Grindavik",
@@ -74,7 +73,7 @@
       "confidence": 3
     },
     {
-      "id": "rp-413953",
+      "id": 413953,
       "competition": "Saudi Arabia",
       "date": "2026-08-13T19:00:00",
       "homeTeam": "Al-Shabab Riyadh",
@@ -84,7 +83,7 @@
       "confidence": 4
     },
     {
-      "id": "rp-413913",
+      "id": 413913,
       "competition": "Europa League",
       "date": "2026-08-13T19:00:00",
       "homeTeam": "CSKA Sofia",
@@ -94,7 +93,7 @@
       "confidence": 4
     },
     {
-      "id": "rp-413947",
+      "id": 413947,
       "competition": "Iceland",
       "date": "2026-08-13T19:00:00",
       "homeTeam": "Vestri",
@@ -104,7 +103,7 @@
       "confidence": 5
     },
     {
-      "id": "rp-413949",
+      "id": 413949,
       "competition": "Iceland",
       "date": "2026-08-13T20:15:00",
       "homeTeam": "Grotta Seltjarnarnes",
@@ -114,7 +113,7 @@
       "confidence": 2
     },
     {
-      "id": "rp-413948",
+      "id": 413948,
       "competition": "Iceland",
       "date": "2026-08-13T20:15:00",
       "homeTeam": "Fylkir Reykjavik",
@@ -124,7 +123,7 @@
       "confidence": 5
     },
     {
-      "id": "rp-413950",
+      "id": 413950,
       "competition": "Iceland",
       "date": "2026-08-13T20:15:00",
       "homeTeam": "HK Kopavogur",
