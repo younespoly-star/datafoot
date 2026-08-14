@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-14T20:18:49.539Z",
-  "count": 15,
+  "generatedAt": "2026-08-14T21:05:42.148Z",
+  "count": 19,
   "matches": [
     {
       "id": 414110,
@@ -151,6 +151,46 @@
       "pick": "Double Chance : SKA-Khabarovsk ou Veles Moskva",
       "odds": 1.34,
       "confidence": 4
+    },
+    {
+      "id": 414287,
+      "competition": "Russia",
+      "date": "2026-08-15T10:00:00",
+      "homeTeam": "Yenisey Krasnoyarsk",
+      "awayTeam": "KAMAZ Chelny",
+      "pick": "Victoire Yenisey Krasnoyarsk",
+      "odds": 1.88,
+      "confidence": 2
+    },
+    {
+      "id": 414385,
+      "competition": "Japan",
+      "date": "2026-08-15T10:00:00",
+      "homeTeam": "Kashima Antlers",
+      "awayTeam": "Nagoya Grampus",
+      "pick": "Victoire Kashima Antlers",
+      "odds": 1.798,
+      "confidence": 3
+    },
+    {
+      "id": 414394,
+      "competition": "Japan",
+      "date": "2026-08-15T10:00:00",
+      "homeTeam": "Blaublitz Akita",
+      "awayTeam": "Kataller Toyama",
+      "pick": "Double Chance : Blaublitz Akita ou nul",
+      "odds": 1.384,
+      "confidence": 4
+    },
+    {
+      "id": 414395,
+      "competition": "Japan",
+      "date": "2026-08-15T10:00:00",
+      "homeTeam": "Tochigi City",
+      "awayTeam": "Vanraure Hachinohe",
+      "pick": "Double Chance : Tochigi City ou nul",
+      "odds": 1.33,
+      "confidence": 5
     }
   ]
 }
