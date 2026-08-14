@@ -1,5 +1,5 @@
 // scripts/render-matches.js
-// Script final avec structure de blocs isolés pour éviter les chevauchements de texte.
+// Script avec la couleur orange appliquée sur les réponses des pronostics.
 
 function escapeHtml(str) {
   const div = document.createElement("div");
@@ -50,6 +50,9 @@ function ticketCard(m) {
     }
   }
 
+  // Couleur orange utilisée pour les dates et accents principaux du site
+  const accentColor = "var(--accent-color, #f97316)";
+
   return `
     <article class="ticket" data-market="${escapeHtml(m.market || '1X2')}" data-confidence="${m.confidence || 3}" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: stretch; gap: 1rem;">
       <div class="ticket-main" style="flex: 1; min-width: 240px;">
@@ -65,19 +68,19 @@ function ticketCard(m) {
         <!-- Bloc 1X2 -->
         <div style="background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.06);">
           <span style="font-size: 0.65rem; color: #aaa; text-transform: uppercase; margin-bottom: 2px; font-weight: 500;">1×2</span> 
-          <strong style="color: #fff; font-size: 0.9rem; line-height: 1.2;">${pred1X2}</strong>
+          <strong style="color: ${accentColor}; font-size: 0.95rem; line-height: 1.2;">${pred1X2}</strong>
         </div>
         
         <!-- Bloc +/- 2.5 BUTS -->
         <div style="background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.06);">
           <span style="font-size: 0.65rem; color: #aaa; text-transform: uppercase; margin-bottom: 2px; font-weight: 500;">+/- 2.5 BUTS</span> 
-          <strong style="color: #fff; font-size: 0.9rem; line-height: 1.2;">${predPM}</strong>
+          <strong style="color: ${accentColor}; font-size: 0.95rem; line-height: 1.2;">${predPM}</strong>
         </div>
         
         <!-- Bloc BTTS -->
         <div style="background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.06);">
           <span style="font-size: 0.65rem; color: #aaa; text-transform: uppercase; margin-bottom: 2px; font-weight: 500;">BTTS</span> 
-          <strong style="color: #fff; font-size: 0.9rem; line-height: 1.2;">${predBTTS}</strong>
+          <strong style="color: ${accentColor}; font-size: 0.95rem; line-height: 1.2;">${predBTTS}</strong>
         </div>
       </div>
     </article>
