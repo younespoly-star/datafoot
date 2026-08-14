@@ -17,6 +17,13 @@ async function renderCoupons() {
       const m2 = matches[i+1];
       const m3 = matches[i+2];
 
+      // Fonction pour formater l'affichage court du pick (ex: 1, N, 2 ou autre)
+      function getShortPick(pickText) {
+        if (!pickText) return "1X2";
+        if (pickText.toLowerCase().includes("victoire")) return pickText.replace("Victoire", "").trim();
+        return pickText;
+      }
+
       html += `
         <div class="ticket-card" style="display: flex; justify-content: space-between; align-items: stretch; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; margin-bottom: 20px; padding: 20px; color: #fff;">
           
@@ -46,14 +53,24 @@ async function renderCoupons() {
             <div style="width: 10px; height: 10px; background: #111; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; position: absolute;"></div>
           </div>
 
-          <!-- Colonne de droite : Badge Coupon Combiné -->
-          <div style="width: 140px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.2); border-radius: 8px; padding: 15px; text-align: center;">
-            <span style="font-size: 0.7rem; text-transform: uppercase; color: #aaa; margin-bottom: 8px; letter-spacing: 1px;">Coupon #${(i/3)+1}</span>
-            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; padding: 8px; width: 100%; margin-bottom: 6px;">
-              <div style="font-size: 0.65rem; color: #f97316; font-weight: bold;">COMBINÉ 3 MATCHS</div>
-              <div style="font-size: 0.85rem; font-weight: bold; margin-top: 2px;">VALIDE</div>
+          <!-- Colonne de droite : Les 3 choix de picks rappelés en petits blocs -->
+          <div style="width: 140px; display: flex; flex-direction: column; align-items: center; justify-content: space-around; background: rgba(0,0,0,0.2); border-radius: 8px; padding: 10px; text-align: center;">
+            <span style="font-size: 0.65rem; text-transform: uppercase; color: #aaa; letter-spacing: 1px;">Coupon #${(i/3)+1}</span>
+            
+            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; padding: 5px; width: 100%;">
+              <div style="font-size: 0.55rem; color: #f97316; font-weight: bold;">MATCH 1</div>
+              <div style="font-size: 0.75rem; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${getShortPick(m1.pick)}</div>
             </div>
-            <span style="font-size: 0.7rem; color: #888; margin-top: 4px;">Analyse Auto</span>
+
+            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; padding: 5px; width: 100%;">
+              <div style="font-size: 0.55rem; color: #f97316; font-weight: bold;">MATCH 2</div>
+              <div style="font-size: 0.75rem; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${getShortPick(m2.pick)}</div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; padding: 5px; width: 100%;">
+              <div style="font-size: 0.55rem; color: #f97316; font-weight: bold;">MATCH 3</div>
+              <div style="font-size: 0.75rem; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${getShortPick(m3.pick)}</div>
+            </div>
           </div>
 
         </div>
