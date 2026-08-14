@@ -1,5 +1,5 @@
 // scripts/render-matches.js
-// Charge data/matches.json et affiche proprement les 3 pronostics sur des lignes séparées.
+// Version corrigée avec isolation totale du style pour éviter les superpositions.
 
 function escapeHtml(str) {
   const div = document.createElement("div");
@@ -59,22 +59,25 @@ function ticketCard(m) {
         <p class="ticket-analysis">${analysis}</p>
       </div>
       
-      <div class="ticket-stub" style="display: flex; flex-direction: column; justify-content: center; gap: 6px; min-width: 175px; padding: 0.5rem 0;">
-        <span class="ticket-comp" style="font-size: 0.65rem; text-transform: uppercase; text-align: center; letter-spacing: 0.5px; margin-bottom: 2px;">3 Pronostics</span>
+      <div class="ticket-stub" style="display: flex; flex-direction: column; justify-content: center; gap: 8px; min-width: 160px; padding: 0.5rem 0;">
+        <div style="font-size: 0.65rem; text-transform: uppercase; text-align: center; letter-spacing: 0.5px; margin-bottom: 2px; color: var(--text-muted, #aaa);">3 Pronostics</div>
         
-        <div style="font-size: 0.75rem; background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
-          <span class="ticket-comp" style="font-weight: 500;">1×2</span> 
-          <strong style="color:#fff; font-size: 0.85rem;">${pred1X2}</strong>
+        <!-- Bloc 1X2 -->
+        <div style="background: rgba(255,255,255,0.04); padding: 8px 10px; border-radius: 6px; text-align: center; border: 1px solid rgba(255,255,255,0.06);">
+          <div style="font-size: 0.7rem; color: #aaa; text-transform: uppercase; margin-bottom: 2px;">1×2</div>
+          <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">${pred1X2}</div>
         </div>
         
-        <div style="font-size: 0.75rem; background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
-          <span class="ticket-comp" style="font-weight: 500;">+/- 2.5 BUTS</span> 
-          <strong style="color:#fff; font-size: 0.85rem;">${predPM}</strong>
+        <!-- Bloc +/- 2.5 BUTS -->
+        <div style="background: rgba(255,255,255,0.04); padding: 8px 10px; border-radius: 6px; text-align: center; border: 1px solid rgba(255,255,255,0.06);">
+          <div style="font-size: 0.7rem; color: #aaa; text-transform: uppercase; margin-bottom: 2px;">+/- 2.5 BUTS</div>
+          <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">${predPM}</div>
         </div>
         
-        <div style="font-size: 0.75rem; background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
-          <span class="ticket-comp" style="font-weight: 500;">BTTS</span> 
-          <strong style="color:#fff; font-size: 0.85rem;">${predBTTS}</strong>
+        <!-- Bloc BTTS -->
+        <div style="background: rgba(255,255,255,0.04); padding: 8px 10px; border-radius: 6px; text-align: center; border: 1px solid rgba(255,255,255,0.06);">
+          <div style="font-size: 0.7rem; color: #aaa; text-transform: uppercase; margin-bottom: 2px;">BTTS</div>
+          <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">${predBTTS}</div>
         </div>
       </div>
     </article>
