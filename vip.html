@@ -83,9 +83,9 @@
         </ul>
 
         <form class="signup-form" id="signup-form">
-          <input type="text" id="signup-name" placeholder="Ton prénom" required>
-          <input type="email" id="signup-email" placeholder="Ton adresse email" required>
-          <input type="password" id="signup-password" placeholder="Choisis un mot de passe" required style="margin-top:10px; width:100%; padding:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:4px;">
+          <input type="text" id="signup-name" placeholder="Ton prénom" autocomplete="given-name" required>
+          <input type="email" id="signup-email" placeholder="Ton adresse email" autocomplete="email" required>
+          <input type="password" id="signup-password" placeholder="Choisis un mot de passe" autocomplete="new-password" required style="margin-top:10px; width:100%; padding:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:4px;">
           <button type="submit" class="btn btn-primary btn-block" style="margin-top:10px;">Créer mon compte gratuit</button>
         </form>
 
@@ -256,7 +256,6 @@
   signupForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     
-    // Récupération stricte par ID pour éviter les confusions de champs
     const email = document.getElementById("signup-email").value;
     const password = document.getElementById("signup-password").value;
 
