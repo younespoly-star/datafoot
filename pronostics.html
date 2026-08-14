@@ -9,18 +9,36 @@
 <body style="background: #111; color: #fff; font-family: sans-serif; padding: 20px;">
 
   <div style="max-width: 800px; margin: 0 auto;">
-    <h1 style="color: #f97316; font-size: 1.8rem; margin-bottom: 10px;">NOS PRONOSTICS DU JOUR</h1>
+    
+    <!-- En-tête du site -->
+    <h1 style="color: #f97316; font-size: 1.8rem; margin-bottom: 5px;">DATAFOOT</h1>
+    <p style="color: #888; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px;">
+      Statistiques & Analyses de Football
+    </p>
+
+    <!-- Menu de navigation du site -->
+    <nav style="display: flex; gap: 15px; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 15px; overflow-x: auto;">
+      <a href="index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; background: rgba(255,255,255,0.03); white-space: nowrap;">Accueil</a>
+      <a href="pronostics.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; background: #f97316; white-space: nowrap;">Pronostics</a>
+      <a href="resultats.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; background: rgba(255,255,255,0.03); white-space: nowrap;">Résultats</a>
+      <a href="bankroll.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; background: rgba(255,255,255,0.03); white-space: nowrap;">Bankroll</a>
+      <a href="vip.html" style="color: #f97316; text-decoration: none; font-size: 0.9rem; font-weight: 600; padding: 6px 12px; border-radius: 6px; background: rgba(249, 115, 22, 0.15); white-space: nowrap;">⭐ VIP</a>
+    </nav>
+
+    <!-- Titre de la section -->
+    <h2 style="color: #f97316; font-size: 1.4rem; margin-bottom: 10px;">NOS PRONOSTICS DU JOUR</h2>
     <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 20px;">
       Chaque pronostic est passé au crible de notre méthode d'analyse : forme des équipes, statistiques H2H, contexte du match.
     </p>
 
-    <!-- C'est ici que le script va injecter les matchs -->
+    <!-- Conteneur où le JavaScript va injecter dynamiquement les matchs -->
     <div id="matches-container">
       <p style="color: #f97316; text-align: center; padding: 20px;">Chargement des pronostics...</p>
     </div>
+
   </div>
 
-  <!-- Lien vers ton script JavaScript -->
+  <!-- Script d'affichage des matchs -->
   <script src="scripts/render-matches.js"></script>
 </body>
 </html>
