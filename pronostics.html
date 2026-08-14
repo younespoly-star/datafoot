@@ -1,99 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nos Pronostics — DataFoot</title>
-<meta name="description" content="Tous les pronostics du jour DataFoot : match, compétition, pick, cote, analyse rapide et niveau de confiance.">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataFoot - Nos Pronostics du Jour</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="background: #111; color: #fff; font-family: sans-serif; padding: 20px;">
 
-<header class="site-header">
-  <div class="container">
-    <a href="index.html" class="logo">
-      <span class="logo-mark">Data<span>Foot</span></span>
-      <span class="logo-tag">Statistiques &amp; analyses de football</span>
-    </a>
-    <nav class="nav-links">
-      <a href="index.html">Accueil</a>
-      <a href="pronostics.html" class="active">Pronostics</a>
-      <a href="resultats.html">Résultats</a>
-      <a href="vip.html">Coupons Gratuits</a>
-      <a href="bankroll.html">Bankroll</a>
-    </nav>
-    <a href="vip.html" class="btn btn-primary">Voir les coupons</a>
-  </div>
-</header>
+  <div style="max-width: 800px; margin: 0 auto;">
+    <h1 style="color: #f97316; font-size: 1.8rem; margin-bottom: 10px;">NOS PRONOSTICS DU JOUR</h1>
+    <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 20px;">
+      Chaque pronostic est passé au crible de notre méthode d'analyse : forme des équipes, statistiques H2H, contexte du match.
+    </p>
 
-<section class="section" style="padding-top:3.5rem;">
-  <div class="container">
-    <span class="eyebrow">Mis à jour en continu</span>
-    <h1 class="section-title">Nos Pronostics du Jour</h1>
-    <p class="section-lead">Chaque pronostic est passé au crible de notre méthode d'analyse : forme des équipes, statistiques H2H, contexte du match. Retrouvez ci-dessous notre sélection du jour.</p>
-
-    <div class="filters" style="margin-top:2.6rem;">
-      <span class="filter-chip is-active">Toutes compétitions</span>
-      <span class="filter-chip">Par date</span>
-      <span class="filter-chip">Par niveau de confiance</span>
-      <span class="filter-chip">1X2</span>
-      <span class="filter-chip">Double Chance</span>
-      <span class="filter-chip">+/- 2,5 buts</span>
-      <span class="filter-chip">BTTS</span>
+    <!-- C'est ici que le script va injecter les matchs -->
+    <div id="matches-container">
+      <p style="color: #f97316; text-align: center; padding: 20px;">Chargement des pronostics...</p>
     </div>
-
-    <div id="upcoming-matches" class="ticket-grid" style="margin-top:2.4rem;">
-      <p class="disclaimer">Chargement des pronostics…</p>
-    </div>
-
-    <div class="legend">
-      <h3>Niveau de confiance : mode d'emploi</h3>
-      <div class="legend-row">
-        <span><span class="star on">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></span>
-        <span>Pari risqué, cote attractive</span>
-      </div>
-      <div class="legend-row">
-        <span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></span>
-        <span>Tendance identifiée, prudence recommandée</span>
-      </div>
-      <div class="legend-row">
-        <span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span><span class="star">★</span></span>
-        <span>Pronostic solide, bon rapport risque/cote</span>
-      </div>
-      <div class="legend-row">
-        <span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span></span>
-        <span>Forte conviction statistique</span>
-      </div>
-      <div class="legend-row">
-        <span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span></span>
-        <span>Analyse à très haute confiance</span>
-      </div>
-    </div>
-
-    <p class="disclaimer">Les pronostics DataFoot sont des outils d'aide à la décision basés sur l'analyse statistique. Ils ne garantissent aucun gain. Pariez de manière responsable.</p>
   </div>
-</section>
 
-<section class="cta-band">
-  <div class="container">
-    <h2>Envie des tickets combinés exclusifs ?</h2>
-    <p>10 coupons gratuits chaque jour, avec cotes et niveau de confiance.</p>
-    <a href="vip.html" class="btn btn-primary">Voir les coupons gratuits</a>
-  </div>
-</section>
-
-<footer class="site-footer">
-  <div class="container">
-    <span class="footer-note">© 2026 DataFoot — Statistiques &amp; analyses de football</span>
-    <nav class="footer-links">
-      <a href="index.html">Accueil</a>
-      <a href="pronostics.html">Pronostics</a>
-      <a href="vip.html">Coupons Gratuits</a>
-      <a href="bankroll.html">Bankroll</a>
-    </nav>
-  </div>
-</footer>
-
-<script src="scripts/render-matches.js"></script>
+  <!-- Lien vers ton script JavaScript -->
+  <script src="scripts/render-matches.js"></script>
 </body>
 </html>
