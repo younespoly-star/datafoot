@@ -1,44 +1,64 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DataFoot - Nos Pronostics du Jour</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DataFoot — Nos Pronostics du Jour</title>
+<meta name="description" content="Pronostics football basés sur l'analyse statistique. Cotes en temps réel, tickets combinés, taux de réussite vérifiés.">
+<link rel="stylesheet" href="style.css">
 </head>
-<body style="background: #111; color: #fff; font-family: sans-serif; padding: 20px;">
+<body>
 
-  <div style="max-width: 800px; margin: 0 auto;">
-    
-    <!-- En-tête du site -->
-    <h1 style="color: #f97316; font-size: 1.8rem; margin-bottom: 5px;">DATAFOOT</h1>
-    <p style="color: #888; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px;">
-      Statistiques & Analyses de Football
-    </p>
-
-    <!-- Menu de navigation du site -->
-    <nav style="display: flex; gap: 15px; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 15px; overflow-x: auto;">
-      <a href="index.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; background: rgba(255,255,255,0.03); white-space: nowrap;">Accueil</a>
-      <a href="pronostics.html" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; background: #f97316; white-space: nowrap;">Pronostics</a>
-      <a href="resultats.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; background: rgba(255,255,255,0.03); white-space: nowrap;">Résultats</a>
-      <a href="bankroll.html" style="color: #aaa; text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; background: rgba(255,255,255,0.03); white-space: nowrap;">Bankroll</a>
-      <a href="vip.html" style="color: #f97316; text-decoration: none; font-size: 0.9rem; font-weight: 600; padding: 6px 12px; border-radius: 6px; background: rgba(249, 115, 22, 0.15); white-space: nowrap;">⭐ VIP</a>
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">Data<span>Foot</span></span>
+      <span class="logo-tag">Statistiques &amp; analyses de football</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="pronostics.html" class="active">Pronostics</a>
+      <a href="resultats.html">Résultats</a>
+      <a href="vip.html">Abonnement</a>
+      <a href="bankroll.html">Bankroll</a>
     </nav>
+    <a href="vip.html" class="btn btn-primary">Voir les coupons</a>
+  </div>
+</header>
 
-    <!-- Titre de la section -->
-    <h2 style="color: #f97316; font-size: 1.4rem; margin-bottom: 10px;">NOS PRONOSTICS DU JOUR</h2>
-    <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 20px;">
-      Chaque pronostic est passé au crible de notre méthode d'analyse : forme des équipes, statistiques H2H, contexte du match.
-    </p>
+<!-- ============================== CONTENU PRINCIPAL ============================== -->
+<section class="section">
+  <div class="container" style="max-width: 900px;">
+    
+    <div style="margin-bottom: 30px;">
+      <span class="eyebrow">Sélection du jour</span>
+      <h1 class="section-title" style="margin-bottom: 10px;">Nos pronostics du jour</h1>
+      <p class="section-lead" style="margin-bottom: 0;">
+        Chaque pronostic est passé au crible de notre méthode d'analyse : forme des équipes, statistiques H2H, contexte du match. Retrouvez ci-dessous notre sélection actualisée.
+      </p>
+    </div>
 
-    <!-- Conteneur où le JavaScript va injecter dynamiquement les matchs -->
+    <!-- Conteneur injecté dynamiquement par le script -->
     <div id="matches-container">
-      <p style="color: #f97316; text-align: center; padding: 20px;">Chargement des pronostics...</p>
+      <p style="color: var(--accent, #f97316); text-align: center; padding: 40px;">Chargement des pronostics...</p>
     </div>
 
   </div>
+</section>
 
-  <!-- Script d'affichage des matchs -->
-  <script src="scripts/render-matches.js"></script>
+<!-- ============================== FOOTER ============================== -->
+<footer class="site-footer">
+  <div class="container">
+    <span class="footer-note">© 2026 DataFoot — Statistiques &amp; analyses de football</span>
+    <nav class="footer-links">
+      <a href="pronostics.html">Pronostics</a>
+      <a href="resultats.html">Résultats</a>
+      <a href="vip.html">Abonnement</a>
+      <a href="bankroll.html">Bankroll</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="scripts/render-matches.js"></script>
 </body>
 </html>
