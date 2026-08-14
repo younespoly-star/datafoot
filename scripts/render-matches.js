@@ -1,5 +1,5 @@
 // scripts/render-matches.js
-// Charge data/matches.json et affiche proprement les 3 pronostics (1, X, 2 / p/m / b/sb) et leurs cotes.
+// Charge data/matches.json et affiche uniquement les 3 pronostics (1x2, +/- 2.5 BUTS, BTTS) sans les cotes.
 
 function escapeHtml(str) {
   const div = document.createElement("div");
@@ -37,13 +37,20 @@ function ticketCard(m) {
 
   const raw1X2 = m.prediction1X2 || m.pick || "";
   const pred1X2 = get1X2Code(raw1X2, m.homeTeam || "", m.awayTeam || "");
-  const predPM = escapeHtml(m.overUnder || m.pm || "+2.5");
-  const predBSB = escapeHtml(m.btts || m.bsb || "Oui");
   
-  const baseOdd = m.odds ? Number(m.odds) : 1.90;
-  const odd1X2 = baseOdd.toFixed(2);
-  const oddPM = (baseOdd * 0.98).toFixed(2);
-  const oddBSB = (baseOdd * 1.04).toFixed(2);
+  // Formatage de +/- 2.5 BUTS
+  const predPM = escapeHtml(m.overUnder || m.pm || "+ de 2.5");
+  
+  // Formatage de BTTS (Oui ou Non)
+  let predBTTS = m.btts || m.bsb || "Oui";
+  if (typeof predBTTS === 'string') {
+    const lower = predBTTS.toLowerCase();
+    if (lower.includes("non") || lower.includes("no")) {
+      predBTTS = "Non";
+    } else {
+      predBTTS = "Oui";
+    }
+  }
 
   return `
     <article class="ticket" data-market="${escapeHtml(m.market || '1X2')}" data-confidence="${m.confidence || 3}" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: stretch; gap: 1rem;">
@@ -55,21 +62,21 @@ function ticketCard(m) {
       </div>
       
       <div class="ticket-stub" style="display: flex; flex-direction: column; justify-content: center; gap: 6px; min-width: 175px; padding: 0.5rem 0;">
-        <span class="ticket-comp" style="font-size: 0.65rem; text-transform: uppercase; text-align: center; letter-spacing: 0.5px; margin-bottom: 2px;">3 Pronostics & Cotes</span>
+        <span class="ticket-comp" style="font-size: 0.65rem; text-transform: uppercase; text-align: center; letter-spacing: 0.5px; margin-bottom: 2px;">3 Pronostics</span>
         
-        <div style="font-size: 0.75rem; background: rgba(255,255,255,0.04); padding: 5px 8px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
-          <span class="ticket-comp" style="font-weight: 500;">1×2 : <strong style="color:#fff;">${pred1X2}</strong></span> 
-          <span style="font-weight: 600; color: #fff;">${odd1X2}</span>
+        <div style="font-size: 0.75rem; background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
+          <span class="ticket-comp" style="font-weight: 500;">1×2</span> 
+          <strong style="color:#fff; font-size: 0.85rem;">${pred1X2}</strong>
         </div>
         
-        <div style="font-size: 0.75rem; background: rgba(255,255,255,0.04); padding: 5px 8px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
-          <span class="ticket-comp" style="font-weight: 500;">p/m : <strong style="color:#fff;">${predPM}</strong></span> 
-          <span style="font-weight: 600; color: #fff;">${oddPM}</span>
+        <div style="font-size: 0.75rem; background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
+          <span class="ticket-comp" style="font-weight: 500;">+/- 2.5 BUTS</span> 
+          <strong style="color:#fff; font-size: 0.85rem;">${predPM}</strong>
         </div>
         
-        <div style="font-size: 0.75rem; background: rgba(255,255,255,0.04); padding: 5px 8px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
-          <span class="ticket-comp" style="font-weight: 500;">b/sb : <strong style="color:#fff;">${predBSB}</strong></span> 
-          <span style="font-weight: 600; color: #fff;">${oddBSB}</span>
+        <div style="font-size: 0.75rem; background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
+          <span class="ticket-comp" style="font-weight: 500;">BTTS</span> 
+          <strong style="color:#fff; font-size: 0.85rem;">${predBTTS}</strong>
         </div>
       </div>
     </article>
