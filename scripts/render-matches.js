@@ -1,5 +1,5 @@
 // scripts/render-matches.js
-// Script avec les réponses en blanc et une disposition propre sans superposition.
+// Script corrigé pour afficher exactement 10 coupons avec 3 marchés par coupon.
 
 function escapeHtml(str) {
   const div = document.createElement("div");
@@ -96,12 +96,15 @@ async function renderUpcomingMatches() {
     if (!res.ok) throw new Error("data/matches.json introuvable");
 
     const data = await res.json();
-    const matches = data.matches || [];
+    let matches = data.matches || [];
 
     if (matches.length === 0) {
       container.innerHTML = '<p class="disclaimer">Aucune prédiction disponible pour le moment.</p>';
       return;
     }
+
+    // Limite strictement l'affichage aux 10 premiers coupons/matchs
+    matches = matches.slice(0, 10);
 
     container.innerHTML = matches.map(ticketCard).join("");
 
