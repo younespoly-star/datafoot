@@ -1,7 +1,5 @@
 // scripts/render-matches.js
-// Charge data/matches.json (généré par le workflow GitHub Actions) et
-// affiche chaque prédiction sous forme de carte "ticket" complète,
-// avec 3 pronostics à droite, dans le conteneur #upcoming-matches (grille .ticket-grid).
+// Charge data/matches.json et affiche chaque prédiction avec ses 3 pronostics alignés proprement.
 
 function escapeHtml(str) {
   const div = document.createElement("div");
@@ -21,29 +19,36 @@ function ticketCard(m) {
     ? "Pronostic généré automatiquement par notre modèle statistique, à partir des données de forme et de cotes du marché."
     : "Ce match sera intégré à notre sélection dès qu'une analyse sera disponible.";
 
-  // Récupération des 3 prédictions (avec des valeurs par défaut si non définies dans le JSON)
-  const pred1X2 = m.prediction1X2 || m.pick || "—";
-  const predPM = m.overUnder || "2.5";
-  const predBSB = m.btts || "Oui/Non";
+  // Récupération propre des 3 prédictions depuis le JSON
+  const pred1X2 = escapeHtml(m.prediction1X2 || m.pick || "—");
+  const predPM = escapeHtml(m.overUnder || m.pm || "—");
+  const predBSB = escapeHtml(m.btts || m.bsb || "—");
 
   return `
-    <article class="ticket">
-      <div class="ticket-main">
+    <article class="ticket" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: stretch; gap: 1rem;">
+      <div class="ticket-main" style="flex: 1; min-width: 240px;">
         <div class="ticket-comp">${escapeHtml(m.competition)} · ${dateLabel}</div>
         <h3 class="ticket-match">${escapeHtml(m.homeTeam)} — ${escapeHtml(m.awayTeam)}</h3>
         <p class="ticket-pick">${pickLine}</p>
         <p class="ticket-analysis">${analysis}</p>
       </div>
-      <div class="ticket-stub" style="display: flex; flex-direction: column; justify-content: center; gap: 6px; min-width: 140px;">
-        <span class="ticket-odd-label" style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-faint);">3 Pronostics</span>
-        <div style="font-size: 0.8rem; background: rgba(255,255,255,0.04); padding: 2px 6px; border-radius: 4px; display: flex; justify-content: space-between;">
-          <span style="color: var(--text-faint);">1x2:</span> <strong style="color: var(--text-main);">${escapeHtml(pred1X2)}</strong>
+      
+      <div class="ticket-stub" style="display: flex; flex-direction: column; justify-content: center; gap: 8px; min-width: 180px; padding: 0.5rem 0;">
+        <span class="ticket-odd-label" style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-faint); text-align: center; letter-spacing: 0.5px; margin-bottom: 2px;">3 Pronostics</span>
+        
+        <div style="font-size: 0.8rem; background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
+          <span style="color: var(--text-faint); font-weight: 500;">1×2 :</span> 
+          <strong style="color: var(--text-main); text-align: right; max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${pred1X2}</strong>
         </div>
-        <div style="font-size: 0.8rem; background: rgba(255,255,255,0.04); padding: 2px 6px; border-radius: 4px; display: flex; justify-content: space-between;">
-          <span style="color: var(--text-faint);">p/m:</span> <strong style="color: var(--text-main);">${escapeHtml(predPM)}</strong>
+        
+        <div style="font-size: 0.8rem; background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
+          <span style="color: var(--text-faint); font-weight: 500;">p/m :</span> 
+          <strong style="color: var(--text-main);">${predPM}</strong>
         </div>
-        <div style="font-size: 0.8rem; background: rgba(255,255,255,0.04); padding: 2px 6px; border-radius: 4px; display: flex; justify-content: space-between;">
-          <span style="color: var(--text-faint);">b/sb:</span> <strong style="color: var(--text-main);">${escapeHtml(predBSB)}</strong>
+        
+        <div style="font-size: 0.8rem; background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
+          <span style="color: var(--text-faint); font-weight: 500;">b/sb :</span> 
+          <strong style="color: var(--text-main);">${predBSB}</strong>
         </div>
       </div>
     </article>
