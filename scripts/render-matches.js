@@ -1,10 +1,29 @@
 // scripts/render-matches.js
-// Charge data/matches.json et harmonise la couleur des textes de droite avec la date.
+// Charge data/matches.json et affiche 1, X ou 2 pour le pronostic 1x2.
 
 function escapeHtml(str) {
   const div = document.createElement("div");
   div.textContent = str ?? "";
   return div.innerHTML;
+}
+
+// Convertit le texte du pick ou de la prédiction en "1", "X" ou "2"
+function get1X2Code(predictionText, homeTeam, awayTeam) {
+  if (!predictionText) return "1";
+  const text = predictionText.toLowerCase();
+  
+  if (text.includes("nul") || text.includes("draw") || text === "x") {
+    return "X";
+  }
+  if (text.includes(homeTeam.toLowerCase()) || text.includes("domicile") || text.includes("1")) {
+    return "1";
+  }
+  if (text.includes(awayTeam.toLowerCase()) || text.includes("extérieur") || text.includes("2")) {
+    return "2";
+  }
+  
+  // Par défaut si non reconnu
+  return "1";
 }
 
 function ticketCard(m) {
@@ -19,7 +38,10 @@ function ticketCard(m) {
     ? "Pronostic généré automatiquement par notre modèle statistique, à partir des données de forme et de cotes du marché."
     : "Ce match sera intégré à notre sélection dès qu'une analyse sera disponible.";
 
-  const pred1X2 = escapeHtml(m.prediction1X2 || m.pick || "—");
+  // Extraction et conversion du 1x2 en 1, X ou 2
+  const raw1X2 = m.prediction1X2 || m.pick || "";
+  const pred1X2 = get1X2Code(raw1X2, m.homeTeam || "", m.awayTeam || "");
+
   const predPM = escapeHtml(m.overUnder || m.pm || "—");
   const predBSB = escapeHtml(m.btts || m.bsb || "—");
 
@@ -37,7 +59,7 @@ function ticketCard(m) {
         
         <div style="font-size: 0.8rem; background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
           <span class="ticket-comp" style="font-size: 0.75rem; font-weight: 500;">1×2 :</span> 
-          <strong style="color: var(--text-main); text-align: right; max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${pred1X2}</strong>
+          <strong style="color: var(--text-main); font-size: 1rem;">${pred1X2}</strong>
         </div>
         
         <div style="font-size: 0.8rem; background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
