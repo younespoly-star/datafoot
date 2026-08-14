@@ -85,7 +85,6 @@
         <form class="signup-form" id="signup-form">
           <input type="text" id="signup-name" placeholder="Ton prénom" required>
           <input type="email" id="signup-email" placeholder="Ton adresse email" required>
-          <!-- Champ mot de passe nécessaire pour Firebase -->
           <input type="password" id="signup-password" placeholder="Choisis un mot de passe" required style="margin-top:10px; width:100%; padding:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:4px;">
           <button type="submit" class="btn btn-primary btn-block" style="margin-top:10px;">Créer mon compte gratuit</button>
         </form>
@@ -119,7 +118,7 @@
   </div>
 </footer>
 
-<!-- Intégration Firebase et logique -->
+<!-- Script complet : Firebase et affichage des coupons -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
@@ -137,7 +136,6 @@
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
 
-  // Les 10 tickets de 3 matchs avec leurs pronostics et cotes
   const coupons = [
     {
       id: 1,
@@ -254,7 +252,6 @@
     </div>
   `).join("");
 
-  // Gestion de l'inscription avec Firebase Authentication
   const signupForm = document.getElementById("signup-form");
   signupForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -264,7 +261,6 @@
     try {
       await createUserWithEmailAndPassword(auth, email, password);
 
-      // Déblocage des coupons après succès Firebase
       grid.classList.remove("is-locked");
       grid.querySelectorAll(".locked-overlay").forEach(el => el.remove());
       grid.querySelectorAll(".coupon-meta").forEach(el => el.textContent = "✔ Ticket disponible");
