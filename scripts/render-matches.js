@@ -39,6 +39,8 @@ async function renderMatches() {
 
     matches.forEach((match, index) => {
       const shortPick = formatPick(match.pick, match.homeTeam, match.awayTeam);
+      // Si le texte du pick est trop long, on affiche le format court (ex: 1X) dans le bloc de droite pour garder un beau design
+      const displayBadge = shortPick.length > 5 ? (shortPick.includes("1X") ? "1X" : shortPick.includes("X2") ? "X2" : "12") : shortPick;
 
       html += `
         <div class="match-card" style="display: flex; align-items: stretch; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; margin-bottom: 20px; overflow: hidden; color: #fff;">
@@ -53,21 +55,21 @@ async function renderMatches() {
             <div>
               <span style="font-size: 0.75rem; color: #f97316; text-transform: uppercase; font-weight: bold;">${match.competition || 'FOOTBALL'} · ${match.date || ''}</span>
               <div style="font-weight: bold; font-size: 1rem; margin: 4px 0;">${match.homeTeam} — ${match.awayTeam}</div>
-              <div style="font-size: 0.85rem; color: #aaa;">Pick : <b style="color: #fff;">${shortPick}</b></div>
+              <div style="font-size: 0.85rem; color: #aaa;">Pick : <b style="color: #fff;">${match.pick}</b></div>
             </div>
             <div style="font-size: 0.75rem; color: #888;">
               Prono généré automatiquement par notre modèle statistique.
             </div>
           </div>
 
-          <div style="width: 100px; background: rgba(0,0,0,0.3); border-left: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; padding: 15px 5px;">
+          <div style="width: 110px; background: rgba(0,0,0,0.3); border-left: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; padding: 15px 8px;">
             
             <div style="text-align: center; width: 100%;">
-              <div style="font-size: 0.55rem; color: #aaa; text-transform: uppercase;">1X2</div>
-              <div style="font-size: 1.1rem; font-weight: bold; color: #f97316; background: rgba(255,255,255,0.08); border-radius: 6px; padding: 4px; margin-top: 4px;">${shortPick}</div>
+              <div style="font-size: 0.55rem; color: #aaa; text-transform: uppercase;">1X2 / PICK</div>
+              <div style="font-size: 1rem; font-weight: bold; color: #f97316; background: rgba(255,255,255,0.08); border-radius: 6px; padding: 6px 4px; margin-top: 4px; word-break: break-word;">${displayBadge}</div>
             </div>
 
-            <div style="writing-mode: vertical-rl; transform: rotate(180deg); font-size: 0.8rem; font-weight: bold; color: #fff; letter-spacing: 3px; text-transform: uppercase;">
+            <div style="writing-mode: vertical-rl; transform: rotate(180deg); font-size: 0.8rem; font-weight: bold; color: #fff; letter-spacing: 3px; text-transform: uppercase; margin-left: 5px;">
               Data<span style="color: #f97316;">Foot</span>
             </div>
 
