@@ -588,6 +588,39 @@ a:focus-visible,button:focus-visible,input:focus-visible{
 .cta-band p{color:var(--text-muted); margin-top:.8rem;}
 .cta-band .btn{margin-top:1.6rem;}
 
+/* ------------------------------- Résultats --------------------------------- */
+
+.results-table{
+  width:100%; border-collapse:collapse;
+  margin-top:2.4rem;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-m);
+  overflow:hidden;
+}
+.results-table th{
+  text-align:left; padding:.9rem 1.2rem;
+  font-family:var(--font-mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.08em;
+  color:var(--text-faint); background:var(--surface-2);
+}
+.results-table td{
+  padding:1rem 1.2rem; font-size:.88rem; vertical-align:top;
+  border-top:1px solid var(--line-soft);
+}
+.results-table tr:first-child td{border-top:none;}
+
+.result-badge{
+  display:inline-flex; align-items:center;
+  font-family:var(--font-mono); font-size:.76rem; font-weight:700;
+  padding:.3rem .7rem; border-radius:999px; white-space:nowrap;
+}
+.result-win{background:rgba(52,211,153,.15); color:var(--green);}
+.result-lose{background:rgba(242,104,92,.15); color:var(--red);}
+.result-pending{background:var(--surface-2); color:var(--text-faint);}
+
+.results-summary{
+  margin-top:1.6rem;
+  font-family:var(--font-mono); font-size:.86rem; color:var(--blue);
+}
+
 /* --------------------------------- Footer --------------------------------- */
 
 .site-footer{
