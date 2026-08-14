@@ -1,5 +1,5 @@
 // scripts/render-matches.js
-// Version corrigée avec isolation totale du style pour éviter les superpositions.
+// Script final avec structure de blocs isolés pour éviter les chevauchements de texte.
 
 function escapeHtml(str) {
   const div = document.createElement("div");
@@ -59,25 +59,25 @@ function ticketCard(m) {
         <p class="ticket-analysis">${analysis}</p>
       </div>
       
-      <div class="ticket-stub" style="display: flex; flex-direction: column; justify-content: center; gap: 8px; min-width: 160px; padding: 0.5rem 0;">
-        <div style="font-size: 0.65rem; text-transform: uppercase; text-align: center; letter-spacing: 0.5px; margin-bottom: 2px; color: var(--text-muted, #aaa);">3 Pronostics</div>
+      <div class="ticket-stub" style="display: flex; flex-direction: column; justify-content: center; gap: 6px; min-width: 170px; padding: 0.5rem 0;">
+        <div style="font-size: 0.65rem; text-transform: uppercase; text-align: center; letter-spacing: 0.5px; margin-bottom: 2px; color: #aaa;">3 Pronostics</div>
         
         <!-- Bloc 1X2 -->
-        <div style="background: rgba(255,255,255,0.04); padding: 8px 10px; border-radius: 6px; text-align: center; border: 1px solid rgba(255,255,255,0.06);">
-          <div style="font-size: 0.7rem; color: #aaa; text-transform: uppercase; margin-bottom: 2px;">1×2</div>
-          <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">${pred1X2}</div>
+        <div style="background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.06);">
+          <span style="font-size: 0.65rem; color: #aaa; text-transform: uppercase; margin-bottom: 2px; font-weight: 500;">1×2</span> 
+          <strong style="color: #fff; font-size: 0.9rem; line-height: 1.2;">${pred1X2}</strong>
         </div>
         
         <!-- Bloc +/- 2.5 BUTS -->
-        <div style="background: rgba(255,255,255,0.04); padding: 8px 10px; border-radius: 6px; text-align: center; border: 1px solid rgba(255,255,255,0.06);">
-          <div style="font-size: 0.7rem; color: #aaa; text-transform: uppercase; margin-bottom: 2px;">+/- 2.5 BUTS</div>
-          <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">${predPM}</div>
+        <div style="background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.06);">
+          <span style="font-size: 0.65rem; color: #aaa; text-transform: uppercase; margin-bottom: 2px; font-weight: 500;">+/- 2.5 BUTS</span> 
+          <strong style="color: #fff; font-size: 0.9rem; line-height: 1.2;">${predPM}</strong>
         </div>
         
         <!-- Bloc BTTS -->
-        <div style="background: rgba(255,255,255,0.04); padding: 8px 10px; border-radius: 6px; text-align: center; border: 1px solid rgba(255,255,255,0.06);">
-          <div style="font-size: 0.7rem; color: #aaa; text-transform: uppercase; margin-bottom: 2px;">BTTS</div>
-          <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">${predBTTS}</div>
+        <div style="background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.06);">
+          <span style="font-size: 0.65rem; color: #aaa; text-transform: uppercase; margin-bottom: 2px; font-weight: 500;">BTTS</span> 
+          <strong style="color: #fff; font-size: 0.9rem; line-height: 1.2;">${predBTTS}</strong>
         </div>
       </div>
     </article>
