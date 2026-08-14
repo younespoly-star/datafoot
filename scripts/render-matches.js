@@ -1,5 +1,5 @@
 // scripts/render-matches.js
-// Script final avec styles uniformes et harmonisés pour les 3 blocs de pronostics.
+// Script avec les réponses en blanc et une disposition propre sans superposition.
 
 function escapeHtml(str) {
   const div = document.createElement("div");
@@ -50,8 +50,8 @@ function ticketCard(m) {
     }
   }
 
-  // Couleur orange commune pour les trois libellés de marchés
-  const orangeColor = "var(--accent-color, #f97316)";
+  // Couleur orange pour les libellés de marchés uniquement
+  const labelColor = "var(--accent-color, #f97316)";
 
   return `
     <article class="ticket" data-market="${escapeHtml(m.market || '1X2')}" data-confidence="${m.confidence || 3}" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: stretch; gap: 1rem;">
@@ -67,19 +67,19 @@ function ticketCard(m) {
         
         <!-- Bloc 1X2 -->
         <div style="background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.06);">
-          <span style="font-size: 0.65rem; color: ${orangeColor}; text-transform: uppercase; margin-bottom: 2px; font-weight: 600;">1×2</span> 
+          <span style="font-size: 0.65rem; color: ${labelColor}; text-transform: uppercase; margin-bottom: 2px; font-weight: 600;">1×2</span> 
           <strong style="color: #fff; font-size: 0.95rem; line-height: 1.2;">${pred1X2}</strong>
         </div>
         
         <!-- Bloc +/- 2.5 BUTS -->
         <div style="background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.06);">
-          <span style="font-size: 0.65rem; color: ${orangeColor}; text-transform: uppercase; margin-bottom: 2px; font-weight: 600;">+/- 2.5 BUTS</span> 
+          <span style="font-size: 0.65rem; color: ${labelColor}; text-transform: uppercase; margin-bottom: 2px; font-weight: 600;">+/- 2.5 BUTS</span> 
           <strong style="color: #fff; font-size: 0.95rem; line-height: 1.2;">${predPM}</strong>
         </div>
         
         <!-- Bloc BTTS -->
         <div style="background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.06);">
-          <span style="font-size: 0.65rem; color: ${orangeColor}; text-transform: uppercase; margin-bottom: 2px; font-weight: 600;">BTTS</span> 
+          <span style="font-size: 0.65rem; color: ${labelColor}; text-transform: uppercase; margin-bottom: 2px; font-weight: 600;">BTTS</span> 
           <strong style="color: #fff; font-size: 0.95rem; line-height: 1.2;">${predBTTS}</strong>
         </div>
       </div>
