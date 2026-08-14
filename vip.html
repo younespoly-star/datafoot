@@ -255,6 +255,8 @@
   const signupForm = document.getElementById("signup-form");
   signupForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+    
+    // Récupération stricte par ID pour éviter les confusions de champs
     const email = document.getElementById("signup-email").value;
     const password = document.getElementById("signup-password").value;
 
