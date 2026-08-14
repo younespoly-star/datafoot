@@ -1,5 +1,5 @@
 // scripts/render-matches.js
-// Charge data/matches.json et affiche chaque prédiction avec ses 3 pronostics alignés proprement.
+// Charge data/matches.json et harmonise la couleur des textes de droite avec la date.
 
 function escapeHtml(str) {
   const div = document.createElement("div");
@@ -19,7 +19,6 @@ function ticketCard(m) {
     ? "Pronostic généré automatiquement par notre modèle statistique, à partir des données de forme et de cotes du marché."
     : "Ce match sera intégré à notre sélection dès qu'une analyse sera disponible.";
 
-  // Récupération propre des 3 prédictions depuis le JSON
   const pred1X2 = escapeHtml(m.prediction1X2 || m.pick || "—");
   const predPM = escapeHtml(m.overUnder || m.pm || "—");
   const predBSB = escapeHtml(m.btts || m.bsb || "—");
@@ -34,20 +33,20 @@ function ticketCard(m) {
       </div>
       
       <div class="ticket-stub" style="display: flex; flex-direction: column; justify-content: center; gap: 8px; min-width: 180px; padding: 0.5rem 0;">
-        <span class="ticket-odd-label" style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-faint); text-align: center; letter-spacing: 0.5px; margin-bottom: 2px;">3 Pronostics</span>
+        <span class="ticket-comp" style="font-size: 0.7rem; text-transform: uppercase; text-align: center; letter-spacing: 0.5px; margin-bottom: 2px;">3 Pronostics</span>
         
         <div style="font-size: 0.8rem; background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
-          <span style="color: var(--text-faint); font-weight: 500;">1×2 :</span> 
+          <span class="ticket-comp" style="font-size: 0.75rem; font-weight: 500;">1×2 :</span> 
           <strong style="color: var(--text-main); text-align: right; max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${pred1X2}</strong>
         </div>
         
         <div style="font-size: 0.8rem; background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
-          <span style="color: var(--text-faint); font-weight: 500;">p/m :</span> 
+          <span class="ticket-comp" style="font-size: 0.75rem; font-weight: 500;">p/m :</span> 
           <strong style="color: var(--text-main);">${predPM}</strong>
         </div>
         
         <div style="font-size: 0.8rem; background: rgba(255,255,255,0.04); padding: 6px 10px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.06);">
-          <span style="color: var(--text-faint); font-weight: 500;">b/sb :</span> 
+          <span class="ticket-comp" style="font-size: 0.75rem; font-weight: 500;">b/sb :</span> 
           <strong style="color: var(--text-main);">${predBSB}</strong>
         </div>
       </div>
