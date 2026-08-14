@@ -1,15 +1,7 @@
 // scripts/render-matches.js
 // Charge data/matches.json (généré par le workflow GitHub Actions) et
 // affiche chaque prédiction sous forme de carte "ticket" complète,
-// dans le conteneur #upcoming-matches (grille .ticket-grid).
-
-function starsHtml(n) {
-  let html = "";
-  for (let i = 1; i <= 5; i++) {
-    html += `<span class="star${i <= n ? " on" : ""}">★</span>`;
-  }
-  return html;
-}
+// avec 3 pronostics à droite, dans le conteneur #upcoming-matches (grille .ticket-grid).
 
 function escapeHtml(str) {
   const div = document.createElement("div");
@@ -29,6 +21,11 @@ function ticketCard(m) {
     ? "Pronostic généré automatiquement par notre modèle statistique, à partir des données de forme et de cotes du marché."
     : "Ce match sera intégré à notre sélection dès qu'une analyse sera disponible.";
 
+  // Récupération des 3 prédictions (avec des valeurs par défaut si non définies dans le JSON)
+  const pred1X2 = m.prediction1X2 || m.pick || "—";
+  const predPM = m.overUnder || "2.5";
+  const predBSB = m.btts || "Oui/Non";
+
   return `
     <article class="ticket">
       <div class="ticket-main">
@@ -37,15 +34,17 @@ function ticketCard(m) {
         <p class="ticket-pick">${pickLine}</p>
         <p class="ticket-analysis">${analysis}</p>
       </div>
-      <div class="ticket-stub">
-        ${m.odds ? `
-          <span class="ticket-odd-label">Cote</span>
-          <span class="ticket-odd">${Number(m.odds).toFixed(2)}</span>
-          <div class="ticket-confidence" aria-label="Confiance ${m.confidence} sur 5">${starsHtml(m.confidence)}</div>
-        ` : `
-          <span class="ticket-odd-label">Cote</span>
-          <span class="ticket-odd" style="font-size:1.1rem; color:var(--text-faint);">—</span>
-        `}
+      <div class="ticket-stub" style="display: flex; flex-direction: column; justify-content: center; gap: 6px; min-width: 140px;">
+        <span class="ticket-odd-label" style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-faint);">3 Pronostics</span>
+        <div style="font-size: 0.8rem; background: rgba(255,255,255,0.04); padding: 2px 6px; border-radius: 4px; display: flex; justify-content: space-between;">
+          <span style="color: var(--text-faint);">1x2:</span> <strong style="color: var(--text-main);">${escapeHtml(pred1X2)}</strong>
+        </div>
+        <div style="font-size: 0.8rem; background: rgba(255,255,255,0.04); padding: 2px 6px; border-radius: 4px; display: flex; justify-content: space-between;">
+          <span style="color: var(--text-faint);">p/m:</span> <strong style="color: var(--text-main);">${escapeHtml(predPM)}</strong>
+        </div>
+        <div style="font-size: 0.8rem; background: rgba(255,255,255,0.04); padding: 2px 6px; border-radius: 4px; display: flex; justify-content: space-between;">
+          <span style="color: var(--text-faint);">b/sb:</span> <strong style="color: var(--text-main);">${escapeHtml(predBSB)}</strong>
+        </div>
       </div>
     </article>
   `;
