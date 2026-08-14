@@ -1,47 +1,7 @@
 {
-  "generatedAt": "2026-08-14T09:42:25.560Z",
-  "count": 82,
+  "generatedAt": "2026-08-14T12:41:49.690Z",
+  "count": 88,
   "matches": [
-    {
-      "id": 414079,
-      "competition": "Japan",
-      "date": "2026-08-14T11:00:00",
-      "homeTeam": "Tokyo Verdy",
-      "awayTeam": "Kashiwa Reysol",
-      "pick": "Victoire Kashiwa Reysol",
-      "odds": 1.922,
-      "confidence": 2
-    },
-    {
-      "id": 414069,
-      "competition": "China",
-      "date": "2026-08-14T12:35:00",
-      "homeTeam": "Shandong Taishan",
-      "awayTeam": "Qingdao Hainiu",
-      "pick": "Victoire Shandong Taishan",
-      "odds": 1.404,
-      "confidence": 4
-    },
-    {
-      "id": 414070,
-      "competition": "China",
-      "date": "2026-08-14T12:35:00",
-      "homeTeam": "Wuhan Three Towns",
-      "awayTeam": "Shanghai Port",
-      "pick": "Victoire Shanghai Port",
-      "odds": 1.984,
-      "confidence": 2
-    },
-    {
-      "id": 414071,
-      "competition": "China",
-      "date": "2026-08-14T13:00:00",
-      "homeTeam": "Qingdao West Coast",
-      "awayTeam": "Chongqing Tonglianglong",
-      "pick": "Double Chance : Qingdao West Coast ou Chongqing Tonglianglong",
-      "odds": 1.294,
-      "confidence": 5
-    },
     {
       "id": 414060,
       "competition": "Ukraine",
@@ -821,6 +781,106 @@
       "pick": "Victoire Recoleta",
       "odds": 2.4,
       "confidence": 1
+    },
+    {
+      "id": 414111,
+      "competition": "Uruguay",
+      "date": "2026-08-14T23:00:00",
+      "homeTeam": "Boston River",
+      "awayTeam": "Danubio Montevideo",
+      "pick": "Double Chance : Boston River ou nul",
+      "odds": 1.33,
+      "confidence": 5
+    },
+    {
+      "id": 414108,
+      "competition": "Brazil",
+      "date": "2026-08-14T23:30:00",
+      "homeTeam": "Sao Bernardo SP",
+      "awayTeam": "Botafogo SP",
+      "pick": "Double Chance : Sao Bernardo SP ou nul",
+      "odds": 1.316,
+      "confidence": 5
+    },
+    {
+      "id": 414370,
+      "competition": "Chile",
+      "date": "2026-08-15T00:00:00",
+      "homeTeam": "Universidad de Concepcion",
+      "awayTeam": "Deportes La Serena",
+      "pick": "Double Chance : Universidad de Concepcion ou Deportes La Serena",
+      "odds": 1.276,
+      "confidence": 5
+    },
+    {
+      "id": 414411,
+      "competition": "Peru",
+      "date": "2026-08-15T00:00:00",
+      "homeTeam": "Cusco FC",
+      "awayTeam": "Juan Pablo II College",
+      "pick": "Victoire Cusco FC",
+      "odds": 1.3,
+      "confidence": 5
+    },
+    {
+      "id": 414376,
+      "competition": "Colombia",
+      "date": "2026-08-15T00:00:00",
+      "homeTeam": "Llaneros FC",
+      "awayTeam": "Deportes Tolima",
+      "pick": "Double Chance : Llaneros FC ou nul",
+      "odds": 1.455,
+      "confidence": 4
+    },
+    {
+      "id": 414347,
+      "competition": "Argentina",
+      "date": "2026-08-15T00:30:00",
+      "homeTeam": "Racing Club",
+      "awayTeam": "Banfield",
+      "pick": "Victoire Racing Club",
+      "odds": 1.69,
+      "confidence": 3
+    },
+    {
+      "id": 414351,
+      "competition": "Argentina",
+      "date": "2026-08-15T00:30:00",
+      "homeTeam": "Atletico de Rafaela",
+      "awayTeam": "Defensores de Belgrano",
+      "pick": "Double Chance : Atletico de Rafaela ou nul",
+      "odds": 1.288,
+      "confidence": 5
+    },
+    {
+      "id": 414362,
+      "competition": "Brazil",
+      "date": "2026-08-15T00:30:00",
+      "homeTeam": "Sport Recife PE",
+      "awayTeam": "Londrina PR",
+      "pick": "Victoire Sport Recife PE",
+      "odds": 1.618,
+      "confidence": 3
+    },
+    {
+      "id": 414378,
+      "competition": "Ecuador",
+      "date": "2026-08-15T01:00:00",
+      "homeTeam": "Independiente del Valle",
+      "awayTeam": "Delfin Manta",
+      "pick": "Victoire Independiente del Valle",
+      "odds": 1.185,
+      "confidence": 5
+    },
+    {
+      "id": 414359,
+      "competition": "Bolivia",
+      "date": "2026-08-15T01:00:00",
+      "homeTeam": "Bolivar La Paz",
+      "awayTeam": "San Antonio Bulo Bulo",
+      "pick": "Victoire Bolivar La Paz",
+      "odds": 1.09,
+      "confidence": 5
     }
   ]
 }
