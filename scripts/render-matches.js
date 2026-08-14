@@ -3,8 +3,8 @@ async function renderMatches() {
   if (!container) return;
 
   try {
-    // Utilisation d'un chemin relatif robuste (ajuste si ton data/ est à la racine)
-    const res = await fetch("data/matches.json", { cache: "no-store" });
+    // Correction du chemin : on remonte d'un dossier avec "../" car le script est dans le dossier "scripts"
+    const res = await fetch("../data/matches.json", { cache: "no-store" });
     if (!res.ok) throw new Error("Fichier de données introuvable");
     
     const data = await res.json();
