@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Résultats — DataFoot</title>
+<meta name="description" content="Bilan des matchs terminés et des pronostics DataFoot : gagné, perdu, taux de réussite.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">Data<span>Foot</span></span>
+      <span class="logo-tag">Statistiques &amp; analyses de football</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="pronostics.html">Pronostics</a>
+      <a href="resultats.html" class="active">Résultats</a>
+      <a href="vip.html">Coupons Gratuits</a>
+      <a href="bankroll.html">Bankroll</a>
+    </nav>
+    <a href="vip.html" class="btn btn-primary">Voir les coupons</a>
+  </div>
+</header>
+
+<section class="section" style="padding-top:3.5rem;">
+  <div class="container">
+    <span class="eyebrow">Transparence totale</span>
+    <h1 class="section-title">Résultats &amp; Bilan</h1>
+    <p class="section-lead">Chaque match terminé est comparé à nos pronostics publiés. Rien n'est caché : les pronostics perdants apparaissent au même titre que les gagnants.</p>
+
+    <p class="results-summary" id="results-summary">Chargement du bilan…</p>
+
+    <table class="results-table">
+      <thead>
+        <tr>
+          <th>Match</th>
+          <th>Score final</th>
+          <th>Pronostic</th>
+          <th>Résultat</th>
+        </tr>
+      </thead>
+      <tbody id="results-body">
+        <tr><td colspan="4" class="disclaimer">Chargement…</td></tr>
+      </tbody>
+    </table>
+
+    <p class="disclaimer">Les résultats affichés dépendent de la mise à jour manuelle du fichier data/matchs_datafoot.json. Un pronostic n'apparaît en "Gagné"/"Perdu" que si le match correspondant a pu être identifié dans les deux fichiers de données.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <span class="footer-note">© 2026 DataFoot — Statistiques &amp; analyses de football</span>
+    <nav class="footer-links">
+      <a href="index.html">Accueil</a>
+      <a href="pronostics.html">Pronostics</a>
+      <a href="bankroll.html">Bankroll</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="scripts/render-results.js"></script>
+</body>
+</html>
