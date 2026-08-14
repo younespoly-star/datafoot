@@ -7,7 +7,6 @@
 <meta name="description" content="Inscris-toi gratuitement sur DataFoot et débloque 10 coupons de pronostics chaque jour, avec cotes et analyses.">
 <link rel="stylesheet" href="style.css">
 <style>
-  /* Styles pour l'affichage propre des 3 matchs par ticket */
   .coupon-matches {
     list-style: none;
     padding: 0;
@@ -69,7 +68,6 @@
 
     <div class="signup-wrap" id="signup">
 
-      <!-- Carte inscription -->
       <div class="signup-card">
         <div class="plan-name">Abonnement Gratuit</div>
         <div class="plan-price">0 € <span>/ pour toujours</span></div>
@@ -82,9 +80,9 @@
           <li>Accès illimité, aucun engagement</li>
         </ul>
 
+        <!-- Formulaire simplifié sans le prénom pour éviter tout conflit -->
         <form class="signup-form" id="signup-form">
-          <input type="text" id="signup-name" placeholder="Ton prénom" autocomplete="given-name" required>
-          <input type="email" id="signup-email" placeholder="Ton adresse email" autocomplete="email" required>
+          <input type="email" id="signup-email" placeholder="Ton adresse email" autocomplete="email" required style="width:100%; padding:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:4px;">
           <input type="password" id="signup-password" placeholder="Choisis un mot de passe" autocomplete="new-password" required style="margin-top:10px; width:100%; padding:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:4px;">
           <button type="submit" class="btn btn-primary btn-block" style="margin-top:10px;">Créer mon compte gratuit</button>
         </form>
@@ -92,14 +90,12 @@
         <p class="signup-note">En t'inscrivant, tu acceptes de recevoir les coupons DataFoot par email. Aucun spam, désinscription à tout moment.</p>
       </div>
 
-      <!-- Aperçu des coupons -->
       <div>
         <div class="coupon-unlocked-note" id="unlocked-note" style="display:none;">
           Compte créé — tes 10 tickets du jour sont débloqués
         </div>
 
         <div class="coupon-grid is-locked" id="coupon-grid">
-          <!-- Coupons générés en JS -->
         </div>
       </div>
 
@@ -118,7 +114,6 @@
   </div>
 </footer>
 
-<!-- Script complet : Firebase et affichage des coupons -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
