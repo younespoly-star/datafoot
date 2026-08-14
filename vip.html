@@ -3,44 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abonnement Gratuit — 10 Coupons par Jour — DataFoot</title>
-<meta name="description" content="Inscris-toi gratuitement sur DataFoot et débloque 10 coupons de pronostics chaque jour, avec cotes et analyses.">
+<title>10 Coupons Gratuits — DataFoot</title>
+<meta name="description" content="10 coupons de pronostics gratuits chaque jour, sans inscription. Match, pick, cote et niveau de confiance.">
 <link rel="stylesheet" href="style.css">
-<style>
-  .coupon-matches {
-    list-style: none;
-    padding: 0;
-    margin: 8px 0;
-  }
-  .coupon-match-item {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.85rem;
-    padding: 3px 0;
-    border-bottom: 1px dashed rgba(255,255,255,0.08);
-  }
-  .coupon-match-item:last-child {
-    border-bottom: none;
-  }
-  .coupon-pick {
-    font-weight: 600;
-    color: #facc15;
-    margin-left: 8px;
-  }
-  .coupon-card-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .coupon-odd-badge {
-    background: #16a34a;
-    color: #fff;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-weight: bold;
-    font-size: 0.85rem;
-  }
-</style>
 </head>
 <body>
 
@@ -53,53 +18,30 @@
     <nav class="nav-links">
       <a href="index.html">Accueil</a>
       <a href="pronostics.html">Pronostics</a>
-      <a href="vip.html" class="active">Abonnement</a>
+      <a href="vip.html" class="active">Coupons Gratuits</a>
       <a href="bankroll.html">Bankroll</a>
     </nav>
-    <a href="#signup" class="btn btn-primary">Je m'inscris</a>
+    <a href="#coupons" class="btn btn-primary">Voir les coupons</a>
   </div>
 </header>
 
 <section class="section" style="padding-top:3.5rem;">
   <div class="container">
-    <span class="eyebrow">100% gratuit</span>
-    <h1 class="section-title">10 coupons par jour, offerts.</h1>
-    <p class="section-lead">Crée ton compte DataFoot gratuitement et débloque chaque jour 10 coupons de 3 matchs complets : rencontres, pronostics et cotes. Aucun paiement, juste une inscription.</p>
+    <span class="eyebrow">100% gratuit · sans inscription</span>
+    <h1 class="section-title">10 coupons gratuits, chaque jour.</h1>
+    <p class="section-lead">Pas de compte à créer, pas de carte bancaire : voici directement 10 pronostics du jour, avec match, pick, cote et niveau de confiance, mis à jour automatiquement.</p>
 
-    <div class="signup-wrap" id="signup">
-
-      <div class="signup-card">
-        <div class="plan-name">Abonnement Gratuit</div>
-        <div class="plan-price">0 € <span>/ pour toujours</span></div>
-        <p class="plan-tagline">Inscription gratuite, sans carte bancaire. Débloque l'accès dès la création de ton compte.</p>
-
-        <ul class="plan-features">
-          <li>10 coupons de 3 matchs chaque jour</li>
-          <li>Cote combinée de ~3.00 par ticket</li>
-          <li>Mis à jour automatiquement, en continu</li>
-          <li>Accès illimité, aucun engagement</li>
-        </ul>
-
-        <!-- Formulaire simplifié sans le prénom pour éviter tout conflit -->
-        <form class="signup-form" id="signup-form">
-          <input type="email" id="signup-email" placeholder="Ton adresse email" autocomplete="email" required style="width:100%; padding:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:4px;">
-          <input type="password" id="signup-password" placeholder="Choisis un mot de passe" autocomplete="new-password" required style="margin-top:10px; width:100%; padding:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:4px;">
-          <button type="submit" class="btn btn-primary btn-block" style="margin-top:10px;">Créer mon compte gratuit</button>
-        </form>
-
-        <p class="signup-note">En t'inscrivant, tu acceptes de recevoir les coupons DataFoot par email. Aucun spam, désinscription à tout moment.</p>
-      </div>
-
-      <div>
-        <div class="coupon-unlocked-note" id="unlocked-note" style="display:none;">
-          Compte créé — tes 10 tickets du jour sont débloqués
-        </div>
-
-        <div class="coupon-grid is-locked" id="coupon-grid">
-        </div>
-      </div>
-
+    <div id="upcoming-matches" class="ticket-grid" data-limit="10" style="margin-top:2.8rem;">
+      <p class="disclaimer">Chargement des coupons…</p>
     </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Envie de voir tous les pronostics ?</h2>
+    <p>Retrouve la liste complète, avec filtres par marché et niveau de confiance.</p>
+    <a href="pronostics.html" class="btn btn-primary">Voir tous les pronostics</a>
   </div>
 </section>
 
@@ -114,159 +56,6 @@
   </div>
 </footer>
 
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyBLnQOTWMf90P8cyyw_Y66vmZhlQGanb2o",
-    authDomain: "datafoot-23d92.firebaseapp.com",
-    projectId: "datafoot-23d92",
-    storageBucket: "datafoot-23d92.firebasestorage.app",
-    messagingSenderId: "656444861686",
-    appId: "1:656444861686:web:ddbdb3dc73f2666a4510d7",
-    measurementId: "G-KV52J8K4BN"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
-  const coupons = [
-    {
-      id: 1,
-      cote: "~3.05",
-      matches: [
-        { name: "Besiktas vs Hradec Kralove", pick: "Besiktas gagne" },
-        { name: "Rangers vs Jagiellonia Bialystok", pick: "Rangers 1X" },
-        { name: "Qarabag vs Dynamo Kiev", pick: "+1.5 buts" }
-      ]
-    },
-    {
-      id: 2,
-      cote: "~3.10",
-      matches: [
-        { name: "Anderlecht vs PAOK", pick: "-3.5 buts" },
-        { name: "Midtjylland vs Bohemians", pick: "Midtjylland gagne" },
-        { name: "AS FAR Rabat vs CA Khénifra", pick: "AS FAR gagne" }
-      ]
-    },
-    {
-      id: 3,
-      cote: "~2.95",
-      matches: [
-        { name: "Pafos vs RB Salzbourg", pick: "+1.5 buts" },
-        { name: "Omonia Nicosie vs Lincoln Red Imps", pick: "Omonia gagne" },
-        { name: "Hajduk Split vs Zalgiris", pick: "Hajduk 1X" }
-      ]
-    },
-    {
-      id: 4,
-      cote: "~3.15",
-      matches: [
-        { name: "Austria Vienne vs Beitar Jerusalem", pick: "+1.5 buts" },
-        { name: "Györ vs Riga FC", pick: "Györ 1X" },
-        { name: "Saint-Gall vs Sheriff Tiraspol", pick: "+1.5 buts" }
-      ]
-    },
-    {
-      id: 5,
-      cote: "~3.00",
-      matches: [
-        { name: "CSKA Sofia vs Maccabi Tel Aviv", pick: "+1.5 buts" },
-        { name: "Dinamo Tirana vs Auda", pick: "Dinamo Tirana 1X" },
-        { name: "Egnatia vs Shamrock Rovers", pick: "-3.5 buts" }
-      ]
-    },
-    {
-      id: 6,
-      cote: "~2.90",
-      matches: [
-        { name: "Vaduz vs Inter Turku", pick: "+1.5 buts" },
-        { name: "Klaksvik vs Lech Poznan", pick: "Lech Poznan +0.5" },
-        { name: "Tromsø vs CFR Cluj", pick: "Tromsø 1X" }
-      ]
-    },
-    {
-      id: 7,
-      cote: "~3.20",
-      matches: [
-        { name: "Dunajska Streda vs Twente", pick: "Twente +0.5" },
-        { name: "Dynamo Minsk vs Braga", pick: "Braga 1X" },
-        { name: "Hammarby vs Rakow", pick: "+1.5 buts" }
-      ]
-    },
-    {
-      id: 8,
-      cote: "~3.10",
-      matches: [
-        { name: "Hearts vs Benfica", pick: "Benfica 1X" },
-        { name: "Gent vs Göteborg", pick: "Gent gagne" },
-        { name: "Al Shabab vs Al-Qadsiah", pick: "+1.5 buts" }
-      ]
-    },
-    {
-      id: 9,
-      cote: "~3.05",
-      matches: [
-        { name: "Shelbourne vs Ajax Amsterdam", pick: "Ajax 1X" },
-        { name: "Rosenborg U19 vs Ranheim U19", pick: "+2.5 buts" },
-        { name: "Deportivo vs Porto (amical)", pick: "Porto 1X" }
-      ]
-    },
-    {
-      id: 10,
-      cote: "~3.00",
-      matches: [
-        { name: "Sion vs Noah", pick: "Sion 1X" },
-        { name: "Besiktas vs Hradec Kralove", pick: "+1.5 buts" },
-        { name: "Tampereen vs Rijeka", pick: "Rijeka +0.5" }
-      ]
-    }
-  ];
-
-  const grid = document.getElementById("coupon-grid");
-
-  grid.innerHTML = coupons.map((c) => `
-    <div class="coupon-card">
-      <div class="coupon-card-head">
-        <span>TICKET #${String(c.id).padStart(2, "0")}</span>
-        <span class="coupon-odd-badge">Cote ${c.cote}</span>
-      </div>
-      <div class="coupon-card-body">
-        <ul class="coupon-matches">
-          ${c.matches.map(m => `
-            <li class="coupon-match-item">
-              <span>${m.name}</span>
-              <span class="coupon-pick">${m.pick}</span>
-            </li>
-          `).join('')}
-        </ul>
-        <div class="coupon-meta">Pronostics verrouillés</div>
-      </div>
-      <div class="locked-overlay"><span class="lock-icon">🔒</span></div>
-    </div>
-  `).join("");
-
-  const signupForm = document.getElementById("signup-form");
-  signupForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    
-    const email = document.getElementById("signup-email").value;
-    const password = document.getElementById("signup-password").value;
-
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-
-      grid.classList.remove("is-locked");
-      grid.querySelectorAll(".locked-overlay").forEach(el => el.remove());
-      grid.querySelectorAll(".coupon-meta").forEach(el => el.textContent = "✔ Ticket disponible");
-      document.getElementById("unlocked-note").style.display = "flex";
-      signupForm.innerHTML = '<p style="color:#16a34a; font-size:.9rem;">✓ Compte créé, coupons débloqués ci-contre.</p>';
-    } catch (error) {
-      alert("Erreur lors de l'inscription : " + error.message);
-    }
-  });
-</script>
-
+<script src="scripts/render-matches.js"></script>
 </body>
 </html>
