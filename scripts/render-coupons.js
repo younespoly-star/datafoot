@@ -9,7 +9,6 @@ async function renderCoupons() {
 
     let html = "";
     
-    // On groupe les matchs par 3 pour faire les coupons
     for (let i = 0; i < matches.length - 2; i += 3) {
       if (i/3 >= 10) break; // Limite à 10 coupons
 
@@ -17,7 +16,14 @@ async function renderCoupons() {
       const m2 = matches[i+1];
       const m3 = matches[i+2];
 
-      // Fonction pour formater l'affichage court du pick (ex: 1, N, 2 ou autre)
+      // Extraction ou estimation des cotes pour le combiné
+      const odd1 = parseFloat(m1.odd || m1.cote || 1.45);
+      const odd2 = parseFloat(m2.odd || m2.cote || 1.40);
+      const odd3 = parseFloat(m3.odd || m3.cote || 1.50);
+      
+      // Calcul de la cote totale du combiné
+      const totalOdd = (odd1 * odd2 * odd3).toFixed(2);
+
       function getShortPick(pickText) {
         if (!pickText) return "1X2";
         if (pickText.toLowerCase().includes("victoire")) return pickText.replace("Victoire", "").trim();
@@ -53,23 +59,19 @@ async function renderCoupons() {
             <div style="width: 10px; height: 10px; background: #111; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; position: absolute;"></div>
           </div>
 
-          <!-- Colonne de droite : Les 3 choix de picks rappelés en petits blocs -->
+          <!-- Colonne de droite : Affichage de la Cote Totale -->
           <div style="width: 140px; display: flex; flex-direction: column; align-items: center; justify-content: space-around; background: rgba(0,0,0,0.2); border-radius: 8px; padding: 10px; text-align: center;">
             <span style="font-size: 0.65rem; text-transform: uppercase; color: #aaa; letter-spacing: 1px;">Coupon #${(i/3)+1}</span>
             
-            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; padding: 5px; width: 100%;">
-              <div style="font-size: 0.55rem; color: #f97316; font-weight: bold;">MATCH 1</div>
-              <div style="font-size: 0.75rem; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${getShortPick(m1.pick)}</div>
+            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; padding: 8px; width: 100%;">
+              <div style="font-size: 0.6rem; color: #f97316; font-weight: bold;">COTE TOTALE</div>
+              <div style="font-size: 1.1rem; font-weight: bold; color: #fff; margin-top: 2px;">@ ${totalOdd}</div>
             </div>
 
-            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; padding: 5px; width: 100%;">
-              <div style="font-size: 0.55rem; color: #f97316; font-weight: bold;">MATCH 2</div>
-              <div style="font-size: 0.75rem; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${getShortPick(m2.pick)}</div>
-            </div>
-
-            <div style="background: rgba(255,255,255,0.08); border-radius: 6px; padding: 5px; width: 100%;">
-              <div style="font-size: 0.55rem; color: #f97316; font-weight: bold;">MATCH 3</div>
-              <div style="font-size: 0.75rem; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${getShortPick(m3.pick)}</div>
+            <div style="display: flex; flex-direction: column; gap: 4px; width: 100%;">
+              <div style="font-size: 0.65rem; background: rgba(255,255,255,0.04); padding: 3px; border-radius: 4px;">1: ${getShortPick(m1.pick)}</div>
+              <div style="font-size: 0.65rem; background: rgba(255,255,255,0.04); padding: 3px; border-radius: 4px;">2: ${getShortPick(m2.pick)}</div>
+              <div style="font-size: 0.65rem; background: rgba(255,255,255,0.04); padding: 3px; border-radius: 4px;">3: ${getShortPick(m3.pick)}</div>
             </div>
           </div>
 
