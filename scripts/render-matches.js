@@ -1,5 +1,5 @@
 // scripts/render-matches.js
-// Charge data/matches.json et affiche uniquement les 3 pronostics (1x2, +/- 2.5 BUTS, BTTS) sans les cotes.
+// Charge data/matches.json et affiche proprement les 3 pronostics sur des lignes séparées.
 
 function escapeHtml(str) {
   const div = document.createElement("div");
@@ -38,10 +38,8 @@ function ticketCard(m) {
   const raw1X2 = m.prediction1X2 || m.pick || "";
   const pred1X2 = get1X2Code(raw1X2, m.homeTeam || "", m.awayTeam || "");
   
-  // Formatage de +/- 2.5 BUTS
   const predPM = escapeHtml(m.overUnder || m.pm || "+ de 2.5");
   
-  // Formatage de BTTS (Oui ou Non)
   let predBTTS = m.btts || m.bsb || "Oui";
   if (typeof predBTTS === 'string') {
     const lower = predBTTS.toLowerCase();
