@@ -1,17 +1,7 @@
 {
-  "generatedAt": "2026-08-14T00:09:37.143Z",
-  "count": 5,
+  "generatedAt": "2026-08-14T09:42:25.560Z",
+  "count": 82,
   "matches": [
-    {
-      "id": 414080,
-      "competition": "Mexico",
-      "date": "2026-08-14T02:00:00",
-      "homeTeam": "Alebrijes de Oaxaca",
-      "awayTeam": "Tepatitlan",
-      "pick": "Double Chance : Alebrijes de Oaxaca ou Tepatitlan",
-      "odds": 1.254,
-      "confidence": 5
-    },
     {
       "id": 414079,
       "competition": "Japan",
@@ -19,7 +9,7 @@
       "homeTeam": "Tokyo Verdy",
       "awayTeam": "Kashiwa Reysol",
       "pick": "Victoire Kashiwa Reysol",
-      "odds": 1.938,
+      "odds": 1.922,
       "confidence": 2
     },
     {
@@ -29,7 +19,7 @@
       "homeTeam": "Shandong Taishan",
       "awayTeam": "Qingdao Hainiu",
       "pick": "Victoire Shandong Taishan",
-      "odds": 1.418,
+      "odds": 1.404,
       "confidence": 4
     },
     {
@@ -39,7 +29,7 @@
       "homeTeam": "Wuhan Three Towns",
       "awayTeam": "Shanghai Port",
       "pick": "Victoire Shanghai Port",
-      "odds": 1.986,
+      "odds": 1.984,
       "confidence": 2
     },
     {
@@ -49,8 +39,788 @@
       "homeTeam": "Qingdao West Coast",
       "awayTeam": "Chongqing Tonglianglong",
       "pick": "Double Chance : Qingdao West Coast ou Chongqing Tonglianglong",
-      "odds": 1.286,
+      "odds": 1.294,
       "confidence": 5
+    },
+    {
+      "id": 414060,
+      "competition": "Ukraine",
+      "date": "2026-08-14T14:00:00",
+      "homeTeam": "Prykarpattia Ivano-Frankivsk",
+      "awayTeam": "Probiy Horodenka",
+      "pick": "Double Chance : Prykarpattia Ivano-Frankivsk ou Probiy Horodenka",
+      "odds": 1.295,
+      "confidence": 5
+    },
+    {
+      "id": 414008,
+      "competition": "Belarus",
+      "date": "2026-08-14T15:00:00",
+      "homeTeam": "Arsenal Dzerzhinsk",
+      "awayTeam": "Slavia Mozyr",
+      "pick": "Victoire Slavia Mozyr",
+      "odds": 2.02,
+      "confidence": 2
+    },
+    {
+      "id": 414045,
+      "competition": "Russia",
+      "date": "2026-08-14T15:00:00",
+      "homeTeam": "FC Orenburg",
+      "awayTeam": "Lokomotiv Moskva",
+      "pick": "Victoire Lokomotiv Moskva",
+      "odds": 2.175,
+      "confidence": 2
+    },
+    {
+      "id": 414090,
+      "competition": "Uzbekistan",
+      "date": "2026-08-14T15:00:00",
+      "homeTeam": "Navbahor Namangan",
+      "awayTeam": "Bunyodkor Tashkent",
+      "pick": "Victoire Navbahor Namangan",
+      "odds": 1.347,
+      "confidence": 4
+    },
+    {
+      "id": 414088,
+      "competition": "UAE",
+      "date": "2026-08-14T15:10:00",
+      "homeTeam": "Al-Nasr Dubai",
+      "awayTeam": "Al Ittihad Kalba",
+      "pick": "Victoire Al-Nasr Dubai",
+      "odds": 1.582,
+      "confidence": 3
+    },
+    {
+      "id": 414022,
+      "competition": "Finland",
+      "date": "2026-08-14T16:00:00",
+      "homeTeam": "VPS Vaasa",
+      "awayTeam": "TPS Turku",
+      "pick": "Victoire VPS Vaasa",
+      "odds": 1.664,
+      "confidence": 3
+    },
+    {
+      "id": 414046,
+      "competition": "Russia",
+      "date": "2026-08-14T16:00:00",
+      "homeTeam": "Neftekhimik Nizhnekamsk",
+      "awayTeam": "Shinnik Yaroslavl",
+      "pick": "Double Chance : Neftekhimik Nizhnekamsk ou nul",
+      "odds": 1.385,
+      "confidence": 4
+    },
+    {
+      "id": 414091,
+      "competition": "Uzbekistan",
+      "date": "2026-08-14T16:00:00",
+      "homeTeam": "Dinamo Samarqand",
+      "awayTeam": "Xorazm Urganch",
+      "pick": "Victoire Dinamo Samarqand",
+      "odds": 1.722,
+      "confidence": 3
+    },
+    {
+      "id": 414043,
+      "competition": "Romania",
+      "date": "2026-08-14T16:30:00",
+      "homeTeam": "FC Voluntari",
+      "awayTeam": "Petrolul Ploiesti",
+      "pick": "Double Chance : FC Voluntari ou nul",
+      "odds": 1.298,
+      "confidence": 5
+    },
+    {
+      "id": 414023,
+      "competition": "Finland",
+      "date": "2026-08-14T16:30:00",
+      "homeTeam": "JaPS Jarvenpaa",
+      "awayTeam": "Haka Valkeakoski",
+      "pick": "Victoire Haka Valkeakoski",
+      "odds": 1.643,
+      "confidence": 3
+    },
+    {
+      "id": 414092,
+      "competition": "Uzbekistan",
+      "date": "2026-08-14T16:30:00",
+      "homeTeam": "PFK Qizilqum",
+      "awayTeam": "Mash'al Mubarek",
+      "pick": "Victoire PFK Qizilqum",
+      "odds": 1.72,
+      "confidence": 3
+    },
+    {
+      "id": 414007,
+      "competition": "Azerbaijan",
+      "date": "2026-08-14T16:30:00",
+      "homeTeam": "Turan Tovuz",
+      "awayTeam": "Gabala SC",
+      "pick": "Double Chance : Turan Tovuz ou nul",
+      "odds": 1.215,
+      "confidence": 5
+    },
+    {
+      "id": 414021,
+      "competition": "Estonia",
+      "date": "2026-08-14T17:00:00",
+      "homeTeam": "Nomme United",
+      "awayTeam": "Tartu Tammeka",
+      "pick": "Double Chance : Nomme United ou Tartu Tammeka",
+      "odds": 1.202,
+      "confidence": 5
+    },
+    {
+      "id": 414009,
+      "competition": "Belarus",
+      "date": "2026-08-14T17:00:00",
+      "homeTeam": "Dnepr Mogilev",
+      "awayTeam": "Belshina",
+      "pick": "Victoire Dnepr Mogilev",
+      "odds": 1.63,
+      "confidence": 3
+    },
+    {
+      "id": 414016,
+      "competition": "Czech Republic",
+      "date": "2026-08-14T17:00:00",
+      "homeTeam": "Dukla Prague",
+      "awayTeam": "Slavia Prague B",
+      "pick": "Victoire Dukla Prague",
+      "odds": 1.61,
+      "confidence": 3
+    },
+    {
+      "id": 414017,
+      "competition": "Czech Republic",
+      "date": "2026-08-14T17:00:00",
+      "homeTeam": "SK Kladno",
+      "awayTeam": "FC Vlasim",
+      "pick": "Double Chance : SK Kladno ou FC Vlasim",
+      "odds": 1.25,
+      "confidence": 5
+    },
+    {
+      "id": 413995,
+      "competition": "Italy",
+      "date": "2026-08-14T17:00:00",
+      "homeTeam": "Parma",
+      "awayTeam": "Catania",
+      "pick": "Victoire Parma",
+      "odds": 1.308,
+      "confidence": 5
+    },
+    {
+      "id": 414039,
+      "competition": "Poland",
+      "date": "2026-08-14T17:00:00",
+      "homeTeam": "Pogon Grodzisk Mazowiecki",
+      "awayTeam": "Stal Rzeszow",
+      "pick": "Double Chance : Pogon Grodzisk Mazowiecki ou Stal Rzeszow",
+      "odds": 1.192,
+      "confidence": 5
+    },
+    {
+      "id": 414000,
+      "competition": "Armenia",
+      "date": "2026-08-14T17:00:00",
+      "homeTeam": "Gandzasar",
+      "awayTeam": "Shirak",
+      "pick": "Double Chance : Gandzasar ou Shirak",
+      "odds": 1.3,
+      "confidence": 5
+    },
+    {
+      "id": 413993,
+      "competition": "Germany",
+      "date": "2026-08-14T17:30:00",
+      "homeTeam": "Holstein Kiel",
+      "awayTeam": "Sankt Pauli",
+      "pick": "Double Chance : Holstein Kiel ou Sankt Pauli",
+      "odds": 1.266,
+      "confidence": 5
+    },
+    {
+      "id": 414002,
+      "competition": "Austria",
+      "date": "2026-08-14T17:30:00",
+      "homeTeam": "Hertha Wels",
+      "awayTeam": "Rapid Wien II",
+      "pick": "Double Chance : Hertha Wels ou Rapid Wien II",
+      "odds": 1.243,
+      "confidence": 5
+    },
+    {
+      "id": 414047,
+      "competition": "Russia",
+      "date": "2026-08-14T17:30:00",
+      "homeTeam": "Rotor Volgograd",
+      "awayTeam": "Ural Sverdlovskaya Oblast",
+      "pick": "Double Chance : Rotor Volgograd ou Ural Sverdlovskaya Oblast",
+      "odds": 1.345,
+      "confidence": 4
+    },
+    {
+      "id": 413992,
+      "competition": "Germany",
+      "date": "2026-08-14T17:30:00",
+      "homeTeam": "Eintracht Braunschweig",
+      "awayTeam": "Bochum",
+      "pick": "Double Chance : Eintracht Braunschweig ou Bochum",
+      "odds": 1.298,
+      "confidence": 5
+    },
+    {
+      "id": 414089,
+      "competition": "UAE",
+      "date": "2026-08-14T17:45:00",
+      "homeTeam": "Al-Wahda Abu Dhabi",
+      "awayTeam": "Ajman Club",
+      "pick": "Victoire Al-Wahda Abu Dhabi",
+      "odds": 1.7,
+      "confidence": 3
+    },
+    {
+      "id": 414082,
+      "competition": "Saudi Arabia",
+      "date": "2026-08-14T17:50:00",
+      "homeTeam": "Neom SC",
+      "awayTeam": "Al-Fayha",
+      "pick": "Victoire Neom SC",
+      "odds": 1.628,
+      "confidence": 3
+    },
+    {
+      "id": 414020,
+      "competition": "Denmark",
+      "date": "2026-08-14T18:00:00",
+      "homeTeam": "Kolding",
+      "awayTeam": "Vejle",
+      "pick": "Victoire Vejle",
+      "odds": 2.086,
+      "confidence": 2
+    },
+    {
+      "id": 414054,
+      "competition": "Sweden",
+      "date": "2026-08-14T18:00:00",
+      "homeTeam": "AFC Eskilstuna",
+      "awayTeam": "Hammarby Talang FF",
+      "pick": "Victoire Hammarby Talang FF",
+      "odds": 1.53,
+      "confidence": 4
+    },
+    {
+      "id": 414018,
+      "competition": "Denmark",
+      "date": "2026-08-14T18:00:00",
+      "homeTeam": "Viborg",
+      "awayTeam": "AGF Aarhus",
+      "pick": "Double Chance : Viborg ou AGF Aarhus",
+      "odds": 1.258,
+      "confidence": 5
+    },
+    {
+      "id": 414055,
+      "competition": "Sweden",
+      "date": "2026-08-14T18:00:00",
+      "homeTeam": "Lunds",
+      "awayTeam": "Hassleholms IF",
+      "pick": "Double Chance : Lunds ou Hassleholms IF",
+      "odds": 1.224,
+      "confidence": 5
+    },
+    {
+      "id": 414053,
+      "competition": "Sweden",
+      "date": "2026-08-14T18:00:00",
+      "homeTeam": "Landskrona BoIS",
+      "awayTeam": "Oddevold",
+      "pick": "Double Chance : Landskrona BoIS ou nul",
+      "odds": 1.396,
+      "confidence": 4
+    },
+    {
+      "id": 414037,
+      "competition": "Norway",
+      "date": "2026-08-14T18:00:00",
+      "homeTeam": "Rosenborg",
+      "awayTeam": "Viking Stavanger",
+      "pick": "Double Chance : Rosenborg ou Viking Stavanger",
+      "odds": 1.232,
+      "confidence": 5
+    },
+    {
+      "id": 413994,
+      "competition": "Germany",
+      "date": "2026-08-14T18:00:00",
+      "homeTeam": "Wurzburger Kickers",
+      "awayTeam": "Wehen Wiesbaden",
+      "pick": "Double Chance : Wurzburger Kickers ou Wehen Wiesbaden",
+      "odds": 1.26,
+      "confidence": 5
+    },
+    {
+      "id": 414052,
+      "competition": "Sweden",
+      "date": "2026-08-14T18:00:00",
+      "homeTeam": "Brage",
+      "awayTeam": "Orebro",
+      "pick": "Double Chance : Brage ou Orebro",
+      "odds": 1.26,
+      "confidence": 5
+    },
+    {
+      "id": 414051,
+      "competition": "Sweden",
+      "date": "2026-08-14T18:00:00",
+      "homeTeam": "Elfsborg",
+      "awayTeam": "Vasteras",
+      "pick": "Double Chance : Elfsborg ou nul",
+      "odds": 1.2,
+      "confidence": 5
+    },
+    {
+      "id": 414050,
+      "competition": "Slovakia",
+      "date": "2026-08-14T18:00:00",
+      "homeTeam": "Tatran Liptovsky Mikulas",
+      "awayTeam": "MFK Zvolen",
+      "pick": "Victoire Tatran Liptovsky Mikulas",
+      "odds": 1.622,
+      "confidence": 3
+    },
+    {
+      "id": 414042,
+      "competition": "Portugal",
+      "date": "2026-08-14T18:00:00",
+      "homeTeam": "Academica Coimbra",
+      "awayTeam": "Feirense",
+      "pick": "Double Chance : Academica Coimbra ou Feirense",
+      "odds": 1.308,
+      "confidence": 5
+    },
+    {
+      "id": 414077,
+      "competition": "Iran",
+      "date": "2026-08-14T18:00:00",
+      "homeTeam": "Esteghlal Khuzestan",
+      "awayTeam": "Aluminium Arak",
+      "pick": "Double Chance : Esteghlal Khuzestan ou nul",
+      "odds": 1.37,
+      "confidence": 4
+    },
+    {
+      "id": 414019,
+      "competition": "Denmark",
+      "date": "2026-08-14T18:00:00",
+      "homeTeam": "AAB Aalborg",
+      "awayTeam": "Fredericia",
+      "pick": "Double Chance : AAB Aalborg ou Fredericia",
+      "odds": 1.242,
+      "confidence": 5
+    },
+    {
+      "id": 414001,
+      "competition": "Austria",
+      "date": "2026-08-14T18:30:00",
+      "homeTeam": "LASK Linz",
+      "awayTeam": "SV Ried",
+      "pick": "Victoire LASK Linz",
+      "odds": 1.504,
+      "confidence": 4
+    },
+    {
+      "id": 414085,
+      "competition": "South Africa",
+      "date": "2026-08-14T18:30:00",
+      "homeTeam": "Stellenbosch",
+      "awayTeam": "Marumo Gallants",
+      "pick": "Double Chance : Stellenbosch ou nul",
+      "odds": 1.168,
+      "confidence": 5
+    },
+    {
+      "id": 414031,
+      "competition": "Netherlands",
+      "date": "2026-08-14T19:00:00",
+      "homeTeam": "Almere City FC",
+      "awayTeam": "Jong PSV",
+      "pick": "Victoire Almere City FC",
+      "odds": 1.654,
+      "confidence": 3
+    },
+    {
+      "id": 414036,
+      "competition": "Netherlands",
+      "date": "2026-08-14T19:00:00",
+      "homeTeam": "Roda JC Kerkrade",
+      "awayTeam": "Helmond Sport",
+      "pick": "Double Chance : Roda JC Kerkrade ou nul",
+      "odds": 1.19,
+      "confidence": 5
+    },
+    {
+      "id": 414083,
+      "competition": "Saudi Arabia",
+      "date": "2026-08-14T19:00:00",
+      "homeTeam": "Al-Ettifaq Dammam",
+      "awayTeam": "Al-Riyadh",
+      "pick": "Double Chance : Al-Ettifaq Dammam ou Al-Riyadh",
+      "odds": 1.242,
+      "confidence": 5
+    },
+    {
+      "id": 414032,
+      "competition": "Netherlands",
+      "date": "2026-08-14T19:00:00",
+      "homeTeam": "FC Eindhoven",
+      "awayTeam": "MVV Maastricht",
+      "pick": "Double Chance : FC Eindhoven ou MVV Maastricht",
+      "odds": 1.218,
+      "confidence": 5
+    },
+    {
+      "id": 414035,
+      "competition": "Netherlands",
+      "date": "2026-08-14T19:00:00",
+      "homeTeam": "RKC Waalwijk",
+      "awayTeam": "FC Dordrecht",
+      "pick": "Double Chance : RKC Waalwijk ou FC Dordrecht",
+      "odds": 1.224,
+      "confidence": 5
+    },
+    {
+      "id": 414011,
+      "competition": "Belgium",
+      "date": "2026-08-14T19:00:00",
+      "homeTeam": "Seraing",
+      "awayTeam": "Lokeren",
+      "pick": "Double Chance : Seraing ou Lokeren",
+      "odds": 1.242,
+      "confidence": 5
+    },
+    {
+      "id": 414084,
+      "competition": "Saudi Arabia",
+      "date": "2026-08-14T19:00:00",
+      "homeTeam": "Al-Hilal Riyadh",
+      "awayTeam": "Al-Faisaly Harmah",
+      "pick": "Victoire Al-Hilal Riyadh",
+      "odds": 1.11,
+      "confidence": 5
+    },
+    {
+      "id": 414030,
+      "competition": "Netherlands",
+      "date": "2026-08-14T19:00:00",
+      "homeTeam": "Telstar Velsen",
+      "awayTeam": "Sparta Rotterdam",
+      "pick": "Victoire Telstar Velsen",
+      "odds": 2.258,
+      "confidence": 1
+    },
+    {
+      "id": 414033,
+      "competition": "Netherlands",
+      "date": "2026-08-14T19:00:00",
+      "homeTeam": "Heracles Almelo",
+      "awayTeam": "FC Den Bosch",
+      "pick": "Victoire Heracles Almelo",
+      "odds": 1.51,
+      "confidence": 4
+    },
+    {
+      "id": 414015,
+      "competition": "Croatia",
+      "date": "2026-08-14T19:00:00",
+      "homeTeam": "Dinamo Zagreb",
+      "awayTeam": "Rudes Zagreb",
+      "pick": "Victoire Dinamo Zagreb",
+      "odds": 1.102,
+      "confidence": 5
+    },
+    {
+      "id": 414034,
+      "competition": "Netherlands",
+      "date": "2026-08-14T19:00:00",
+      "homeTeam": "NAC Breda",
+      "awayTeam": "VVV-Venlo",
+      "pick": "Victoire NAC Breda",
+      "odds": 1.456,
+      "confidence": 4
+    },
+    {
+      "id": 414112,
+      "competition": "Bosnia and Herzegovina",
+      "date": "2026-08-14T19:00:00",
+      "homeTeam": "Celik Zenica",
+      "awayTeam": "Siroki Brijeg",
+      "pick": "Double Chance : Celik Zenica ou nul",
+      "odds": 1.235,
+      "confidence": 5
+    },
+    {
+      "id": 414013,
+      "competition": "Bulgaria",
+      "date": "2026-08-14T19:15:00",
+      "homeTeam": "CSKA 1948 Sofia",
+      "awayTeam": "Cherno more Varna",
+      "pick": "Victoire CSKA 1948 Sofia",
+      "odds": 1.7,
+      "confidence": 3
+    },
+    {
+      "id": 414003,
+      "competition": "Austria",
+      "date": "2026-08-14T19:30:00",
+      "homeTeam": "Sankt Polten",
+      "awayTeam": "FC Blau-Weiss Linz",
+      "pick": "Double Chance : Sankt Polten ou nul",
+      "odds": 1.543,
+      "confidence": 3
+    },
+    {
+      "id": 414057,
+      "competition": "Turkey",
+      "date": "2026-08-14T19:30:00",
+      "homeTeam": "Esenler Erokspor",
+      "awayTeam": "Sariyer SK",
+      "pick": "Double Chance : Esenler Erokspor ou nul",
+      "odds": 1.2,
+      "confidence": 5
+    },
+    {
+      "id": 413999,
+      "competition": "Spain",
+      "date": "2026-08-14T19:30:00",
+      "homeTeam": "Real Sociedad B",
+      "awayTeam": "Castellon",
+      "pick": "Victoire Castellon",
+      "odds": 1.866,
+      "confidence": 2
+    },
+    {
+      "id": 414038,
+      "competition": "Poland",
+      "date": "2026-08-14T19:30:00",
+      "homeTeam": "Legia Warszawa",
+      "awayTeam": "Radomiak Radom",
+      "pick": "Victoire Legia Warszawa",
+      "odds": 1.57,
+      "confidence": 3
+    },
+    {
+      "id": 414044,
+      "competition": "Romania",
+      "date": "2026-08-14T19:30:00",
+      "homeTeam": "Arges Pitesti",
+      "awayTeam": "Farul Constanta",
+      "pick": "Double Chance : Arges Pitesti ou nul",
+      "odds": 1.302,
+      "confidence": 5
+    },
+    {
+      "id": 414029,
+      "competition": "Malta",
+      "date": "2026-08-14T19:30:00",
+      "homeTeam": "Balzan",
+      "awayTeam": "Marsaxlokk",
+      "pick": "Double Chance : Balzan ou nul",
+      "odds": 1.427,
+      "confidence": 4
+    },
+    {
+      "id": 413977,
+      "competition": "France",
+      "date": "2026-08-14T19:45:00",
+      "homeTeam": "Guingamp",
+      "awayTeam": "Boulogne",
+      "pick": "Double Chance : Guingamp ou nul",
+      "odds": 1.174,
+      "confidence": 5
+    },
+    {
+      "id": 413974,
+      "competition": "France",
+      "date": "2026-08-14T19:45:00",
+      "homeTeam": "Annecy",
+      "awayTeam": "Rodez AF",
+      "pick": "Double Chance : Annecy ou nul",
+      "odds": 1.308,
+      "confidence": 5
+    },
+    {
+      "id": 413982,
+      "competition": "France",
+      "date": "2026-08-14T19:45:00",
+      "homeTeam": "Saint Etienne",
+      "awayTeam": "Clermont Foot",
+      "pick": "Victoire Saint Etienne",
+      "odds": 1.534,
+      "confidence": 4
+    },
+    {
+      "id": 414066,
+      "competition": "Wales",
+      "date": "2026-08-14T19:45:00",
+      "homeTeam": "The New Saints",
+      "awayTeam": "Briton Ferry Llansawel",
+      "pick": "Victoire The New Saints",
+      "odds": 1.158,
+      "confidence": 5
+    },
+    {
+      "id": 414010,
+      "competition": "Belgium",
+      "date": "2026-08-14T19:45:00",
+      "homeTeam": "Cercle Brugge",
+      "awayTeam": "Saint Truiden",
+      "pick": "Double Chance : Cercle Brugge ou Saint Truiden",
+      "odds": 1.274,
+      "confidence": 5
+    },
+    {
+      "id": 413979,
+      "competition": "France",
+      "date": "2026-08-14T19:45:00",
+      "homeTeam": "Nancy",
+      "awayTeam": "Montpellier",
+      "pick": "Double Chance : Nancy ou Montpellier",
+      "odds": 1.292,
+      "confidence": 5
+    },
+    {
+      "id": 414064,
+      "competition": "Wales",
+      "date": "2026-08-14T19:45:00",
+      "homeTeam": "Haverfordwest County",
+      "awayTeam": "Pen-y-Bont FC",
+      "pick": "Victoire Pen-y-Bont FC",
+      "odds": 2.24,
+      "confidence": 1
+    },
+    {
+      "id": 414048,
+      "competition": "Scotland",
+      "date": "2026-08-14T19:45:00",
+      "homeTeam": "Kilmarnock",
+      "awayTeam": "Ayr United",
+      "pick": "Victoire Kilmarnock",
+      "odds": 1.628,
+      "confidence": 3
+    },
+    {
+      "id": 413981,
+      "competition": "France",
+      "date": "2026-08-14T19:45:00",
+      "homeTeam": "Reims",
+      "awayTeam": "Dunkerque",
+      "pick": "Victoire Reims",
+      "odds": 1.74,
+      "confidence": 3
+    },
+    {
+      "id": 413997,
+      "competition": "Italy",
+      "date": "2026-08-14T19:45:00",
+      "homeTeam": "Monza",
+      "awayTeam": "Avellino",
+      "pick": "Victoire Monza",
+      "odds": 1.636,
+      "confidence": 3
+    },
+    {
+      "id": 413975,
+      "competition": "France",
+      "date": "2026-08-14T19:45:00",
+      "homeTeam": "Dijon",
+      "awayTeam": "Pau",
+      "pick": "Double Chance : Dijon ou nul",
+      "odds": 1.332,
+      "confidence": 5
+    },
+    {
+      "id": 413980,
+      "competition": "France",
+      "date": "2026-08-14T19:45:00",
+      "homeTeam": "Red Star Paris",
+      "awayTeam": "Sochaux",
+      "pick": "Double Chance : Red Star Paris ou Sochaux",
+      "odds": 1.288,
+      "confidence": 5
+    },
+    {
+      "id": 413976,
+      "competition": "France",
+      "date": "2026-08-14T19:45:00",
+      "homeTeam": "Grenoble Foot 38",
+      "awayTeam": "Metz",
+      "pick": "Victoire Metz",
+      "odds": 2.018,
+      "confidence": 2
+    },
+    {
+      "id": 413973,
+      "competition": "England",
+      "date": "2026-08-14T20:00:00",
+      "homeTeam": "Wolverhampton",
+      "awayTeam": "Blackburn",
+      "pick": "Victoire Wolverhampton",
+      "odds": 1.52,
+      "confidence": 4
+    },
+    {
+      "id": 414068,
+      "competition": "Bolivia",
+      "date": "2026-08-14T20:00:00",
+      "homeTeam": "Universitario de Vinto",
+      "awayTeam": "Real Tomayapo",
+      "pick": "Victoire Universitario de Vinto",
+      "odds": 1.528,
+      "confidence": 4
+    },
+    {
+      "id": 414041,
+      "competition": "Portugal",
+      "date": "2026-08-14T20:15:00",
+      "homeTeam": "Sporting CP",
+      "awayTeam": "Vitoria Guimaraes",
+      "pick": "Victoire Sporting CP",
+      "odds": 1.244,
+      "confidence": 5
+    },
+    {
+      "id": 413998,
+      "competition": "Italy",
+      "date": "2026-08-14T20:15:00",
+      "homeTeam": "Fiorentina",
+      "awayTeam": "Benevento",
+      "pick": "Victoire Fiorentina",
+      "odds": 1.248,
+      "confidence": 5
+    },
+    {
+      "id": 414081,
+      "competition": "Peru",
+      "date": "2026-08-14T21:00:00",
+      "homeTeam": "Atletico Grau",
+      "awayTeam": "Comerciantes Unidos",
+      "pick": "Victoire Atletico Grau",
+      "odds": 1.794,
+      "confidence": 3
+    },
+    {
+      "id": 414110,
+      "competition": "Paraguay",
+      "date": "2026-08-14T22:30:00",
+      "homeTeam": "Recoleta",
+      "awayTeam": "2 de Mayo",
+      "pick": "Victoire Recoleta",
+      "odds": 2.4,
+      "confidence": 1
     }
   ]
 }
