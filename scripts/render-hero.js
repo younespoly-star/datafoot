@@ -10,7 +10,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             throw new Error(`Erreur réseau : ${response.status}`);
         }
 
-        const matches = await response.json();
+        const data = await response.json();
+        
+        // Gérer la structure si les données sont dans un objet contenant un tableau "matches"
+        const matches = Array.isArray(data) ? data : data.matches;
 
         // Vider le conteneur avant d'ajouter les nouveaux éléments
         container.innerHTML = "";
