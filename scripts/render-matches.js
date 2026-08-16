@@ -1,30 +1,56 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const container = document.getElementById("pronostics-container");
-    if (!container) return;
+  const container = document.getElementById("hero-matches-container");
+  if (!container) return;
 
-    try {
-        const response = await fetch('../data/matches.json');
-        if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
-        const data = await response.json();
+  try {
+    const response = await fetch("data/matches.json", { cache: "no-store" });
+    if (!response.ok) throw new Error(`Erreur réseau : ${response.status}`);
+    const data = await response.json();
 
-        container.innerHTML = "";
-        if (!data || data.length === 0) {
-            container.innerHTML = `<p class="no-data">Aucun pronostic disponible pour le moment.</p>`;
-            return;
-        }
+    const matches = Array.isArray(data) ? data : data.matches || [];
+    container.innerHTML = "";
 
-        data.forEach(match => {
-            const matchCard = document.createElement("div");
-            matchCard.className = "match-card";
-            matchCard.innerHTML = `
-                <div class="match-comp">${match.competition || 'Compétition'}</div>
-                <div class="match-teams"><strong>${match.homeTeam}</strong> vs <strong>${match.awayTeam}</strong></div>
-                <div class="match-prediction">Pronostic : <span>${match.prediction}</span></div>
-            `;
-            container.appendChild(matchCard);
-        });
-    } catch (error) {
-        console.error("Erreur:", error);
-        container.innerHTML = `<div class="error-box"><p>⚠️ Impossible de charger les pronostics.</p></div>`;
+    if (matches.length === 0) {
+      container.innerHTML = `
+        <div class="hero-mini-row">
+          <div>
+            <div class="hero-mini-match">Aucun match disponible</div>
+          </div>
+        </div>
+      `;
+      return;
     }
+
+    // Priorite aux matchs qui ont deja un pronostic complet.
+    const avecPick = matches.filter((m) => m.pick);
+    const aAfficher = (avecPick.length > 0 ? avecPick : matches).slice(0, 4);
+
+    aAfficher.forEach((match) => {
+      const row = document.createElement("div");
+      row.className = "hero-mini-row";
+      const pickLabel = match.pick ? match.pick : "Pronostic à venir";
+      const oddsLabel = match.odds ? `@ ${Number(match.odds).toFixed(2)}` : "";
+
+      row.innerHTML = `
+        <div>
+          <div class="hero-mini-match"><strong>${match.homeTeam}</strong> — <strong>${match.awayTeam}</strong></div>
+          <div style="font-size: 0.85rem; color: #888; margin-top: 2px;">
+            <span>${match.competition || "Football"}</span> •
+            <span style="color: var(--accent, #00d26a); font-weight: bold;">${pickLabel}</span>
+            <span>${oddsLabel}</span>
+          </div>
+        </div>
+      `;
+      container.appendChild(row);
+    });
+  } catch (error) {
+    console.error("Erreur lors du chargement des matchs :", error);
+    container.innerHTML = `
+      <div class="hero-mini-row">
+        <div>
+          <div class="hero-mini-match" style="color: red;">Erreur de chargement des matchs</div>
+        </div>
+      </div>
+    `;
+  }
 });
