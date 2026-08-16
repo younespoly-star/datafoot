@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const container = document.getElementById("hero-live-matches");
+  const container = document.getElementById("hero-matches-container");
   if (!container) return;
 
   try {
