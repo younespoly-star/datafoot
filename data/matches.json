@@ -1,97 +1,7 @@
 {
-  "generatedAt": "2026-08-16T07:44:53.271Z",
-  "count": 189,
+  "generatedAt": "2026-08-16T10:23:51.853Z",
+  "count": 200,
   "matches": [
-    {
-      "id": 414537,
-      "competition": "Czech Republic",
-      "date": "2026-08-16T09:15:00",
-      "homeTeam": "Viktoria Zizkov",
-      "awayTeam": "Banik Ostrava B",
-      "pick": "Double Chance : Viktoria Zizkov ou Banik Ostrava B",
-      "odds": 1.238,
-      "confidence": 5
-    },
-    {
-      "id": 414644,
-      "competition": "Slovakia",
-      "date": "2026-08-16T09:30:00",
-      "homeTeam": "Petrzalka Bratislava",
-      "awayTeam": "Tatran Presov",
-      "pick": "Double Chance : Petrzalka Bratislava ou nul",
-      "odds": 1.276,
-      "confidence": 5
-    },
-    {
-      "id": 414643,
-      "competition": "Slovakia",
-      "date": "2026-08-16T09:30:00",
-      "homeTeam": "OFK Malzenice",
-      "awayTeam": "MSK Povazska Bystrica",
-      "pick": "Double Chance : OFK Malzenice ou MSK Povazska Bystrica",
-      "odds": 1.26,
-      "confidence": 5
-    },
-    {
-      "id": 414513,
-      "competition": "Austria",
-      "date": "2026-08-16T09:30:00",
-      "homeTeam": "First Vienna FC 1894",
-      "awayTeam": "Liefering",
-      "pick": "Double Chance : First Vienna FC 1894 ou nul",
-      "odds": 1.35,
-      "confidence": 4
-    },
-    {
-      "id": 414709,
-      "competition": "Japan",
-      "date": "2026-08-16T10:00:00",
-      "homeTeam": "Yokohama FC",
-      "awayTeam": "Jubilo Iwata",
-      "pick": "Double Chance : Yokohama FC ou Jubilo Iwata",
-      "odds": 1.286,
-      "confidence": 5
-    },
-    {
-      "id": 414710,
-      "competition": "Japan",
-      "date": "2026-08-16T11:00:00",
-      "homeTeam": "Tokushima Vortis",
-      "awayTeam": "Sagan Tosu",
-      "pick": "Double Chance : Tokushima Vortis ou nul",
-      "odds": 1.322,
-      "confidence": 5
-    },
-    {
-      "id": 414668,
-      "competition": "Ukraine",
-      "date": "2026-08-16T11:00:00",
-      "homeTeam": "LNZ Cherkasy",
-      "awayTeam": "Chernomorets Odesa",
-      "pick": "Victoire LNZ Cherkasy",
-      "odds": 1.406,
-      "confidence": 4
-    },
-    {
-      "id": 414625,
-      "competition": "Portugal",
-      "date": "2026-08-16T11:00:00",
-      "homeTeam": "Portimonense",
-      "awayTeam": "Vizela",
-      "pick": "Victoire Vizela",
-      "odds": 2.086,
-      "confidence": 2
-    },
-    {
-      "id": 414592,
-      "competition": "Netherlands",
-      "date": "2026-08-16T11:15:00",
-      "homeTeam": "ADO Den Haag",
-      "awayTeam": "FC Groningen",
-      "pick": "Double Chance : ADO Den Haag ou FC Groningen",
-      "odds": 1.272,
-      "confidence": 5
-    },
     {
       "id": 414739,
       "competition": "South Korea",
@@ -1891,6 +1801,206 @@
       "pick": "Double Chance : Celta Vigo ou Osasuna",
       "odds": 1.308,
       "confidence": 5
+    },
+    {
+      "id": 414677,
+      "competition": "Argentina",
+      "date": "2026-08-16T21:00:00",
+      "homeTeam": "Central Norte",
+      "awayTeam": "Gimnasia y Tiro",
+      "pick": "Double Chance : Central Norte ou nul",
+      "odds": 1.374,
+      "confidence": 4
+    },
+    {
+      "id": 414678,
+      "competition": "Argentina",
+      "date": "2026-08-16T21:00:00",
+      "homeTeam": "Racing de Cordoba",
+      "awayTeam": "San Martin de San Juan",
+      "pick": "Double Chance : Racing de Cordoba ou nul",
+      "odds": 1.232,
+      "confidence": 5
+    },
+    {
+      "id": 414766,
+      "competition": "Argentina",
+      "date": "2026-08-16T22:00:00",
+      "homeTeam": "River Plate",
+      "awayTeam": "Argentinos Juniors",
+      "pick": "Double Chance : River Plate ou Argentinos Juniors",
+      "odds": 1.344,
+      "confidence": 4
+    },
+    {
+      "id": 414768,
+      "competition": "Argentina",
+      "date": "2026-08-16T22:00:00",
+      "homeTeam": "Temperley",
+      "awayTeam": "Los Andes",
+      "pick": "Double Chance : Temperley ou nul",
+      "odds": 1.21,
+      "confidence": 5
+    },
+    {
+      "id": 414767,
+      "competition": "Argentina",
+      "date": "2026-08-16T22:00:00",
+      "homeTeam": "San Martin de Tucuman",
+      "awayTeam": "Deportivo Madryn",
+      "pick": "Victoire San Martin de Tucuman",
+      "odds": 1.842,
+      "confidence": 2
+    },
+    {
+      "id": 414788,
+      "competition": "Venezuela",
+      "date": "2026-08-16T22:00:00",
+      "homeTeam": "Deportivo Tachira",
+      "awayTeam": "Monagas SC",
+      "pick": "Victoire Deportivo Tachira",
+      "odds": 1.462,
+      "confidence": 4
+    },
+    {
+      "id": 414783,
+      "competition": "Honduras",
+      "date": "2026-08-16T22:00:00",
+      "homeTeam": "Deportivo Choloma",
+      "awayTeam": "Marathon San Pedro",
+      "pick": "Victoire Marathon San Pedro",
+      "odds": 1.745,
+      "confidence": 3
+    },
+    {
+      "id": 414778,
+      "competition": "Colombia",
+      "date": "2026-08-16T22:05:00",
+      "homeTeam": "Internacional de Bogota",
+      "awayTeam": "Independiente Medellin",
+      "pick": "Double Chance : Internacional de Bogota ou Independiente Medellin",
+      "odds": 1.308,
+      "confidence": 5
+    },
+    {
+      "id": 414780,
+      "competition": "Ecuador",
+      "date": "2026-08-16T22:15:00",
+      "homeTeam": "Emelec Guayaquil",
+      "awayTeam": "Tecnico Universitario",
+      "pick": "Victoire Emelec Guayaquil",
+      "odds": 1.706,
+      "confidence": 3
+    },
+    {
+      "id": 414769,
+      "competition": "Bolivia",
+      "date": "2026-08-16T22:15:00",
+      "homeTeam": "Nacional Potosi",
+      "awayTeam": "ABB La Paz",
+      "pick": "Victoire Nacional Potosi",
+      "odds": 1.464,
+      "confidence": 4
+    },
+    {
+      "id": 414777,
+      "competition": "Chile",
+      "date": "2026-08-16T22:30:00",
+      "homeTeam": "Colo-Colo Santiago",
+      "awayTeam": "O'Higgins Rancagua",
+      "pick": "Victoire Colo-Colo Santiago",
+      "odds": 1.47,
+      "confidence": 4
+    },
+    {
+      "id": 414776,
+      "competition": "Brazil",
+      "date": "2026-08-16T22:30:00",
+      "homeTeam": "Confianca SE",
+      "awayTeam": "Maringa PR",
+      "pick": "Double Chance : Confianca SE ou Maringa PR",
+      "odds": 1.278,
+      "confidence": 5
+    },
+    {
+      "id": 414771,
+      "competition": "Brazil",
+      "date": "2026-08-16T22:30:00",
+      "homeTeam": "Vitoria BA",
+      "awayTeam": "Botafogo RJ",
+      "pick": "Double Chance : Vitoria BA ou nul",
+      "odds": 1.354,
+      "confidence": 4
+    },
+    {
+      "id": 414773,
+      "competition": "Brazil",
+      "date": "2026-08-16T22:30:00",
+      "homeTeam": "America MG",
+      "awayTeam": "Athletic Club MG",
+      "pick": "Double Chance : America MG ou nul",
+      "odds": 1.312,
+      "confidence": 5
+    },
+    {
+      "id": 414785,
+      "competition": "Uruguay",
+      "date": "2026-08-16T22:30:00",
+      "homeTeam": "Penarol Montevideo",
+      "awayTeam": "Central Espanol",
+      "pick": "Victoire Penarol Montevideo",
+      "odds": 1.394,
+      "confidence": 4
+    },
+    {
+      "id": 414775,
+      "competition": "Brazil",
+      "date": "2026-08-16T22:30:00",
+      "homeTeam": "Barra SC",
+      "awayTeam": "AO de Itabaiana SE",
+      "pick": "Double Chance : Barra SC ou nul",
+      "odds": 1.2,
+      "confidence": 5
+    },
+    {
+      "id": 414774,
+      "competition": "Brazil",
+      "date": "2026-08-16T22:30:00",
+      "homeTeam": "CRB AL",
+      "awayTeam": "Gremio Novorizontino SP",
+      "pick": "Double Chance : CRB AL ou nul",
+      "odds": 1.378,
+      "confidence": 4
+    },
+    {
+      "id": 414784,
+      "competition": "Paraguay",
+      "date": "2026-08-16T22:30:00",
+      "homeTeam": "Olimpia Asuncion",
+      "awayTeam": "Sportivo Ameliano",
+      "pick": "Victoire Olimpia Asuncion",
+      "odds": 1.758,
+      "confidence": 3
+    },
+    {
+      "id": 414787,
+      "competition": "USA",
+      "date": "2026-08-16T23:00:00",
+      "homeTeam": "New York City",
+      "awayTeam": "Philadelphia Union",
+      "pick": "Double Chance : New York City ou Philadelphia Union",
+      "odds": 1.254,
+      "confidence": 5
+    },
+    {
+      "id": 414786,
+      "competition": "USA",
+      "date": "2026-08-16T23:00:00",
+      "homeTeam": "Chicago Fire",
+      "awayTeam": "Portland Timbers",
+      "pick": "Victoire Chicago Fire",
+      "odds": 1.498,
+      "confidence": 4
     }
   ]
 }
