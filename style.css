@@ -1,50 +1,43 @@
-/* Style du loader (spinner) */
-.spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border-left-color: #007bff; /* Couleur de votre thème */
-    animation: spin 1s linear infinite;
-    margin: 0 auto 15px auto;
+/* Conteneur global des coupons */
+.coupons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Style de la bannière VIP / Coupons Gratuits */
-.vip-banner {
-    background: linear-gradient(135deg, #111827, #1f2937);
-    color: #ffffff;
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 40px;
+/* Style d'une carte de coupon individuel (#1, #2...) */
+.coupon-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
     border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-.vip-banner h2 {
-    margin-bottom: 10px;
-    font-size: 1.8rem;
+.coupon-card h3 {
+    font-size: 1.2rem;
+    color: #111827;
+    border-bottom: 2px solid #10b981;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
 }
 
-.vip-banner p {
-    color: #9ca3af;
-    margin-bottom: 20px;
+/* Style des lignes de matchs à l'intérieur du coupon */
+.coupon-match {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed #f3f4f6;
+    font-size: 0.95rem;
 }
 
-.btn-vip {
-    background-color: #10b981; /* Vert dynamique style paris sportifs */
-    color: white;
-    padding: 12px 24px;
-    border-radius: 6px;
-    text-decoration: none;
+.match-info {
+    color: #374151;
+}
+
+.match-pick {
     font-weight: bold;
-    display: inline-block;
-    transition: background 0.2s;
-}
-
-.btn-vip:hover {
-    background-color: #059669;
+    color: #059669;
 }
