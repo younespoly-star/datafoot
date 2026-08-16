@@ -1,43 +1,56 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const container = document.getElementById("hero-matches-container");
+    const container = document.getElementById("hero-live-matches");
     if (!container) return;
 
     try {
-        // Chemin vers le fichier data/ à la racine
+        // Chemin vers votre fichier JSON contenant les matchs
         const response = await fetch('data/matches.json');
         
         if (!response.ok) {
-            throw new Error(`Erreur de chargement : ${response.status}`);
+            throw new Error(`Erreur réseau : ${response.status}`);
         }
 
-        const data = await response.json();
+        const matches = await response.json();
 
         // Vider le conteneur avant d'ajouter les nouveaux éléments
         container.innerHTML = "";
 
-        if (!data || data.length === 0) {
-            container.innerHTML = `<p>Aucun match en direct disponible pour le moment.</p>`;
+        if (!matches || matches.length === 0) {
+            container.innerHTML = `
+                <div class="hero-mini-row">
+                    <div>
+                        <div class="hero-mini-match">Aucun match disponible</div>
+                    </div>
+                </div>
+            `;
             return;
         }
 
-        // Créer les cartes de match dynamiquement
-        data.slice(0, 3).forEach(match => {
-            const card = document.createElement("div");
-            card.className = "hero-match-card";
-            card.style.border = "1px solid #ddd";
-            card.style.padding = "10px";
-            card.style.margin = "10px 0";
-            card.style.borderRadius = "5px";
-            
-            card.innerHTML = `
-                <div style="font-size: 0.8rem; color: #666;">${match.competition || 'Football'}</div>
-                <div style="font-weight: bold;">${match.homeTeam} vs ${match.awayTeam}</div>
+        // Afficher les premiers matchs (par exemple, les 4 premiers de la liste)
+        matches.slice(0, 4).forEach(match => {
+            const row = document.createElement("div");
+            row.className = "hero-mini-row";
+            row.innerHTML = `
+                <div>
+                    <div class="hero-mini-match"><strong>${match.domicile}</strong> — <strong>${match.exterieur}</strong></div>
+                    <div style="font-size: 0.85rem; color: #888; margin-top: 2px;">
+                        <span>${match.competition}</span> • 
+                        <span style="color: var(--accent, #00d26a); font-weight: bold;">${match.score}</span> 
+                        <span>(${match.statut})</span>
+                    </div>
+                </div>
             `;
-            container.appendChild(card);
+            container.appendChild(row);
         });
 
     } catch (error) {
-        console.error("Erreur dans render-hero.js :", error);
-        container.innerHTML = `<p style="color: red;">Erreur lors du chargement des matchs.</p>`;
+        console.error("Erreur lors du chargement des matchs en direct :", error);
+        container.innerHTML = `
+            <div class="hero-mini-row">
+                <div>
+                    <div class="hero-mini-match" style="color: red;">Erreur de chargement des matchs</div>
+                </div>
+            </div>
+        `;
     }
 });
