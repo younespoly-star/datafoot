@@ -1,21 +1,13 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const container = document.getElementById("coupons-container");
-
     if (!container) return;
 
     try {
-        // Ajustez le nom du fichier JSON si besoin (ex: matchs_datafoot.json ou matches.json)
         const response = await fetch('../data/matchs_datafoot.json');
-        
-        if (!response.ok) {
-            throw new Error(`Erreur HTTP : ${response.status}`);
-        }
-
+        if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
         const data = await response.json();
-        container.innerHTML = "";
 
-        // Boucle de rendu des coupons
-        // (Assurez-vous que votre structure JSON correspond à vos objets de coupons)
+        container.innerHTML = "";
         data.forEach((coupon, index) => {
             const couponCard = document.createElement("div");
             couponCard.className = "coupon-card";
@@ -32,15 +24,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             couponCard.innerHTML = `
                 <h3>Coupon #${index + 1}</h3>
-                <div class="coupon-matches-list">
-                    ${matchesHtml}
-                </div>
+                <div class="coupon-matches-list">${matchesHtml}</div>
             `;
             container.appendChild(couponCard);
         });
-
     } catch (error) {
-        console.error("Erreur chargement coupons :", error);
-        container.innerHTML = `<p style="text-align: center; color: #666;">Chargement des coupons en cours ou indisponibles.</p>`;
+        console.error("Erreur:", error);
+        container.innerHTML = `<p style="text-align: center;">Chargement des coupons indisponible.</p>`;
     }
 });
