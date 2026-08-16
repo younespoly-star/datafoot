@@ -1,78 +1,83 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nos Pronostics — DataFoot</title>
-<meta name="description" content="Tous les pronostics du jour DataFoot : match, compétition, pick, cote, analyse rapide et niveau de confiance.">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Pronostics du Jour — DataFoot</title>
+    <meta name="description" content="Découvrez nos pronostics football du jour basés sur l'analyse statistique, la forme des équipes et les H2H.">
+    <!-- Remplacez par le lien vers votre fichier CSS global -->
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container">
-    <a href="index.html" class="logo">
-      <span class="logo-mark">Data<span>Foot</span></span>
-      <span class="logo-tag">Statistiques &amp; analyses de football</span>
-    </a>
-    <nav class="nav-links">
-      <a href="index.html">Accueil</a>
-      <a href="pronostics.html" class="active">Pronostics</a>
-      <a href="resultats.html">Résultats</a>
-      <a href="vip.html">Coupons Gratuits</a>
-      <a href="bankroll.html">Bankroll</a>
-    </nav>
-    <a href="vip.html" class="btn btn-primary">Voir les coupons</a>
-  </div>
-</header>
-
-<section class="section" style="padding-top:3.5rem;">
-  <div class="container">
-    <span class="eyebrow">Mis à jour en continu</span>
-    <h1 class="section-title">Nos Pronostics du Jour</h1>
-    <p class="section-lead">Chaque pronostic est passé au crible de notre méthode d'analyse : forme des équipes, statistiques H2H, contexte du match. Retrouvez ci-dessous notre sélection du jour.</p>
-
-    <div class="filters" style="margin-top:2.6rem; align-items:center;">
-      <span class="filter-chip is-active">Toutes compétitions</span>
-      <span class="filter-chip">Par date</span>
-      <span class="filter-chip">Par niveau de confiance</span>
-      <span class="filter-chip">1X2</span>
-      <span class="filter-chip">Double Chance</span>
-      <span class="filter-chip">+/- 2,5 buts</span>
-      <span class="filter-chip">BTTS</span>
-      <select id="competition-filter" class="filter-chip" style="cursor:pointer;">
-        <option value="">Filtrer par compétition…</option>
-      </select>
+  <header>
+    <div>
+      <a href="index.html">
+        <span>Data<span>Foot</span></span>
+        <span>Statistiques &amp; analyses de football</span>
+      </a>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="pronostics.html" class="active">Pronostics</a>
+        <a href="resultats.html">Résultats</a>
+        <a href="vip.html">Coupons Gratuits</a>
+        <a href="bankroll.html">Bankroll</a>
+      </nav>
+      <a href="vip.html">Voir les coupons</a>
     </div>
+  </header>
 
-    <div id="upcoming-matches" class="ticket-grid" style="margin-top:2.4rem;">
-      <p class="disclaimer">Chargement des pronostics…</p>
+  <section class="main-section">
+    <div>
+      <span>Mis à jour en continu</span>
+      <h1>Nos Pronostics du Jour</h1>
+      <p>Chaque pronostic est passé au crible de notre méthode d'analyse : forme des équipes, statistiques H2H, contexte du match. Retrouvez ci-dessous notre sélection du jour.</p>
+
+      <!-- Filtres -->
+      <div class="filters-container">
+        <span>Toutes compétitions</span>
+        <span>Par date</span>
+        <span>Par niveau de confiance</span>
+        <select id="competition-filter">
+          <option value="">Filtrer par compétition…</option>
+        </select>
+      </div>
+
+      <!-- Zone dynamique : Affichage des pronostics ou des erreurs -->
+      <div id="pronostics-container">
+        <!-- État de chargement par défaut (Spinner) -->
+        <div id="loading-state" style="text-align: center; padding: 40px;">
+          <div class="spinner"></div>
+          <p>Chargement des pronostics…</p>
+        </div>
+      </div>
+
+      <p class="disclaimer">Les pronostics DataFoot sont des outils d'aide à la décision basés sur l'analyse statistique. Ils ne garantissent aucun gain. Pariez de manière responsable.</p>
     </div>
+  </section>
 
-    <p class="disclaimer">Les pronostics DataFoot sont des outils d'aide à la décision basés sur l'analyse statistique. Ils ne garantissent aucun gain. Pariez de manière responsable.</p>
-  </div>
-</section>
+  <!-- Section rappel thème "Coupon Gratuit" -->
+  <section class="vip-banner">
+    <div>
+      <h2>Envie des coupons combinés ?</h2>
+      <p>10 coupons de 3 matchs chaque jour, gratuits, sans inscription.</p>
+      <a href="vip.html" class="btn-vip">Voir les coupons gratuits</a>
+    </div>
+  </section>
 
-<section class="cta-band">
-  <div class="container">
-    <h2>Envie des coupons combinés ?</h2>
-    <p>10 coupons de 3 matchs chaque jour, gratuits, sans inscription.</p>
-    <a href="vip.html" class="btn btn-primary">Voir les coupons gratuits</a>
-  </div>
-</section>
+  <footer>
+    <div>
+      <span>© 2026 DataFoot — Statistiques &amp; analyses de football</span>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="resultats.html">Résultats</a>
+        <a href="vip.html">Coupons Gratuits</a>
+        <a href="bankroll.html">Bankroll</a>
+      </nav>
+    </div>
+  </footer>
 
-<footer class="site-footer">
-  <div class="container">
-    <span class="footer-note">© 2026 DataFoot — Statistiques &amp; analyses de football</span>
-    <nav class="footer-links">
-      <a href="index.html">Accueil</a>
-      <a href="resultats.html">Résultats</a>
-      <a href="vip.html">Coupons Gratuits</a>
-      <a href="bankroll.html">Bankroll</a>
-    </nav>
-  </div>
-</footer>
-
-<script src="scripts/render-matches.js"></script>
+  <!-- Script de rendu -->
+  <script src="scripts/render-matches.js"></script>
 </body>
 </html>
