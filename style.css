@@ -439,6 +439,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{
   font-family:var(--font-mono); font-size:.74rem;
   padding:.5rem 1rem; border-radius:999px;
   border:1px solid var(--line); color:var(--text-muted);
+  background:var(--surface);
 }
 .filter-chip.is-active{border-color:var(--blue); color:var(--blue); background:var(--blue-glow);}
 
@@ -677,47 +678,40 @@ a:focus-visible,button:focus-visible,input:focus-visible{
 }
 
 .coupon-card{
-  position:relative;
   background:var(--surface);
   border:1px solid var(--line);
   border-radius:var(--radius-m);
   padding:1.3rem 1.4rem;
-  overflow:hidden;
 }
 .coupon-card-head{
   display:flex; justify-content:space-between; align-items:center;
   font-family:var(--font-mono); font-size:.68rem; color:var(--text-faint);
   text-transform:uppercase; letter-spacing:.08em;
+  padding-bottom:.8rem; border-bottom:1px dashed var(--line);
 }
 .coupon-card-head .num{color:var(--orange); font-weight:700;}
-.coupon-card-body{margin-top:.7rem;}
-.coupon-match{font-weight:600; font-size:.92rem;}
-.coupon-meta{font-size:.76rem; color:var(--text-muted); margin-top:.3rem;}
+
+.coupon-legs{margin-top:.6rem;}
+.coupon-leg{
+  padding-block:.65rem;
+  border-top:1px solid var(--line-soft);
+}
+.coupon-leg:first-child{border-top:none;}
+.coupon-leg-match{font-weight:600; font-size:.88rem;}
+.coupon-leg-pick{font-size:.78rem; color:var(--text-muted); margin-top:.15rem;}
+.coupon-leg-odd{
+  font-family:var(--font-mono); font-size:.78rem; color:var(--blue); margin-top:.25rem;
+}
+
+.coupon-total{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-top:.9rem; padding-top:.9rem; border-top:1px solid var(--line);
+  font-family:var(--font-mono); font-size:.78rem; color:var(--text-faint);
+  text-transform:uppercase; letter-spacing:.06em;
+}
 .coupon-odd{
-  margin-top:.7rem;
-  font-family:var(--font-mono); font-weight:700; color:var(--blue); font-size:1.15rem;
-}
-
-.coupon-grid.is-locked .coupon-card-body,
-.coupon-grid.is-locked .coupon-odd{
-  filter:blur(5px);
-  user-select:none;
-}
-
-.locked-overlay{
-  position:absolute; inset:0;
-  display:flex; align-items:center; justify-content:center;
-  background:rgba(10,14,23,.35);
-}
-.locked-overlay .lock-icon{font-size:1.4rem;}
-
-.coupon-unlocked-note{
-  display:flex; align-items:center; gap:.6em;
-  color:var(--green); font-family:var(--font-mono); font-size:.8rem;
-  margin-bottom:1.4rem;
-}
-.coupon-unlocked-note::before{
-  content:"✓"; font-weight:700;
+  font-family:var(--font-mono); font-weight:700; color:var(--green); font-size:1.3rem;
+  text-transform:none; letter-spacing:0;
 }
 
 /* -------------------------------- Responsive ------------------------------- */
