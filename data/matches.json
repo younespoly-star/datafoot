@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-17T19:30:14.499Z",
-  "count": 13,
+  "generatedAt": "2026-08-17T20:13:39.516Z",
+  "count": 9,
   "matches": [
     {
       "id": 401877011,
@@ -18,26 +18,6 @@
       "date": "2026-08-18T03:06Z",
       "homeTeam": "Pachuca",
       "awayTeam": "Puebla",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
-    {
-      "id": 401883231,
-      "competition": "Football",
-      "date": "2026-08-17T19:30Z",
-      "homeTeam": "Almería",
-      "awayTeam": "Eldense",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
-    {
-      "id": 401841507,
-      "competition": "Football",
-      "date": "2026-08-17T20:00Z",
-      "homeTeam": "Lanús",
-      "awayTeam": "Independiente",
       "pick": null,
       "odds": null,
       "confidence": 0
@@ -98,26 +78,6 @@
       "date": "2026-08-18T02:00Z",
       "homeTeam": "Sporting San José",
       "awayTeam": "Escorpiones Belén",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
-    {
-      "id": 401886620,
-      "competition": "Football",
-      "date": "2026-08-17T20:00Z",
-      "homeTeam": "Boston College",
-      "awayTeam": "St. John's",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
-    {
-      "id": 401888892,
-      "competition": "Football",
-      "date": "2026-08-17T20:00Z",
-      "homeTeam": "Mount St. Mary's",
-      "awayTeam": "Towson",
       "pick": null,
       "odds": null,
       "confidence": 0
