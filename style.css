@@ -619,3 +619,43 @@ a:focus-visible,button:focus-visible,input:focus-visible{
   .rule{grid-template-columns:1fr; gap:.6rem;}
   .site-footer .container{flex-direction:column; text-align:center;}
 }
+
+/* ============================================================
+   Ajouts pour les cartes de coupons combinés (vip.html)
+   ============================================================ */
+
+.coupons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+.coupon-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+.coupon-card h3 {
+    font-size: 1.2rem;
+    color: #111827;
+    border-bottom: 2px solid #10b981;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+.coupon-match {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed #f3f4f6;
+    font-size: 0.95rem;
+}
+.match-info {
+    color: #374151;
+}
+.match-pick {
+    font-weight: bold;
+    color: #059669;
+}
