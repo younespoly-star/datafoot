@@ -1,17 +1,7 @@
 {
-  "generatedAt": "2026-08-17T19:02:10.380Z",
-  "count": 16,
+  "generatedAt": "2026-08-17T19:30:14.499Z",
+  "count": 13,
   "matches": [
-    {
-      "id": 401882923,
-      "competition": "Football",
-      "date": "2026-08-17T19:00Z",
-      "homeTeam": "Deportivo",
-      "awayTeam": "Elche",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
     {
       "id": 401877011,
       "competition": "Football",
@@ -28,26 +18,6 @@
       "date": "2026-08-18T03:06Z",
       "homeTeam": "Pachuca",
       "awayTeam": "Puebla",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
-    {
-      "id": 401881675,
-      "competition": "Football",
-      "date": "2026-08-17T19:15Z",
-      "homeTeam": "Palermo",
-      "awayTeam": "Lecce",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
-    {
-      "id": 401885479,
-      "competition": "Football",
-      "date": "2026-08-17T19:15Z",
-      "homeTeam": "Casa Pia",
-      "awayTeam": "Benfica",
       "pick": null,
       "odds": null,
       "confidence": 0
