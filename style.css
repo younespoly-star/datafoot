@@ -588,6 +588,39 @@ a:focus-visible,button:focus-visible,input:focus-visible{
 .cta-band p{color:var(--text-muted); margin-top:.8rem;}
 .cta-band .btn{margin-top:1.6rem;}
 
+/* ------------------------------- Résultats --------------------------------- */
+
+.results-table{
+  width:100%; border-collapse:collapse;
+  margin-top:2.4rem;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-m);
+  overflow:hidden;
+}
+.results-table th{
+  text-align:left; padding:.9rem 1.2rem;
+  font-family:var(--font-mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.08em;
+  color:var(--text-faint); background:var(--surface-2);
+}
+.results-table td{
+  padding:1rem 1.2rem; font-size:.88rem; vertical-align:top;
+  border-top:1px solid var(--line-soft);
+}
+.results-table tr:first-child td{border-top:none;}
+
+.result-badge{
+  display:inline-flex; align-items:center;
+  font-family:var(--font-mono); font-size:.76rem; font-weight:700;
+  padding:.3rem .7rem; border-radius:999px; white-space:nowrap;
+}
+.result-win{background:rgba(52,211,153,.15); color:var(--green);}
+.result-lose{background:rgba(242,104,92,.15); color:var(--red);}
+.result-pending{background:var(--surface-2); color:var(--text-faint);}
+
+.results-summary{
+  margin-top:1.6rem;
+  font-family:var(--font-mono); font-size:.86rem; color:var(--blue);
+}
+
 /* --------------------------------- Footer --------------------------------- */
 
 .site-footer{
@@ -601,6 +634,91 @@ a:focus-visible,button:focus-visible,input:focus-visible{
 .footer-links{display:flex; gap:1.6rem; font-size:.82rem; color:var(--text-muted);}
 .footer-links a:hover{color:var(--text);}
 .footer-note{font-size:.76rem; color:var(--text-faint); font-family:var(--font-mono);}
+
+/* ------------------------------ Signup / Coupons --------------------------- */
+
+.signup-wrap{
+  display:grid;
+  grid-template-columns:.95fr 1.15fr;
+  gap:2.4rem;
+  align-items:start;
+  margin-top:2.8rem;
+}
+
+.signup-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-l);
+  padding:2.2rem;
+  position:sticky;
+  top:5.5rem;
+}
+.signup-card .plan-price{margin-top:.4rem;}
+.signup-card .plan-features{margin-top:1.4rem;}
+
+.signup-form{margin-top:1.8rem; display:flex; flex-direction:column; gap:.8rem;}
+.signup-form input{
+  background:var(--surface-2);
+  border:1px solid var(--line);
+  border-radius:var(--radius-s);
+  padding:.8rem 1rem;
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:.9rem;
+}
+.signup-form input:focus{outline:2px solid var(--blue); outline-offset:1px;}
+.signup-form input::placeholder{color:var(--text-faint);}
+.signup-note{font-size:.76rem; color:var(--text-faint); margin-top:.9rem;}
+
+.coupon-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:1rem;
+}
+
+.coupon-card{
+  position:relative;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  padding:1.3rem 1.4rem;
+  overflow:hidden;
+}
+.coupon-card-head{
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:var(--font-mono); font-size:.68rem; color:var(--text-faint);
+  text-transform:uppercase; letter-spacing:.08em;
+}
+.coupon-card-head .num{color:var(--orange); font-weight:700;}
+.coupon-card-body{margin-top:.7rem;}
+.coupon-match{font-weight:600; font-size:.92rem;}
+.coupon-meta{font-size:.76rem; color:var(--text-muted); margin-top:.3rem;}
+.coupon-odd{
+  margin-top:.7rem;
+  font-family:var(--font-mono); font-weight:700; color:var(--blue); font-size:1.15rem;
+}
+
+.coupon-grid.is-locked .coupon-card-body,
+.coupon-grid.is-locked .coupon-odd{
+  filter:blur(5px);
+  user-select:none;
+}
+
+.locked-overlay{
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(10,14,23,.35);
+}
+.locked-overlay .lock-icon{font-size:1.4rem;}
+
+.coupon-unlocked-note{
+  display:flex; align-items:center; gap:.6em;
+  color:var(--green); font-family:var(--font-mono); font-size:.8rem;
+  margin-bottom:1.4rem;
+}
+.coupon-unlocked-note::before{
+  content:"✓"; font-weight:700;
+}
 
 /* -------------------------------- Responsive ------------------------------- */
 
@@ -618,44 +736,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{
   .plan.featured{transform:none;}
   .rule{grid-template-columns:1fr; gap:.6rem;}
   .site-footer .container{flex-direction:column; text-align:center;}
-}
-
-/* ============================================================
-   Ajouts pour les cartes de coupons combinés (vip.html)
-   ============================================================ */
-
-.coupons-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-.coupon-card {
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-.coupon-card h3 {
-    font-size: 1.2rem;
-    color: #111827;
-    border-bottom: 2px solid #10b981;
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-}
-.coupon-match {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px dashed #f3f4f6;
-    font-size: 0.95rem;
-}
-.match-info {
-    color: #374151;
-}
-.match-pick {
-    font-weight: bold;
-    color: #059669;
+  .signup-wrap{grid-template-columns:1fr;}
+  .signup-card{position:static;}
+  .coupon-grid{grid-template-columns:1fr;}
 }
