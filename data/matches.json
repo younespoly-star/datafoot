@@ -1,43 +1,23 @@
 {
-  "generatedAt": "2026-08-18T07:59:01.579Z",
-  "count": 43,
+  "generatedAt": "2026-08-18T16:29:12.595Z",
+  "count": 37,
   "matches": [
-    {
-      "id": 401909662,
-      "competition": "Football",
-      "date": "2026-08-18T08:00Z",
-      "homeTeam": "Illescas",
-      "awayTeam": "San Sebastián de los Reyes B",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
-    {
-      "id": 401911293,
-      "competition": "Football",
-      "date": "2026-08-18T12:30Z",
-      "homeTeam": "Persib",
-      "awayTeam": "Bali United",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
-    {
-      "id": 401905956,
-      "competition": "Football",
-      "date": "2026-08-18T16:00Z",
-      "homeTeam": "1. FC Heidenheim 1846",
-      "awayTeam": "Bayern Munich",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
     {
       "id": 401911787,
       "competition": "Football",
       "date": "2026-08-18T16:00Z",
       "homeTeam": "ES Setif",
       "awayTeam": "CA Batna",
+      "pick": null,
+      "odds": null,
+      "confidence": 0
+    },
+    {
+      "id": 401912502,
+      "competition": "Football",
+      "date": "2026-08-18T17:00Z",
+      "homeTeam": "Atlético Tordesillas",
+      "awayTeam": "Villa Simancas",
       "pick": null,
       "odds": null,
       "confidence": 0
@@ -153,26 +133,6 @@
       "confidence": 0
     },
     {
-      "id": 401873725,
-      "competition": "Football",
-      "date": "2026-08-18T16:15Z",
-      "homeTeam": "Al Najma",
-      "awayTeam": "Al Ittihad",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
-    {
-      "id": 401873726,
-      "competition": "Football",
-      "date": "2026-08-18T16:15Z",
-      "homeTeam": "Al Okhdood",
-      "awayTeam": "Al Khaleej",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
-    {
       "id": 401873749,
       "competition": "Football",
       "date": "2026-08-18T18:00Z",
@@ -188,26 +148,6 @@
       "date": "2026-08-18T18:00Z",
       "homeTeam": "Al-Faisaly",
       "awayTeam": "Neom SC",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
-    {
-      "id": 401906724,
-      "competition": "Football",
-      "date": "2026-08-18T13:00Z",
-      "homeTeam": "Thailand",
-      "awayTeam": "Singapore",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
-    {
-      "id": 401861420,
-      "competition": "Football",
-      "date": "2026-08-18T11:35Z",
-      "homeTeam": "Shanghai Shenhua",
-      "awayTeam": "Beijing Guoan",
       "pick": null,
       "odds": null,
       "confidence": 0
