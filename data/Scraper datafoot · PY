@@ -2,19 +2,12 @@
 scraper_datafoot.py
 --------------------
 Combine deux sources :
-1. ESPN (scoreboard) -> liste des matchs a venir (equipes, competition, date)
-2. The Odds API       -> vraies cotes du marche (1X2) pour ces memes matchs
+1. ESPN (scoreboard) -> liste des matchs a venir ou en direct (equipes, competition, date)
+2. The Odds API      -> vraies cotes du marche (1X2) pour ces memes matchs
 
 Resultat : data/matches.json, au format attendu par render-matches.js
 et render-coupons.js (homeTeam, awayTeam, date, pick, odds, confidence,
 competition).
-
-Avant de lancer le script :
-1. Cree un compte gratuit sur https://the-odds-api.com/ (quota gratuit
-   suffisant pour un usage quotidien perso).
-2. Colle ta cle API ci-dessous, a la place de "TA_CLE_ICI".
-3. Assure-toi que le dossier "data/" existe a la racine de ton depot
-   (cree-le s'il n'existe pas), c'est la que le fichier sera ecrit.
 """
 
 import difflib
@@ -101,11 +94,11 @@ def extraire_competition(event, comp_data):
 
 
 # ----------------------------------------------------------------------
-# 1. Matchs a venir (ESPN)
+# 1. Matchs a venir ou en cours (ESPN)
 # ----------------------------------------------------------------------
 
 def obtenir_matchs_espn():
-    print("Recuperation des matchs a venir (ESPN)...")
+    print("Recuperation des matchs (ESPN)...")
     url = "https://site.api.espn.com/apis/site/v2/sports/soccer/all/scoreboard"
 
     try:
@@ -118,9 +111,9 @@ def obtenir_matchs_espn():
     matchs = []
     for event in data.get("events", []):
         statut = event.get("status", {}).get("type", {}).get("state")
-        if statut != "pre":
-            # On ne garde que les matchs pas encore commences :
-            # un pronostic n'a de sens que pour un match a venir.
+        
+        # On accepte 'pre' (a venir) et 'in' (en direct) pour ne pas rater les matchs du jour
+        if statut not in ["pre", "in"]:
             continue
 
         comp_data = event.get("competitions", [{}])[0]
@@ -137,7 +130,7 @@ def obtenir_matchs_espn():
             "date": event.get("date"),
         })
 
-    print(f"{len(matchs)} matchs a venir trouves.")
+    print(f"{len(matchs)} matchs trouves.")
     return matchs
 
 
@@ -148,7 +141,7 @@ def obtenir_matchs_espn():
 def obtenir_cotes():
     if ODDS_API_KEY == "TA_CLE_ICI":
         print("Aucune cle The Odds API renseignee : les matchs seront "
-              "publies sans pick ni cote (voir haut du fichier).")
+              "publies sans pick ni cote.")
         return []
 
     print("Recuperation des cotes (The Odds API)...")
@@ -175,8 +168,6 @@ def obtenir_cotes():
 
 
 def moyenne_cotes_h2h(event_odds):
-    """Fait la moyenne des cotes 1X2 proposees par les differents
-    bookmakers pour un match donne."""
     home, draw, away = [], [], []
     home_name = event_odds.get("home_team")
     away_name = event_odds.get("away_team")
@@ -219,9 +210,6 @@ def confiance_depuis_cote(cote):
 
 
 def construire_pronostic(home_team, away_team, cote_home, cote_draw, cote_away):
-    """Choisit un pick a partir des vraies cotes du marche :
-    - si un camp est nettement favori (cote basse), on le joue sec
-    - sinon on propose une double chance, plus prudente."""
     if cote_home is None or cote_away is None:
         return None, None, 0
 
@@ -271,8 +259,8 @@ def assembler(matchs_espn, cotes_api):
             "homeTeam": m["homeTeam"],
             "awayTeam": m["awayTeam"],
             "date": m["date"],
-            "pick": pick,          # None si aucune cote trouvee -> "Pronostic a venir" cote site
-            "odds": cote_pick,     # None si aucune cote trouvee -> "-" cote site
+            "pick": pick,
+            "odds": cote_pick,
             "confidence": confiance,
         })
 
