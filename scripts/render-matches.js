@@ -1,10 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const container = 
-    document.getElementById("pronostics-container") || 
-    document.getElementById("results-container") || 
-    document.getElementById("matches-container") ||
-    document.getElementById("coupon-container");
-  
+  const container = document.getElementById("matches-container");
   if (!container) return;
 
   function starsHtml(n) {
@@ -17,42 +12,23 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    // Teste plusieurs chemins pour éviter l'erreur 404 peu importe où se trouve la page HTML
-    const possiblePaths = ["matches.json", "data/matches.json", "./matches.json", "../matches.json", "/matches.json"];
-    let response = null;
-    let data = null;
-
-    for (const path of possiblePaths) {
-      try {
-        const res = await fetch(path, { cache: "no-store" });
-        if (res.ok) {
-          data = await res.json();
-          break;
-        }
-      } catch (e) {
-        // Continue to next path
-      }
-    }
-
-    if (!data) {
-      throw new Error("Fichier matches.json introuvable (Erreur 404). Vérifiez son emplacement.");
-    }
-
-    // Récupération sécurisée du tableau des matchs
+    // Comme pronostics.html est à la racine, on tape directement sur matches.json
+    const response = await fetch("matches.json", { cache: "no-store" });
+    if (!response.ok) throw new Error("Fichier matches.json introuvable.");
+    
+    const data = await response.json();
     const matches = Array.isArray(data) ? data : (data.matches || data.data || []);
 
     if (matches.length === 0) {
-      container.innerHTML = '<p style="text-align:center; color:#c5a059; padding:20px; font-family:sans-serif;">Aucun match disponible pour le moment.</p>';
+      container.innerHTML = '<p style="text-align:center; color:#c5a059; padding:40px; font-family:sans-serif;">Aucun pronostic disponible pour le moment.</p>';
       return;
     }
 
     container.innerHTML = matches.map(m => {
-      const home = m.homeTeam || m.domicile || "Équipe domicile";
-      const away = m.awayTeam || m.exterieur || "Équipe extérieur";
+      const home = m.homeTeam || m.domicile || "Domicile";
+      const away = m.awayTeam || m.exterieur || "Extérieur";
       const competition = m.competition || "Football";
       const status = m.statut || m.status || "À venir";
-      
-      // Récupération dynamique du vrai Pick et de la vraie cote (évite le bug des 1.35 fixes)
       const pick = m.pick || m.prediction || "1X";
       const score = m.score || "—";
       const odds = m.odds ? Number(m.odds).toFixed(2) : (m.cote ? Number(m.cote).toFixed(2) : "1.75");
@@ -66,7 +42,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             </div>
             <h3 style="font-size:1.15rem; margin:8px 0; color:#f3e5ab; font-weight:600;">${home} — ${away}</h3>
             <p style="font-size:0.9rem; color:#c5a059; margin:4px 0;">
-              Choix / Pick : <b style="color:#f3e5ab;">${pick}</b> | Score : <span style="color:#fff; font-weight:bold;">${score}</span>
+              Pick : <b style="color:#f3e5ab;">${pick}</b> | Score : <span style="color:#fff; font-weight:bold;">${score}</span>
             </p>
           </div>
           <div style="width:130px; background:rgba(10, 7, 4, 0.95); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:10px; text-align:center;">
@@ -79,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }).join("");
 
   } catch (error) {
-    console.error("Erreur d'affichage :", error);
-    container.innerHTML = `<p style="text-align:center; color:#e44d26; padding:20px; font-family:sans-serif;">⚠ Erreur 404 : Le fichier de données est introuvable ou illisible sur le serveur.</p>`;
+    console.error("Erreur :", error);
+    container.innerHTML = '<p style="text-align:center; color:#e44d26; padding:40px; font-family:sans-serif;">⚠ Impossible de charger les pronostics.</p>';
   }
 });
