@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    // Affichage simple des paris / bankroll basés sur les matchs
     container.innerHTML = matches.map(m => `
       <div style="background:rgba(20, 15, 10, 0.85); border:1px solid #c5a059; border-radius:10px; padding:15px; margin-bottom:12px; color:#f3e5ab; font-family:sans-serif; display:flex; justify-content:space-between; align-items:center;">
         <div>
