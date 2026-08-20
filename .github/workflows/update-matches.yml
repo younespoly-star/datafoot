@@ -1,35 +1,46 @@
-name: Mettre à jour les matchs
+import fs from 'fs';
+import fetch from 'node-fetch';
 
-on:
-  schedule:
-    # Tous les jours à 06h00 UTC (≈ 07h00 ou 08h00 heure française selon la saison)
-    - cron: "0 6 * * *"
-  workflow_dispatch: {}   # permet aussi de lancer le workflow manuellement
+const API_KEY = process.env.RAPIDAPI_KEY;
 
-permissions:
-  contents: write
+async function fetchMatches() {
+  const url = 'https://api-football-v1.p.rapidapi.com/v3/fixtures?next=10';
+  
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': API_KEY,
+      'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+    }
+  };
 
-jobs:
-  update-matches:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Récupérer le dépôt
-        uses: actions/checkout@v4
+  try {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+      throw new Error(`Erreur HTTP : ${response.status}`);
+    }
+    
+    const data = await response.json();
+    const fixtures = data.response || [];
 
-      - name: Installer Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
+    const formattedMatches = fixtures.map(f => ({
+      competition: f.league.name,
+      homeTeam: f.teams.home.name,
+      awayTeam: f.teams.away.name,
+      date: f.fixture.date,
+      status: "À venir",
+      pick: "1N2 / Analyse en cours",
+      odds: "1.90"
+    }));
 
-      - name: Récupérer les prédictions à venir
-        env:
-          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
-        run: node scripts/fetch-matches.mjs
+    // Enregistrement à la racine sous matches.json
+    fs.writeFileSync('matches.json', JSON.stringify(formattedMatches, null, 2), 'utf-8');
+    console.log(`Succès : ${formattedMatches.length} matchs enregistrés dans matches.json`);
 
-      - name: Publier les changements
-        run: |
-          git config user.name "datafoot-bot"
-          git config user.email "actions@github.com"
-          git add data/matches.json
-          git diff --quiet --cached || git commit -m "Mise à jour automatique des matchs"
-          git push
+  } catch (error) {
+    console.error('Erreur lors de la récupération des matchs :', error);
+    process.exit(1);
+  }
+}
+
+fetchMatches();
