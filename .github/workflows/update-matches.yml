@@ -4,7 +4,44 @@ import fetch from 'node-fetch';
 const API_KEY = process.env.RAPIDAPI_KEY;
 
 async function fetchMatches() {
-  const url = 'https://api-football-v1.p.rapidapi.com/v3/fixtures?next=10';
+  const url = 'https://api-foname: Mettre à jour les matchs
+
+on:
+  schedule:
+    # Tous les jours à 06h00 UTC
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update-matches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Installer les dépendances Node
+        run: npm install node-fetch@2
+
+      - name: Récupérer les prédictions à venir
+        env:
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+        run: node scripts/fetch-matches.mjs
+
+      - name: Publier les changements
+        run: |
+          git config user.name "datafoot-bot"
+          git config user.email "actions@github.com"
+          git add matches.json
+          git diff --quiet --cached || git commit -m "Mise à jour automatique des matchs"
+          git pushotball-v1.p.rapidapi.com/v3/fixtures?next=10';
   
   const options = {
     method: 'GET',
