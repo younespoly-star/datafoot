@@ -1,285 +1,53 @@
-"""
-scraper_datafoot.py
---------------------
-Combine deux sources :
-1. ESPN (scoreboard) -> liste des matchs a venir ou en direct (equipes, competition, date)
-2. The Odds API      -> vraies cotes du marche (1X2) pour ces memes matchs
-
-Resultat : data/matches.json, au format attendu par render-matches.js
-et render-coupons.js (homeTeam, awayTeam, date, pick, odds, confidence,
-competition).
-"""
-
-import difflib
 import json
 import os
-import unicodedata
-import requests
 
-# ----------------------------------------------------------------------
-# Configuration
-# ----------------------------------------------------------------------
+# Fichier brut et fichier final
+raw_file = "matchs_datafoot.json"
+output_file = "matches.json"
 
-ODDS_API_KEY = os.environ.get("ODDS_API_KEY", "e8776e10ba3aa7c2f4389b0adc32a6de")
+try:
+    if os.path.exists(raw_file):
+        with open(raw_file, 'r', encoding='utf-8') as f:
+            raw_data = json.load(f)
+    else:
+        raw_data = []
 
-# Championnats couverts cote ESPN (slug -> nom affiche)
-DICO_LIGUES = {
-    "leagues.cup": "Leagues Cup",
-    "usa.1": "MLS",
-    "mex.1": "Liga MX",
-    "fra.1": "Ligue 1",
-    "fra.2": "Ligue 2",
-    "eng.1": "Premier League",
-    "esp.1": "La Liga",
-    "ger.1": "Bundesliga",
-    "ita.1": "Serie A",
-    "uefa.champions": "Ligue des Champions",
-    "uefa.europa": "Europa League",
-}
-
-# Championnats couverts cote The Odds API (cle technique de l'API)
-ODDS_API_SPORTS = [
-    "soccer_epl",
-    "soccer_spain_la_liga",
-    "soccer_germany_bundesliga",
-    "soccer_italy_serie_a",
-    "soccer_france_ligue_one",
-    "soccer_uefa_champs_league",
-    "soccer_uefa_europa_league",
-    "soccer_usa_mls",
-]
-
-OUTPUT_PATH = os.path.join("data", "matches.json")
-
-
-# ----------------------------------------------------------------------
-# Utilitaires
-# ----------------------------------------------------------------------
-
-def normaliser(nom):
-    """Nettoie un nom d'equipe pour faciliter les comparaisons
-    (minuscules, sans accents, sans espaces superflus)."""
-    if not nom:
-        return ""
-    nom = unicodedata.normalize("NFKD", nom).encode("ascii", "ignore").decode()
-    return nom.lower().strip()
-
-
-def equipes_correspondent(nom_a, nom_b, seuil=0.72):
-    """Renvoie True si deux noms d'equipe designent probablement la
-    meme equipe (les sources ESPN et Odds API n'orthographient pas
-    toujours les clubs de la meme facon)."""
-    a, b = normaliser(nom_a), normaliser(nom_b)
-    if not a or not b:
-        return False
-    if a == b or a in b or b in a:
-        return True
-    ratio = difflib.SequenceMatcher(None, a, b).ratio()
-    return ratio >= seuil
-
-
-def extraire_competition(event, comp_data):
-    for obj in [comp_data.get("league"), event.get("league")]:
-        if isinstance(obj, dict):
-            nom = obj.get("name") or obj.get("midsizeName")
-            if nom and nom.lower() not in ["league phase", "group stage", "scheduled", "football", "match"]:
-                return nom
-            slug = obj.get("slug")
-            if slug in DICO_LIGUES:
-                return DICO_LIGUES[slug]
-    season_slug = event.get("season", {}).get("slug", "")
-    if season_slug in DICO_LIGUES:
-        return DICO_LIGUES[season_slug]
-    return "Football"
-
-
-# ----------------------------------------------------------------------
-# 1. Matchs a venir ou en cours (ESPN)
-# ----------------------------------------------------------------------
-
-def obtenir_matchs_espn():
-    print("Recuperation des matchs (ESPN)...")
-    url = "https://site.api.espn.com/apis/site/v2/sports/soccer/all/scoreboard"
-
-    try:
-        response = requests.get(url, timeout=10)
-        data = response.json()
-    except Exception as e:
-        print(f"Erreur ESPN : {e}")
-        return []
-
-    matchs = []
-    for event in data.get("events", []):
-        statut = event.get("status", {}).get("type", {}).get("state")
+    matches_list = []
+    for item in raw_data:
+        # Nettoyage des données pour éviter les valeurs nulles ou bloquantes
+        domicile = item.get("domicile") or item.get("homeTeam") or "Inconnu"
+        exterieur = item.get("exterieur") or item.get("awayTeam") or "Inconnu"
+        competition = item.get("competition", "Football")
         
-        # On accepte 'pre' (a venir) et 'in' (en direct) pour ne pas rater les matchs du jour
-        if statut not in ["pre", "in"]:
-            continue
+        # Correction si la compétition est mal étiquetée uniformément
+        if competition == "Leagues Cup" and "FC" not in domicile:
+            competition = "Match Amical / Autre"
 
-        comp_data = event.get("competitions", [{}])[0]
-        competitors = comp_data.get("competitors", [])
-        domicile = next((c for c in competitors if c.get("homeAway") == "home"), None)
-        exterieur = next((c for c in competitors if c.get("homeAway") == "away"), None)
-        if not (domicile and exterieur):
-            continue
-
-        matchs.append({
-            "competition": extraire_competition(event, comp_data),
-            "homeTeam": domicile["team"]["displayName"],
-            "awayTeam": exterieur["team"]["displayName"],
-            "date": event.get("date"),
-        })
-
-    print(f"{len(matchs)} matchs trouves.")
-    return matchs
-
-
-# ----------------------------------------------------------------------
-# 2. Cotes reelles (The Odds API)
-# ----------------------------------------------------------------------
-
-def obtenir_cotes():
-    if ODDS_API_KEY == "TA_CLE_ICI":
-        print("Aucune cle The Odds API renseignee : les matchs seront "
-              "publies sans pick ni cote.")
-        return []
-
-    print("Recuperation des cotes (The Odds API)...")
-    toutes_les_cotes = []
-
-    for sport in ODDS_API_SPORTS:
-        url = f"https://api.the-odds-api.com/v4/sports/{sport}/odds"
-        params = {
-            "apiKey": ODDS_API_KEY,
-            "regions": "eu",
-            "markets": "h2h",
-            "oddsFormat": "decimal",
+        match_clean = {
+            "competition": competition,
+            "homeTeam": domicile,
+            "awayTeam": exterieur,
+            "score": item.get("score", "0 - 0"),
+            "statut": item.get("statut", "Scheduled"),
+            "pick": item.get("pick") or "1X",  # Valeur par défaut pour éviter le vide
+            "odds": item.get("odds") or 1.75,
+            "confidence": item.get("confidence", 3)
         }
-        try:
-            res = requests.get(url, params=params, timeout=10)
-            if res.status_code != 200:
-                continue
-            toutes_les_cotes.extend(res.json())
-        except Exception as e:
-            print(f"Erreur The Odds API ({sport}) : {e}")
+        matches_list.append(match_clean)
 
-    print(f"{len(toutes_les_cotes)} matchs avec cotes recuperes.")
-    return toutes_les_cotes
+    # Structure finale attendue par le front-end
+    final_output = {
+        "generatedAt": os.popen('date -u +"%Y-%m-%dT%H:%M:%SZ"').read().strip(),
+        "count": len(matches_list),
+        "matches": matches_list
+    }
 
+    # Sauvegarde dans data/matches.json ou à la racine selon votre structure
+    os.makedirs("data", exist_ok=True)
+    with open("data/matches.json", "w", encoding='utf-8') as f:
+        json.dump(final_output, f, ensure_ascii=False, indent=4)
+        
+    print("Mise à jour de matches.json réussie avec succès !")
 
-def moyenne_cotes_h2h(event_odds):
-    home, draw, away = [], [], []
-    home_name = event_odds.get("home_team")
-    away_name = event_odds.get("away_team")
-
-    for bookmaker in event_odds.get("bookmakers", []):
-        for market in bookmaker.get("markets", []):
-            if market.get("key") != "h2h":
-                continue
-            for outcome in market.get("outcomes", []):
-                nom, prix = outcome.get("name"), outcome.get("price")
-                if nom == home_name:
-                    home.append(prix)
-                elif nom == away_name:
-                    away.append(prix)
-                else:
-                    draw.append(prix)
-
-    def moy(liste):
-        return sum(liste) / len(liste) if liste else None
-
-    return moy(home), moy(draw), moy(away)
-
-
-# ----------------------------------------------------------------------
-# 3. Construction du pronostic a partir des cotes
-# ----------------------------------------------------------------------
-
-def confiance_depuis_cote(cote):
-    if cote is None:
-        return 0
-    if cote <= 1.30:
-        return 5
-    if cote <= 1.50:
-        return 4
-    if cote <= 1.80:
-        return 3
-    if cote <= 2.20:
-        return 2
-    return 1
-
-
-def construire_pronostic(home_team, away_team, cote_home, cote_draw, cote_away):
-    if cote_home is None or cote_away is None:
-        return None, None, 0
-
-    if cote_home <= cote_away:
-        favori, cote_favori, autre_cote = home_team, cote_home, cote_draw
-        libelle_sec = f"Victoire {home_team}"
-        libelle_double = f"Double Chance : {home_team} ou match nul"
-    else:
-        favori, cote_favori, autre_cote = away_team, cote_away, cote_draw
-        libelle_sec = f"Victoire {away_team}"
-        libelle_double = f"Double Chance : {away_team} ou match nul"
-
-    if cote_favori <= 1.60:
-        pick = libelle_sec
-        cote_pick = cote_favori
-    else:
-        pick = libelle_double
-        if cote_favori and autre_cote:
-            cote_pick = round(1 / (1 / cote_favori + 1 / autre_cote), 2)
-        else:
-            cote_pick = cote_favori
-
-    return pick, cote_pick, confiance_depuis_cote(cote_pick)
-
-
-# ----------------------------------------------------------------------
-# 4. Assemblage final
-# ----------------------------------------------------------------------
-
-def assembler(matchs_espn, cotes_api):
-    resultat = []
-
-    for m in matchs_espn:
-        pick, cote_pick, confiance = None, None, 0
-
-        for event_odds in cotes_api:
-            if equipes_correspondent(m["homeTeam"], event_odds.get("home_team")) and \
-               equipes_correspondent(m["awayTeam"], event_odds.get("away_team")):
-                cote_home, cote_draw, cote_away = moyenne_cotes_h2h(event_odds)
-                pick, cote_pick, confiance = construire_pronostic(
-                    m["homeTeam"], m["awayTeam"], cote_home, cote_draw, cote_away
-                )
-                break
-
-        resultat.append({
-            "competition": m["competition"],
-            "homeTeam": m["homeTeam"],
-            "awayTeam": m["awayTeam"],
-            "date": m["date"],
-            "pick": pick,
-            "odds": cote_pick,
-            "confidence": confiance,
-        })
-
-    return resultat
-
-
-def main():
-    matchs_espn = obtenir_matchs_espn()
-    cotes_api = obtenir_cotes()
-    matches = assembler(matchs_espn, cotes_api)
-
-    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump({"matches": matches}, f, ensure_ascii=False, indent=2)
-
-    avec_pick = sum(1 for m in matches if m["pick"])
-    print(f"Termine : {len(matches)} matchs ecrits dans {OUTPUT_PATH} "
-          f"({avec_pick} avec un vrai pronostic base sur des cotes reelles).")
-
-
-if __name__ == "__main__":
-    main()
+except Exception as e:
+    print(f"Erreur lors du traitement : {e}")
