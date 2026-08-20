@@ -1,95 +1,71 @@
-async function renderCoupons() {
+document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("coupons-container");
   if (!container) return;
 
-  try {
-    const res = await fetch("data/matches.json", { cache: "no-store" });
-    const data = await res.json();
-    const matches = data.matches || [];
-
+  function starsHtml(n) {
     let html = "";
+    const count = Number(n) || 3;
+    for (let i = 1; i <= 5; i++) {
+      html += `<span style="color:${i <= count ? "#d4af37" : "#3d311b"};">★</span>`;
+    }
+    return html;
+  }
+
+  try {
+    const response = await fetch("matches.json", { cache: "no-store" });
+    if (!response.ok) throw new Error("Fichier introuvable");
     
-    // On groupe les matchs par 3 pour faire les coupons
-    for (let i = 0; i < matches.length - 2; i += 3) {
-      const couponIndex = Math.floor(i / 3);
-      if (couponIndex >= 10) break; // Limite à 10 coupons
+    const data = await response.json();
+    const matches = Array.isArray(data) ? data : (data.matches || data.data || []);
 
-      const m1 = matches[i];
-      const m2 = matches[i+1];
-      const m3 = matches[i+2];
-
-      // Extraction ou calcul d'une cote simulée si absente (ex: entre 1.30 et 1.65)
-      const odd1 = m1.odd || "1.35";
-      const odd2 = m2.odd || "1.42";
-      const odd3 = m3.odd || "1.55";
-      const totalOdd = (parseFloat(odd1) * parseFloat(odd2) * parseFloat(odd3)).toFixed(2);
-
-      html += `
-        <div class="ticket-card" style="max-width: 480px; margin: 0 auto 30px auto; background: linear-gradient(135deg, #0d1322 0%, #090d16 100%); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; padding: 25px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); color: #f8fafc; font-family: 'Inter', sans-serif;">
-          
-          <!-- En-tête du Ticket -->
-          <div style="text-align: center; border-bottom: 1px solid rgba(56, 189, 248, 0.2); padding-bottom: 15px; margin-bottom: 20px;">
-            <div style="font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 700; letter-spacing: 2px; color: #f8fafc;">DATAFOOT</div>
-            <div style="display: inline-block; margin-top: 10px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.4); padding: 6px 16px; border-radius: 20px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #38bdf8; font-weight: 700;">
-              COUPON ${couponIndex + 1} — BOOST
-            </div>
-            <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 8px;">3 MATCHS · ${m1.date || 'Aujourd\'hui'} · PRONOSTIC SÉLECTIONNÉ</div>
-          </div>
-
-          <!-- Liste des 3 Matchs -->
-          <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
-            
-            <!-- Match 1 -->
-            <div style="background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 12px 15px; display: flex; align-items: center; gap: 12px;">
-              <div style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; flex-shrink: 0;">1</div>
-              <div style="flex: 1;">
-                <div style="font-weight: 700; font-size: 0.95rem; color: #f8fafc;">${m1.homeTeam} vs ${m1.awayTeam}</div>
-                <div style="font-size: 0.82rem; color: #94a3b8; margin-top: 2px;">• ${m1.pick || '1X2'} — Cote <span style="color: #34d399; font-weight: 600;">${odd1}</span></div>
-              </div>
-            </div>
-
-            <!-- Match 2 -->
-            <div style="background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 12px 15px; display: flex; align-items: center; gap: 12px;">
-              <div style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; flex-shrink: 0;">2</div>
-              <div style="flex: 1;">
-                <div style="font-weight: 700; font-size: 0.95rem; color: #f8fafc;">${m2.homeTeam} vs ${m2.awayTeam}</div>
-                <div style="font-size: 0.82rem; color: #94a3b8; margin-top: 2px;">• ${m2.pick || '1X2'} — Cote <span style="color: #34d399; font-weight: 600;">${odd2}</span></div>
-              </div>
-            </div>
-
-            <!-- Match 3 -->
-            <div style="background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 12px 15px; display: flex; align-items: center; gap: 12px;">
-              <div style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; flex-shrink: 0;">3</div>
-              <div style="flex: 1;">
-                <div style="font-weight: 700; font-size: 0.95rem; color: #f8fafc;">${m3.homeTeam} vs ${m3.awayTeam}</div>
-                <div style="font-size: 0.82rem; color: #94a3b8; margin-top: 2px;">• ${m3.pick || '1X2'} — Cote <span style="color: #34d399; font-weight: 600;">${odd3}</span></div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Bloc Cote Totale -->
-          <div style="background: linear-gradient(90deg, rgba(56,189,248,0.1), rgba(52,211,153,0.1)); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 15px; text-align: center; margin-bottom: 15px;">
-            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px;">COTE TOTALE</div>
-            <div style="font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 700; color: #34d399; margin-top: 2px;">${totalOdd}</div>
-            <div style="font-size: 0.7rem; color: #64748b; margin-top: 2px; text-transform: uppercase; letter-spacing: 1px;">Combiné · Boost</div>
-          </div>
-
-          <!-- Pied de ticket -->
-          <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #64748b; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 12px; font-family: 'JetBrains Mono', monospace;">
-            <span>COUPON VALIDÉ</span>
-            <span>DATA SAFE</span>
-          </div>
-
-        </div>
-      `;
+    if (matches.length === 0) {
+      container.innerHTML = '<p style="text-align:center; color:#c5a059; padding:40px; font-family:sans-serif; grid-column: 1 / -1;">Aucun coupon disponible pour le moment.</p>';
+      return;
     }
 
-    container.innerHTML = html;
-  } catch (err) {
-    container.innerHTML = '<p style="color: #94a3b8; text-align: center; padding: 2rem;">Erreur lors du chargement des coupons.</p>';
-    console.error(err);
-  }
-}
+    // Récupère la limite définie dans l'attribut data-limit du HTML (par défaut 10)
+    const limit = parseInt(container.getAttribute("data-limit")) || 10;
+    const itemsToDisplay = matches.slice(0, limit);
 
-document.addEventListener("DOMContentLoaded", renderCoupons);
+    container.innerHTML = itemsToDisplay.map(m => {
+      const home = m.homeTeam || m.domicile || "Domicile";
+      const away = m.awayTeam || m.exterieur || "Extérieur";
+      const competition = m.competition || "Football";
+      const status = m.statut || m.status || "À venir";
+      const pick = m.pick || m.prediction || "1X";
+      const analysis = m.analysis || m.analyse || "Analyse statistique basée sur la forme récente et l'historique des confrontations.";
+      const odds = m.odds ? Number(m.odds).toFixed(2) : (m.cote ? Number(m.cote).toFixed(2) : "1.75");
+      const confidence = m.confidence || 3;
+
+      return `
+        <article class="ticket" style="background:rgba(20, 15, 10, 0.85); border:1px solid #c5a059; border-radius:12px; display:flex; overflow:hidden; color:#f3e5ab; box-shadow:0 4px 15px rgba(0,0,0,0.5); font-family:sans-serif; margin-bottom:16px;">
+          <div class="ticket-main" style="flex:1; padding:18px 20px; border-right:1px dashed #c5a059;">
+            <div class="ticket-comp" style="font-size:0.75rem; color:#d4af37; text-transform:uppercase; font-weight:bold; letter-spacing:1px;">
+              ${competition} &bull; ${status}
+            </div>
+            <h3 class="ticket-match" style="font-size:1.15rem; margin:8px 0; color:#f3e5ab; font-weight:600;">
+              ${home} — ${away}
+            </h3>
+            <p class="ticket-pick" style="font-size:0.9rem; color:#f3e5ab; margin:4px 0;">
+              <b>Pick :</b> ${pick}
+            </p>
+            <p class="ticket-analysis" style="font-size:0.85rem; color:#c5a059; margin:6px 0 0 0;">
+              ${analysis}
+            </p>
+          </div>
+          <div class="ticket-stub" style="width:130px; background:rgba(10, 7, 4, 0.95); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:10px; text-align:center;">
+            <span class="ticket-odd-label" style="font-size:0.65rem; color:#6b5a35; text-transform:uppercase; letter-spacing:1px;">Cote</span>
+            <span class="ticket-odd" style="font-size:1.3rem; font-weight:bold; color:#d4af37;">${odds}</span>
+            <div class="ticket-confidence" style="font-size:0.85rem; letter-spacing:2px;">
+              ${starsHtml(confidence)}
+            </div>
+          </div>
+        </article>
+      `;
+    }).join("");
+
+  } catch (error) {
+    console.error("Erreur coupons :", error);
+    container.innerHTML = '<p style="text-align:center; color:#e44d26; padding:40px; font-family:sans-serif; grid-column: 1 / -1;">⚠ Impossible de charger les coupons.</p>';
+  }
+});
