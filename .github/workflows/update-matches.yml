@@ -1,8 +1,6 @@
 name: Mettre à jour les matchs
 
 on:
-  schedule:
-    - cron: "0 6 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -20,13 +18,13 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Installer les dépendances Node
+      - name: Installer les dépendances
         run: npm install node-fetch@2
 
-      - name: Récupérer les prédictions à venir
+      - name: Exécuter le script
         env:
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
-        run: node scripts/fetch-matches.mjs
+        run: node fetch-matches.mjs
 
       - name: Publier les changements
         run: |
