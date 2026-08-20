@@ -1,132 +1,33 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Conseils &amp; Gestion de Bankroll — DataFoot</title>
-<meta name="description" content="Les règles d'or de la gestion de bankroll pour parier sur le football durablement et sans se mettre en danger.">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+document.addEventListener("DOMContentLoaded", async () => {
+  const container = document.getElementById("bankroll-container") || document.getElementById("bankroll-body");
+  if (!container) return;
 
-<header class="site-header">
-  <div class="container">
-    <a href="index.html" class="logo">
-      <span class="logo-mark">Data<span>Foot</span></span>
-      <span class="logo-tag">Statistiques &amp; analyses de football</span>
-    </a>
-    <nav class="nav-links">
-      <a href="index.html">Accueil</a>
-      <a href="pronostics.html">Pronostics</a>
-      <a href="resultats.html">Résultats</a>
-      <a href="vip.html">Abonnement</a>
-      <a href="bankroll.html" class="active">Bankroll</a>
-    </nav>
-    <a href="vip.html" class="btn btn-primary">Voir les coupons</a>
-  </div>
-</header>
+  try {
+    const res = await fetch("matches.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("Fichier introuvable");
+    const data = await res.json();
+    const matches = Array.isArray(data) ? data : (data.matches || data.data || []);
 
-<section class="section" style="padding-top:3.5rem;">
-  <div class="container">
-    <span class="eyebrow">Gestion du risque</span>
-    <h1 class="section-title">Conseils &amp; Gestion de Bankroll</h1>
-    <p class="section-lead">Le meilleur pronostic du monde ne sert à rien sans une gestion de bankroll rigoureuse. Voici les règles d'or pour parier sur la durée, sans se mettre en danger.</p>
+    if (matches.length === 0) {
+      container.innerHTML = '<p style="text-align:center; color:#c5a059; padding:20px; font-family:sans-serif;">Aucune donnée de bankroll disponible.</p>';
+      return;
+    }
 
-    <p style="margin-top:1.8rem; color:var(--text-muted); max-width:70ch;">Parier sur le football, ce n'est pas seulement choisir les bons matchs : c'est aussi savoir combien miser, quand s'arrêter, et comment gérer les périodes de baisse de forme. Une bonne gestion de bankroll est ce qui sépare un parieur qui dure dans le temps d'un parieur qui brûle son capital en quelques semaines.</p>
-
-    <div class="rules">
-      <div class="rule">
-        <div class="rule-num">01</div>
+    container.innerHTML = matches.map(m => `
+      <div style="background:rgba(20, 15, 10, 0.85); border:1px solid #c5a059; border-radius:10px; padding:15px; margin-bottom:12px; color:#f3e5ab; font-family:sans-serif; display:flex; justify-content:space-between; align-items:center;">
         <div>
-          <h3>Définissez une bankroll dédiée</h3>
-          <p>Ne pariez jamais avec l'argent du loyer, des courses ou d'une épargne de sécurité. Fixez une somme dédiée uniquement aux paris, que vous êtes prêt à perdre sans impact sur votre quotidien.</p>
+          <div style="font-size:0.75rem; color:#d4af37; font-weight:bold; text-transform:uppercase;">${m.competition || "Football"}</div>
+          <div style="font-weight:600; font-size:1rem; margin:4px 0;">${m.homeTeam || m.domicile} — ${m.awayTeam || m.exterieur}</div>
+          <div style="font-size:0.85rem; color:#c5a059;">Mise / Pick : ${m.pick || m.prediction} (Cote : <b style="color:#d4af37;">${m.odds || m.cote || "—"}</b>)</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:0.9rem; font-weight:bold; color:${m.status === 'Perdu' ? '#ef4444' : '#22c55e'};">
+            ${m.status === 'Perdu' ? 'Perdu' : 'Gagné'}
+          </div>
         </div>
       </div>
-      <div class="rule">
-        <div class="rule-num">02</div>
-        <div>
-          <h3>Misez un pourcentage fixe, jamais un montant fixe</h3>
-          <p>Misez toujours un pourcentage de votre bankroll (généralement entre 1% et 5% par pari), et non un montant figé. Vos mises s'adaptent ainsi automatiquement à l'évolution de votre capital.</p>
-        </div>
-      </div>
-      <div class="rule">
-        <div class="rule-num">03</div>
-        <div>
-          <h3>Ne misez jamais plus sur un « coup de cœur »</h3>
-          <p>Le niveau de confiance d'un pronostic doit guider la taille de la mise, pas l'envie du moment. Un pari 5 étoiles peut justifier une mise légèrement supérieure ; un pari 1 étoile doit rester anecdotique.</p>
-        </div>
-      </div>
-      <div class="rule">
-        <div class="rule-num">04</div>
-        <div>
-          <h3>Évitez le chasing (course aux pertes)</h3>
-          <p>Après une perte, ne doublez jamais votre mise pour « se refaire » immédiatement. C'est le piège numéro un qui mène à la ruine d'une bankroll. Respectez votre plan, quelle que soit l'émotion du moment.</p>
-        </div>
-      </div>
-      <div class="rule">
-        <div class="rule-num">05</div>
-        <div>
-          <h3>Tenez un suivi de vos paris</h3>
-          <p>Notez chaque pari : date, match, mise, cote, résultat. C'est le seul moyen objectif de savoir si votre stratégie est rentable sur le long terme.</p>
-        </div>
-      </div>
-      <div class="rule">
-        <div class="rule-num">06</div>
-        <div>
-          <h3>Privilégiez la régularité à la prise de risque</h3>
-          <p>Un parieur qui gagne 2% de sa bankroll chaque semaine sur le long terme surperformera toujours celui qui cherche le gros coup ponctuel avec des mises disproportionnées.</p>
-        </div>
-      </div>
-      <div class="rule">
-        <div class="rule-num">07</div>
-        <div>
-          <h3>Fixez-vous des limites, et respectez-les</h3>
-          <p>Définissez à l'avance une limite de perte quotidienne ou hebdomadaire. Si elle est atteinte, vous arrêtez, point final. Le pari sportif doit rester un loisir maîtrisé.</p>
-        </div>
-      </div>
-    </div>
-
-    <span class="eyebrow" style="margin-top:3.2rem; display:inline-flex;">Exemple pédagogique</span>
-    <h2 style="font-family:var(--font-body); font-size:1.15rem; font-weight:700; margin-top:.6rem;">Exemple de méthode de mise</h2>
-    <table class="stake-table">
-      <thead>
-        <tr><th>Niveau de confiance</th><th>Mise recommandée (% bankroll)</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>★☆☆☆☆</td><td class="mono">0,5% – 1%</td></tr>
-        <tr><td>★★☆☆☆</td><td class="mono">1% – 1,5%</td></tr>
-        <tr><td>★★★☆☆</td><td class="mono">1,5% – 2,5%</td></tr>
-        <tr><td>★★★★☆</td><td class="mono">2,5% – 3,5%</td></tr>
-        <tr><td>★★★★★</td><td class="mono">3,5% – 5%</td></tr>
-      </tbody>
-    </table>
-    <p class="disclaimer">Exemple donné à titre pédagogique — chaque parieur doit adapter ces paliers à son propre profil de risque.</p>
-
-    <div class="alert-box">
-      <h3>⚠️ Le pari sportif comporte des risques : endettement, isolement, dépendance.</h3>
-      <p>Jouez avec modération. Si vous ressentez une perte de contrôle sur vos habitudes de jeu, des dispositifs d'aide existent (en France : <a href="https://www.joueurs-info-service.fr" target="_blank" rel="noopener">joueurs-info-service.fr</a> ou le 09 74 75 13 13).</p>
-      <p>DataFoot promeut une pratique du pari sportif raisonnée et encadrée. Nos pronostics sont des outils d'analyse, pas des garanties de gain.</p>
-    </div>
-
-    <div class="closing">
-      <h2 class="section-title" style="font-size:1.6rem;">En résumé</h2>
-      <p>Aucune stratégie ne rend un parieur infaillible. Mais une gestion de bankroll disciplinée transforme le pari sportif d'un jeu de hasard en une pratique réfléchie, où la régularité et la rigueur priment sur la chance. C'est exactement la philosophie que DataFoot défend, pronostic après pronostic.</p>
-      <a href="pronostics.html" class="btn btn-primary">Découvrir nos pronostics du jour</a>
-    </div>
-  </div>
-</section>
-
-<footer class="site-footer">
-  <div class="container">
-    <span class="footer-note">© 2026 DataFoot — Statistiques &amp; analyses de football</span>
-    <nav class="footer-links">
-      <a href="index.html">Accueil</a>
-      <a href="pronostics.html">Pronostics</a>
-      <a href="resultats.html">Résultats</a>
-      <a href="vip.html">Abonnement</a>
-    </nav>
-  </div>
-</footer>
-
-</body>
-</html>
+    `).join("");
+  } catch (e) {
+    container.innerHTML = '<p style="text-align:center; color:#e44d26; padding:20px; font-family:sans-serif;">⚠ Erreur de chargement de la bankroll.</p>';
+  }
+});
