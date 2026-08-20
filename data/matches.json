@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-20T20:52:34.097Z",
-  "count": 39,
+  "generatedAt": "2026-08-20T22:00:31.802Z",
+  "count": 35,
   "matches": [
     {
       "id": 401874142,
@@ -118,46 +118,6 @@
       "date": "2026-08-21T03:00Z",
       "homeTeam": "Luis Ángel Firpo",
       "awayTeam": "Alajuelense",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
-    {
-      "id": 401890735,
-      "competition": "Football",
-      "date": "2026-08-20T21:00Z",
-      "homeTeam": "Butler",
-      "awayTeam": "Northern Illinois",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
-    {
-      "id": 401892292,
-      "competition": "Football",
-      "date": "2026-08-20T21:00Z",
-      "homeTeam": "Charleston",
-      "awayTeam": "Davidson",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
-    {
-      "id": 401898861,
-      "competition": "Football",
-      "date": "2026-08-20T21:00Z",
-      "homeTeam": "Northwestern",
-      "awayTeam": "New Haven",
-      "pick": null,
-      "odds": null,
-      "confidence": 0
-    },
-    {
-      "id": 401887544,
-      "competition": "Football",
-      "date": "2026-08-20T21:00Z",
-      "homeTeam": "UConn",
-      "awayTeam": "Syracuse",
       "pick": null,
       "odds": null,
       "confidence": 0
