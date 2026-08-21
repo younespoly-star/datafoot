@@ -1,21 +1,24 @@
 import fs from 'fs';
 import fetch from 'node-fetch';
 
-const API_KEY = process.env.RAPIDAPI_KEY;
+const API_KEY = process.source?.env?.RAPIDAPI_KEY || process.env.RAPIDAPI_KEY;
 
 async function fetchMatches() {
   const url = 'https://api-football-v1.p.rapidapi.com/v3/fixtures?next=10';
   const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': API_KEY,
-      'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+      'x-rapidapi-key': process.env.RAPIDAPI_KEY,
+      'x-rapidapi-host': 'api-football-v1.p.rapidapi.com'
     }
   };
 
   try {
     const response = await fetch(url, options);
-    if (!response.ok) throw new Error(`Erreur HTTP : ${response.status}`);
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Erreur HTTP : ${response.status} - ${errorText}`);
+    }
 
     const data = await response.json();
     const fixtures = data.response || [];
