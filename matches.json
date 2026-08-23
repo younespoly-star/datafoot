@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T23:24:18.720Z",
+  "generatedAt": "2026-08-23T23:33:52.835Z",
   "count": 15,
   "matches": [
     {
@@ -80,22 +80,22 @@
       "confidence": 0
     },
     {
-      "id": 654655,
-      "competition": "2. liga",
-      "homeTeam": "Zvolen",
-      "awayTeam": "Petrzalka",
-      "date": "2026-08-24 15:00:00",
+      "id": 640996,
+      "competition": "Greek Cup",
+      "homeTeam": "Ellas Syrou",
+      "awayTeam": "Marko",
+      "date": "2026-08-24 14:30:00",
       "status": "À venir",
       "pick": "Analyse en cours",
       "odds": "—",
       "confidence": 0
     },
     {
-      "id": 640996,
-      "competition": "Greek Cup",
-      "homeTeam": "Ellas Syrou",
-      "awayTeam": "Marko",
-      "date": "2026-08-24 14:30:00",
+      "id": 654655,
+      "competition": "2. liga",
+      "homeTeam": "Zvolen",
+      "awayTeam": "Petrzalka",
+      "date": "2026-08-24 15:00:00",
       "status": "À venir",
       "pick": "Analyse en cours",
       "odds": "—",
@@ -124,22 +124,11 @@
       "confidence": 0
     },
     {
-      "id": 661960,
-      "competition": "Kingston 2 Chall. Men",
-      "homeTeam": "Zhu E.",
-      "awayTeam": "Sheehy J.",
-      "date": "2026-08-24 15:00:00",
-      "status": "À venir",
-      "pick": "Analyse en cours",
-      "odds": "—",
-      "confidence": 0
-    },
-    {
-      "id": 661986,
-      "competition": "Philadelphia Chall. Women",
-      "homeTeam": "Boisson L.",
-      "awayTeam": "Jauffret C.",
-      "date": "2026-08-24 16:30:00",
+      "id": 656242,
+      "competition": "Premier League",
+      "homeTeam": "Smouha",
+      "awayTeam": "Asyut Petroleum",
+      "date": "2026-08-26 14:00:00",
       "status": "À venir",
       "pick": "Analyse en cours",
       "odds": "—",
@@ -151,6 +140,17 @@
       "homeTeam": "Samsung Lions",
       "awayTeam": "KT Wiz Suwon",
       "date": "2026-08-28 09:30:00",
+      "status": "À venir",
+      "pick": "Analyse en cours",
+      "odds": "—",
+      "confidence": 0
+    },
+    {
+      "id": 654618,
+      "competition": "Primavera 1",
+      "homeTeam": "AC Milan U20",
+      "awayTeam": "Torino U20",
+      "date": "2026-08-24 17:00:00",
       "status": "À venir",
       "pick": "Analyse en cours",
       "odds": "—",
