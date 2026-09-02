@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DataFoot — Pronostics football basés sur la donnée</title>
-<meta name="description" content="Pronostics football basés sur l'analyse statistique. Cotes en temps réel, tickets combinés, taux de réussite vérifiés.">
+<title>DataFoot — Analyses football par le modèle xG</title>
+<meta name="description" content="Analyses football basées sur les Expected Goals (xG). Statistiques avancées, probabilités et lecture tactique. Pour information uniquement.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,46 +13,44 @@
   <div class="container">
     <a href="index.html" class="logo">
       <span class="logo-mark">DATAFOOT</span>
-      <span class="logo-tag">Statistiques &amp; analyses de football</span>
+      <span class="logo-tag">Modèle xG & analyses statistiques</span>
     </a>
     <nav class="nav-links">
       <a href="index.html" class="active">Accueil</a>
-      <a href="pronostics.html">Pronostics</a>
-      <a href="resultats.html">Résultats</a>
-      <a href="vip.html">Abonnement</a>
-      <a href="bankroll.html">Bankroll</a>
+      <a href="analyses.html">Analyses</a>
+      <a href="methodologie.html">Méthode xG</a>
+      <a href="a-propos.html">À propos</a>
     </nav>
-    <a href="vip.html" class="btn btn-primary">Voir les coupons</a>
+    <a href="analyses.html" class="btn btn-primary">Voir les analyses du jour</a>
   </div>
 </header>
 
-<!-- ============================== HERO ============================== -->
 <section class="hero">
   <div class="container">
     <div class="hero-copy">
-      <span class="eyebrow">+150 championnats couverts</span>
-      <h1>La donnée qui<br>fait <span class="accent">gagner.</span></h1>
-      <p class="hero-sub">Pronostics football construits sur l'analyse statistique, pas sur l'intuition. Cotes en temps réel, tickets combinés et taux de réussite vérifiés, publiés chaque jour.</p>
+      <span class="eyebrow">+150 championnats couverts par le modèle xG</span>
+      <h1>La donnée qui<br>explique <span class="accent">le jeu.</span></h1>
+      <p class="hero-sub">Analyses football construites sur les Expected Goals (xG), la possession, les tirs cadrés et le contexte tactique. Pas d'intuition, uniquement de la donnée. Pour information uniquement.</p>
       <div class="hero-ctas">
-        <a href="pronostics.html" class="btn btn-primary">Voir les pronostics du jour</a>
-        <a href="vip.html" class="btn btn-ghost">Voir les coupons gratuits</a>
+        <a href="analyses.html" class="btn btn-primary">Voir les analyses du jour</a>
+        <a href="methodologie.html" class="btn btn-ghost">Découvrir notre méthode xG</a>
       </div>
       <div class="hero-strip">
-        <span><strong>+150</strong> championnats</span>
-        <span><strong>100%</strong> analyses data-driven</span>
-        <span><strong>Transparent</strong> — résultats publics</span>
+        <span><strong>+150</strong> championnats analysés</span>
+        <span><strong>100%</strong> data-driven</span>
+        <span><strong>Transparent</strong> — Méthodologie publique</span>
       </div>
     </div>
 
     <div class="hero-panel">
       <div class="hero-panel-head">
-        <span class="live">En direct</span>
-        <span>Aujourd'hui</span>
+        <span class="live">Aujourd'hui</span>
+        <span>Analyses xG</span>
       </div>
       <div id="hero-live-matches">
         <div class="hero-mini-row">
           <div>
-            <div class="hero-mini-match">Chargement…</div>
+            <div class="hero-mini-match">Chargement des analyses xG…</div>
           </div>
         </div>
       </div>
@@ -60,119 +58,108 @@
   </div>
 </section>
 
-<!-- ============================ STAT BAND ============================ -->
 <section class="stat-band">
   <div class="container stat-grid">
     <div class="stat-item">
-      <div class="stat-value">73%</div>
-      <div class="stat-label">Taux de réussite (30 derniers jours)</div>
+      <div class="stat-value">Modèle xG</div>
+      <div class="stat-label">Qualité des occasions créées et concédées</div>
     </div>
     <div class="stat-item">
       <div class="stat-value">1 240+</div>
-      <div class="stat-label">Pronostics publiés depuis le lancement</div>
+      <div class="stat-label">Analyses publiées depuis le lancement</div>
     </div>
     <div class="stat-item">
-      <div class="stat-value">+18,4u</div>
-      <div class="stat-label">Unités gagnées ce mois-ci</div>
+      <div class="stat-value">150</div>
+      <div class="stat-label">Championnats suivis</div>
     </div>
     <div class="stat-item">
-      <div class="stat-value">10</div>
-      <div class="stat-label">Coupons gratuits chaque jour</div>
+      <div class="stat-value">3/jour</div>
+      <div class="stat-label">Fiches analyses détaillées chaque jour</div>
     </div>
   </div>
 </section>
 
-<!-- ============================= CONCEPT ============================== -->
 <section class="section">
   <div class="container">
     <span class="eyebrow">Notre méthode</span>
     <h2 class="section-title">Pourquoi DataFoot ?</h2>
-    <p class="section-lead">Le football est le sport le plus imprévisible… en apparence. Derrière chaque match se cachent des dizaines d'indicateurs : forme des équipes, historique des confrontations, statistiques offensives et défensives, blessures, contexte de la rencontre. DataFoot croise toutes ces données pour vous livrer des pronostics construits et actualisés chaque jour.</p>
+    <p class="section-lead">Derrière chaque match se cachent des indicateurs : forme des équipes, xG moyen, possession, tirs cadrés, contexte. DataFoot croise toutes ces données pour livrer des analyses tactiques et statistiques actualisées chaque jour. Pour information uniquement.</p>
 
     <div class="pillars">
       <div class="pillar">
         <div class="pillar-icon">📊</div>
-        <h3>Analyse par la donnée</h3>
-        <p>Statistiques avancées, forme récente, confrontations directes : chaque pronostic s'appuie sur des chiffres, pas sur des intuitions.</p>
+        <h3>Analyse par la donnée xG</h3>
+        <p>Expected Goals, forme récente, confrontations : chaque analyse s'appuie sur des chiffres, pas sur des intuitions.</p>
       </div>
       <div class="pillar">
         <div class="pillar-icon">🔎</div>
         <h3>Transparence totale</h3>
-        <p>Historique complet de nos pronostics, gagnants comme perdants. Rien n'est caché, tout est vérifiable.</p>
+        <p>Méthodologie publique, sources citées. Notre modèle xG est expliqué et vérifiable.</p>
       </div>
       <div class="pillar">
-        <div class="pillar-icon">🎟️</div>
-        <h3>Tickets prêts à l'emploi</h3>
-        <p>Des combinés quotidiens sélectionnés et expliqués, pour parier sans y passer des heures.</p>
+        <div class="pillar-icon">🎟</div>
+        <h3>Fiches prêtes à lire</h3>
+        <p>3 analyses détaillées par jour avec projection xG, probabilité et lecture tactique.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========================= DERNIERS PRONOSTICS ========================= -->
 <section class="section section-alt">
   <div class="container">
     <div class="section-head">
       <div>
         <span class="eyebrow">Sélection du jour</span>
-        <h2 class="section-title">Les pronostics du jour</h2>
+        <h2 class="section-title">Les analyses du jour</h2>
       </div>
-      <a href="pronostics.html" class="btn btn-ghost">Voir tous les pronostics →</a>
+      <a href="analyses.html" class="btn btn-ghost">Voir toutes les analyses →</a>
     </div>
 
     <div class="ticket-grid">
       <article class="ticket">
         <div class="ticket-main">
-          <div class="ticket-comp">Ligue 1 — Journée 21</div>
+          <div class="ticket-comp">Ligue 1 — Analyse xG</div>
           <h3 class="ticket-match">PSG — Marseille</h3>
-          <p class="ticket-pick">Pick : Victoire PSG &amp; +2,5 buts</p>
-          <p class="ticket-analysis">Le PSG reste solide à domicile face à un OM diminué en défense sur ses derniers déplacements.</p>
+          <p class="ticket-pick">Mon avis Datafoot : PSG 68% favori selon modèle xG</p>
+          <p class="ticket-analysis">PSG affiche un xG moyen de 2.1 à domicile. Marseille concède 1.4 xG en déplacement.</p>
         </div>
         <div class="ticket-stub">
-          <span class="ticket-odd-label">Cote</span>
-          <span class="ticket-odd">2.10</span>
-          <div class="ticket-confidence" aria-label="Confiance 4 sur 5">
-            <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span>
-          </div>
+          <span class="ticket-odd-label">xG Projeté</span>
+          <span class="ticket-odd">2.1 - 0.9</span>
         </div>
       </article>
 
       <article class="ticket">
         <div class="ticket-main">
-          <div class="ticket-comp">Liga — Journée 12</div>
+          <div class="ticket-comp">Liga — Analyse xG</div>
           <h3 class="ticket-match">Real Madrid — Atlético</h3>
-          <p class="ticket-pick">Pick : Double Chance 1X</p>
-          <p class="ticket-analysis">Invaincu à domicile depuis 14 matchs, le Real affronte un Atlético fébrile en déplacement.</p>
+          <p class="ticket-pick">Mon avis Datafoot : Real 62% favori</p>
+          <p class="ticket-analysis">Real : 68% possession moyenne à domicile. Atlético en bloc bas avec 1.1 xG concédé.</p>
         </div>
         <div class="ticket-stub">
-          <span class="ticket-odd-label">Cote</span>
-          <span class="ticket-odd">1.65</span>
-          <div class="ticket-confidence" aria-label="Confiance 5 sur 5">
-            <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span>
-          </div>
+          <span class="ticket-odd-label">xG Projeté</span>
+          <span class="ticket-odd">1.8 - 1.0</span>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============================== CTA BAND ============================== -->
 <section class="cta-band">
   <div class="container">
-    <h2>Prêt à parier plus intelligemment ?</h2>
-    <p>Rejoignez les abonnés DataFoot et recevez chaque jour nos tickets combinés exclusifs et nos analyses détaillées.</p>
-    <a href="vip.html" class="btn btn-primary">Voir les coupons du jour</a>
+    <h2>Comprendre le football par la donnée ?</h2>
+    <p>Découvre chaque jour nos 3 fiches analyses avec xG, statistiques et lecture tactique. Méthode expliquée, pour information uniquement.</p>
+    <a href="methodologie.html" class="btn btn-primary">Découvrir la méthode xG</a>
   </div>
 </section>
 
 <footer class="site-footer">
   <div class="container">
-    <span class="footer-note">© 2026 DataFoot — Statistiques &amp; analyses de football</span>
+    <span class="footer-note">© 2026 DataFoot — Analyses statistiques & modèle xG — Pour information uniquement. Non conseil en pari.</span>
     <nav class="footer-links">
-      <a href="pronostics.html">Pronostics</a>
-      <a href="resultats.html">Résultats</a>
-      <a href="vip.html">Abonnement</a>
-      <a href="bankroll.html">Bankroll</a>
+      <a href="analyses.html">Analyses</a>
+      <a href="methodologie.html">Méthode xG</a>
+      <a href="a-propos.html">À propos</a>
     </nav>
   </div>
 </footer>
