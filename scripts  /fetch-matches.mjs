@@ -1,5 +1,4 @@
 import fs from 'fs';
-import fetch from 'node-fetch';
 
 const API_KEY = process.env.RAPIDAPI_KEY;
 const HOST = 'odds-feed.p.rapidapi.com';
@@ -9,8 +8,13 @@ const HEADERS = {
   'x-rapidapi-key': API_KEY
 };
 
-// Nombre max de matchs à venir à traiter (pour rester dans le quota de 500 req/mois)
 const MAX_EVENTS = 15;
+const MAX_PAGES = 3;
+
+if (!API_KEY) {
+  console.error('Erreur : la variable RAPIDAPI_KEY est absente (secret GitHub manquant).');
+  process.exit(1);
+}
 
 async function callApi(path) {
   const url = `https://${HOST}${path}`;
@@ -26,7 +30,6 @@ async function callApi(path) {
   }
 }
 
-// Essaie de retrouver le tableau d'éléments quel que soit l'enrobage de la réponse
 function extractArray(data) {
   if (Array.isArray(data)) return data;
   if (Array.isArray(data?.data)) return data.data;
@@ -37,15 +40,61 @@ function extractArray(data) {
   return [];
 }
 
+const getId = e => e.id ?? e.event_id ?? e.eventId;
+const getDate = e => e.start_at ?? e.date ?? e.startTime ?? null;
+const getHome = e => e.team_home?.name ?? e.home_team ?? e.homeTeam ?? e.home ?? 'Équipe A';
+const getAway = e => e.team_away?.name ?? e.away_team ?? e.awayTeam ?? e.away ?? 'Équipe B';
+const getCompetition = e => e.tournament?.name ?? e.competition ?? e.category?.name ?? 'Football';
+
+function toTime(date) {
+  if (!date) return 8.64e15;
+  const s = String(date).replace(' ', 'T');
+  const hasZone = /[zZ]$|[+-]\d\d:?\d\d$/.test(s);
+  const t = new Date(hasZone ? s : s + 'Z').getTime();
+  return isNaN(t) ? 8.64e15 : t;
+}
+
+function isUpcoming(date) {
+  const t = toTime(date);
+  return t === 8.64e15 || t >= Date.now() - 2 * 3600 * 1000;
+}
+
+function isFootball(e) {
+  const sport = String(e.sport?.name ?? e.sport ?? e.sport_name ?? '').toLowerCase();
+  if (sport) return sport === 'football' || sport === 'soccer';
+  const comp = String(getCompetition(e));
+  const home = String(getHome(e));
+  const away = String(getAway(e));
+  if (/\b(itf|atp|wta|doubles|challenger)\b/i.test(comp)) return false;
+  if (/\b[MW]\d{2,3}\b/.test(comp)) return false;
+  if (home.includes('/') || away.includes('/')) return false;
+  return true;
+}
+
 async function fetchUpcomingEvents() {
-  const params = new URLSearchParams({
-    status: 'SCHEDULED',
-    page: '0'
+  const all = [];
+  for (let page = 0; page < MAX_PAGES; page++) {
+    const params = new URLSearchParams({ status: 'SCHEDULED', page: String(page) });
+    const data = await callApi(`/api/v1/events?${params.toString()}`);
+    const events = extractArray(data);
+    if (events.length === 0) break;
+    if (page === 0) {
+      console.log('Exemple d’événement :', JSON.stringify(events[0]).slice(0, 800));
+    }
+    all.push(...events);
+  }
+  console.log(`Événements récupérés (tous sports) : ${all.length}`);
+
+  const seen = new Set();
+  const kept = all.filter(e => {
+    const id = getId(e);
+    if (!id || seen.has(id)) return false;
+    seen.add(id);
+    return isFootball(e) && isUpcoming(getDate(e));
   });
-  const data = await callApi(`/api/v1/events?${params.toString()}`);
-  const events = extractArray(data);
-  console.log(`Événements à venir récupérés : ${events.length}`);
-  return events.slice(0, MAX_EVENTS);
+  kept.sort((a, b) => toTime(getDate(a)) - toTime(getDate(b)));
+  console.log(`Matchs de football à venir : ${kept.length}`);
+  return kept.slice(0, MAX_EVENTS);
 }
 
 async function fetchOddsForEvents(eventIds) {
@@ -64,14 +113,12 @@ async function fetchOddsForEvents(eventIds) {
   return markets;
 }
 
-// Trouve la cote et le pick "1X2" les plus probables pour un événement donné
 function pickOddsForEvent(eventId, markets) {
   const relevant = markets.filter(m =>
     String(m.event_id ?? m.eventId ?? m.event?.id) === String(eventId)
   );
   if (relevant.length === 0) return { pick: null, odds: null, confidence: 0 };
 
-  // On cherche la sélection avec la cote la plus basse (= favorite du marché 1X2)
   let best = null;
   for (const m of relevant) {
     const selections = m.selections || m.outcomes || m.odds || [];
@@ -89,32 +136,35 @@ function pickOddsForEvent(eventId, markets) {
   return { pick: best.name, odds: best.price.toFixed(2), confidence };
 }
 
+function writeMatches(matches) {
+  fs.writeFileSync(
+    'matches.json',
+    JSON.stringify({ generatedAt: new Date().toISOString(), count: matches.length, matches }, null, 2),
+    'utf-8'
+  );
+}
+
 async function fetchMatches() {
   try {
     const events = await fetchUpcomingEvents();
     if (events.length === 0) {
-      console.log('Aucun événement à venir trouvé, écriture d’un fichier vide.');
-      fs.writeFileSync('matches.json', JSON.stringify({ generatedAt: new Date().toISOString(), count: 0, matches: [] }, null, 2));
+      console.log('Aucun match de football à venir trouvé, écriture d’un fichier vide.');
+      writeMatches([]);
       return;
     }
 
-    const eventIds = events.map(e => e.id ?? e.event_id ?? e.eventId).filter(Boolean);
+    const eventIds = events.map(getId).filter(Boolean);
     const markets = await fetchOddsForEvents(eventIds);
 
     const formattedMatches = events.map(e => {
-      const id = e.id ?? e.event_id ?? e.eventId;
-      const home = e.team_home?.name ?? e.home_team ?? e.homeTeam ?? e.home ?? 'Équipe A';
-      const away = e.team_away?.name ?? e.away_team ?? e.awayTeam ?? e.away ?? 'Équipe B';
-      const competition = e.tournament?.name ?? e.competition ?? e.category?.name ?? 'Football';
-      const date = e.start_at ?? e.date ?? e.startTime ?? null;
+      const id = getId(e);
       const { pick, odds, confidence } = pickOddsForEvent(id, markets);
-
       return {
         id,
-        competition,
-        homeTeam: home,
-        awayTeam: away,
-        date,
+        competition: getCompetition(e),
+        homeTeam: getHome(e),
+        awayTeam: getAway(e),
+        date: getDate(e),
         status: 'À venir',
         pick: pick ?? 'Analyse en cours',
         odds: odds ?? '—',
@@ -122,12 +172,8 @@ async function fetchMatches() {
       };
     });
 
-    fs.writeFileSync(
-      'matches.json',
-      JSON.stringify({ generatedAt: new Date().toISOString(), count: formattedMatches.length, matches: formattedMatches }, null, 2),
-      'utf-8'
-    );
-    console.log(`Succès : ${formattedMatches.length} matchs enregistrés.`);
+    writeMatches(formattedMatches);
+    console.log(`Succès : ${formattedMatches.length} matchs enregistrés dans matches.json.`);
   } catch (error) {
     console.error('Erreur :', error);
     process.exit(1);
